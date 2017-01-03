@@ -1,0 +1,60 @@
+--普通用户表
+create table zusers(
+       uuid int primary key,--用户编号
+	upwd varchar2(40) not null,--密码
+       uname varchar2(10) not null,--用户名
+       uphone number unique not null,--电话
+       uemail varchar2(50) not null,--邮箱
+       usex varchar2(4) check(usex in('男','女')),--性别
+       upicture varchar2(200)，-- 用户头像
+	uaddr carchar2(40) not null, --用户地理位置 
+	uremain1 varchar2(50),
+	uremain2 varchar2(50)
+     
+       
+)
+drop table zusers
+
+--代递员表
+create table dusers(
+       did int primary key,--代递员编号
+	uuid int references zusers(uuid) delete on cascade,--普通用户编号
+       dsid number not null,--学号
+       dspic varchar2(30) not null,--学生证图片
+	drank varchar2(30) not null, --信誉度等级
+	uremain1 varchar2(50),
+	uremain2 varchar2(50)
+	
+       
+)
+
+--收获地址表
+create table zaddr(
+	zid int primary key,--地址编号
+       uuid int references zusers(uuid) delete on cascade,--引用用户编号
+       zaddr varchar2(200) not null,
+	uremain1 varchar2(50),
+	uremain2 varchar2(50)
+)
+
+--订单表
+create table zorder(
+       oid int primary key,   --订单编号，一般可以考虑引用物流单号，
+       uuid int references zusers(uuid) delete on cascade,--下单人编号
+       otime date not null,--订单时间
+       odesc varchar2(100),--订单描述
+       did int references dusers(did) delete on cascade,--接单人编号
+	zid int references zaddr(zid) delete on cascade,--下单人地址编号
+       oprice int not null,--订单价格
+	oscore varchar2(20) not null, --评分
+	ocode varchar2(30) not null,--取货码
+	ostatus int check (ostatus in(0,1,2)),--0取消，1接单，2未接单
+	uremain1 varchar2(50),
+	uremain2 varchar2(50)
+       
+)
+
+--接单表
+create table zaccept(
+	aid int primary key,--接单的编号
+)
