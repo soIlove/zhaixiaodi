@@ -5,9 +5,9 @@
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>收货宝</title>
-<link rel="icon" href="http://www.shouhuobao.com/favicon.ico"
+<link rel="icon" href="images/favicon.ico"
 	type="image/x-icon">
-<link rel="shortcut icon" href="http://www.shouhuobao.com/favicon.ico"
+<link rel="shortcut icon" href="images/favicon.ico"
 	type="image/x-icon">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -96,9 +96,9 @@
 			<div class="menu">
 				<ul>
 					<li class="on"><a
-						href="http://www.shouhuobao.com/shooter/index.html">首页</a></li>
+						href="#">首页</a></li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21introduction.html">关于我们</a>
+						href="page/about.jsp">关于我们</a>
 					</li>
 					<li><a href="http://www.shouhuobao.com/merchant/index.html">商户中心</a>
 					</li>
@@ -133,10 +133,10 @@
 				target="_blank"><img src="image/banner-4.jpg"></a></li>
 		</ul>
 		<div class="slidetabs">
-			<span class="" style="transition: all 0.5s ease 0s;"></span><span
-				style="transition: all 0.5s ease 0s;" class=""></span><span
-				style="transition: all 0.5s ease 0s;" class=""></span><span
-				style="transition: all 0.5s ease 0s;" class="current"></span>
+			 <span class="" style="transition: all 0.5s ease 0s;"></span>
+			<!--<span style="transition: all 0.5s ease 0s;" class=""></span>
+			<span style="transition: all 0.5s ease 0s;" class=""></span>
+			<span style="transition: all 0.5s ease 0s;" class="current"></span> -->
 		</div>
 		<b class="prevSlider" style="display: none;"></b> <b
 			class="nextSlider" style="display: none;"></b>
