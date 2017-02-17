@@ -4,7 +4,7 @@
 <head>
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>收货宝</title>
+<title>宅小递</title>
 <link rel="icon" href="images/favicon.ico"
 	type="image/x-icon">
 <link rel="shortcut icon" href="images/favicon.ico"
@@ -13,9 +13,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="Keywords"
-	content="收货宝,代收货,发件,网购代收货,自提点,代收点,O2O,淘宝自提点,当当自提点,顺丰合作,社区店">
+	content="宅小递,代收货,发件,网购代收货,自提点,代收点,O2O,淘宝自提点,当当自提点,顺丰合作,社区店">
 <meta name="description"
-	content="收货宝 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
+	content="宅小递 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
 <meta property="qc:admins" content="2550506277630750572176375">
 
 <link rel="stylesheet" type="text/css"
@@ -42,14 +42,14 @@
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	<div class="header-top">
 		<div class="com-w">
-			<p class="h-wel">收货宝，社区物流与生活服务平台</p>
+			<p class="h-wel">宅小递，社区物流与生活服务平台</p>
 			<div class="h-r">
 				<ul>
 					<li class="h-qq"><em></em>
 						<div class="qq-tanchu">
 							<b></b>
 							<p>
-								收货宝在线客服 <br> <span class="gray">4007333390</span>
+								宅小递在线客服 <br> <span class="gray">4007333390</span>
 							</p>
 							<a onclick='KF.closeIMC(this,"SOFTWARE")' class="btn"
 								target="_blank"
@@ -60,7 +60,7 @@
 						<div class="sina-tanchu" style="left: 845px; display: none;">
 							<b></b>
 							<p>
-								收货宝官方微博： <br> <img
+								宅小递官方微博： <br> <img
 									src="image/logo1.png">
 							</p>
 							<wb:follow-button uid="2137795655" type="red_1" width="67"
@@ -101,7 +101,7 @@
 			<div class="logo" id="logo">
 				<p>
 					<a href="#"><img
-						src="image/Logo.png"></a>
+						src="image/Logo.jpg"></a>
 				</p>
 			</div>
 			<div class="menu">
@@ -109,15 +109,15 @@
 					<li><a href="#">首页</a>
 					</li>
 					<li class="on"><a
-						href="http://www.shouhuobao.com/shooter/index%21introduction.html">关于我们</a>
+						href="page/about.jsp">关于我们</a>
 					</li>
-					<li><a href="http://www.shouhuobao.com/merchant/index.html">商户中心</a>
-					</li>
-					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21expressfw.html">帮助中心</a>
+					<li><a href="page/Login.jsp">商户中心</a>
 					</li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21bihi.html"
+						href="#">帮助中心</a>
+					</li>
+					<li><a
+						href="#"
 						target="_blank">裹儿</a></li>
 				</ul>
 			</div>
@@ -137,14 +137,14 @@
 					height="60">
 				<ul class="sub-menu">
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21introduction.html">公司简介</a></li>
+						href="page/about.jsp">公司简介</a></li>
 					<li class="on"><a
-						href="http://www.shouhuobao.com/shooter/index%21service.html">服务介绍</a></li>
-					<li><a href="http://www.shouhuobao.com/shooter/news.html">媒体报道</a></li>
+						href="page/services.jsp">服务介绍</a></li>
+					<li><a href="page/news.jsp">媒体报道</a></li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21cooperation.html">合作联系</a></li>
+						href="page/cooperation.jsp">合作联系</a></li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21joinus.html">加入我们</a></li>
+						href="page/joinus.jsp">加入我们</a></li>
 				</ul>
 			</div>
 			<div class="mRight servicePage">
@@ -168,9 +168,9 @@
 					style="font-weight: lighter; color: #000; font-size: 28px; line-height: 50px;">服务介绍</h2>
 				<h3 class="imgtitle2" style="font-weight: lighter;">快递管家服务</h3>
 				<p>
-					<strong>代收服务：专为网购用户提供的一项第三方代收快递服务。收货宝</strong>
+					<strong>代收服务：专为网购用户提供的一项第三方代收快递服务。宅小递</strong>
 				</p>
-				<p>当网购用户在家或者公司收货不方便时，将离用户地址最近的收货宝网点作为收货地址；当包裹到达网点后，用户去网点自取即可。</p>
+				<p>当网购用户在家或者公司收货不方便时，将离用户地址最近的宅小递网点作为收货地址；当包裹到达网点后，用户去网点自取即可。</p>
 				<p>四大服务特色：</p>
 				<p>
 					便捷：网点离家最近，约两三百米，就在回家路边；<br> 安全：无需填写家庭地址，规避快递上门的各种潜在风险；<br>
@@ -180,7 +180,7 @@
 				<p>
 					<strong>代寄服务：专注剁手党用（mei）户（zhi）退货的快递服务。</strong>
 				</p>
-				<p>当用户有寄件（退货）服务需求时，通过裹儿APP在线下单，呼叫快递员上门取件；或在裹儿APP完成寄件流程，把退货包裹放到收货宝寄件合作网点即可。</p>
+				<p>当用户有寄件（退货）服务需求时，通过裹儿APP在线下单，呼叫快递员上门取件；或在裹儿APP完成寄件流程，把退货包裹放到宅小递寄件合作网点即可。</p>
 				<p></p>
 				<p>六大服务特色：</p>
 				<p>便捷：快递1小时上门或者到店自寄，怎么方便怎么用；</p>
@@ -195,11 +195,11 @@
 				</p>
 				<br>
 				<h3 class="imgtitle2" style="font-weight: lighter;">生活管家服务</h3>
-				<p>收货宝网点——社区便利店、洗衣店、3C数码店</p>
+				<p>宅小递网点——社区便利店、洗衣店、3C数码店</p>
 				<p>
 					网点本身有丰富的生活用品和生活服务。<br>各大社区网点提供品类丰富的食品、饮料、香烟、啤酒、新鲜蔬果、厨房用品、居家用品等各种生活日用品和3C数码产品，还提供包括洗衣、家电维修等生活服务。
 				</p>
-				<p>收货宝微信——提供各种生活实惠福利，精选超值美食、日用品、家居用品为用户提供更便捷的生活服务。</p>
+				<p>宅小递微信——提供各种生活实惠福利，精选超值美食、日用品、家居用品为用户提供更便捷的生活服务。</p>
 			</div>
 		</div>
 	</div>
@@ -212,7 +212,7 @@
         <h3>关注我们</h3>
         <ul>
           <li><img src="images/er3.jpg" />
-            <p> 收货宝官方微信 </p>
+            <p> 宅小递官方微信 </p>
           </li>
           <li><img src="images/er4.jpg" />
             <p> 社区服务联盟官方微信 </p>
@@ -222,7 +222,7 @@
       </div> -->
 				<div class="clearfix"></div>
 			</div>
-			<!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">收货宝简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
+			<!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">宅小递简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
 			<div class="copyRight bh-overf">
 				<p>
 					<span>©2011-2015 Shouhuobao.com 版权所有</span><span

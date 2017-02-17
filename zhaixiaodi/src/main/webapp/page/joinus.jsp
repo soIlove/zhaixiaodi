@@ -4,7 +4,7 @@
 <head>
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>收货宝</title>
+<title>宅小递</title>
 <link rel="icon" href="images/favicon.ico"
 	type="image/x-icon">
 <link rel="shortcut icon" href="images/favicon.ico"
@@ -13,9 +13,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="Keywords"
-	content="收货宝,代收货,发件,网购代收货,自提点,代收点,O2O,淘宝自提点,当当自提点,顺丰合作,社区店">
+	content="宅小递,代收货,发件,网购代收货,自提点,代收点,O2O,淘宝自提点,当当自提点,顺丰合作,社区店">
 <meta name="description"
-	content="收货宝 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
+	content="宅小递 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
 <meta property="qc:admins" content="2550506277630750572176375">
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -34,14 +34,14 @@
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	<div class="header-top">
 		<div class="com-w">
-			<p class="h-wel">收货宝，社区物流与生活服务平台</p>
+			<p class="h-wel">宅小递，社区物流与生活服务平台</p>
 			<div class="h-r">
 				<ul>
 					<li class="h-qq"><em></em>
 						<div class="qq-tanchu">
 							<b></b>
 							<p>
-								收货宝在线客服 <br> <span class="gray">4007333390</span>
+								宅小递在线客服 <br> <span class="gray">4007333390</span>
 							</p>
 							<a onclick='KF.closeIMC(this,"SOFTWARE")' class="btn"
 								target="_blank"
@@ -52,7 +52,7 @@
 						<div class="sina-tanchu">
 							<b></b>
 							<p>
-								收货宝官方微博： <br> <img src="image/logo1.png">
+								宅小递官方微博： <br> <img src="image/logo1.png">
 							</p>
 							<wb:follow-button uid="2137795655" type="red_1" width="67"
 								height="24" class="gz2">
@@ -91,23 +91,23 @@
 			<div class="logo" id="logo">
 				<p>
 					<a href="http://www.shouhuobao.com/shooter/index.html"><img
-						src="image/Logo.png"></a>
+						src="image/Logo.jpg"></a>
 				</p>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="http://www.shouhuobao.com/shooter/index.html">首页</a>
+					<li><a href="index.jsp">首页</a>
 					</li>
 					<li class="on"><a
-						href="http://www.shouhuobao.com/shooter/index%21introduction.html">关于我们</a>
+						href="page/about.jsp">关于我们</a>
 					</li>
-					<li><a href="http://www.shouhuobao.com/merchant/index.html">商户中心</a>
-					</li>
-					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21expressfw.html">帮助中心</a>
+					<li><a href="page/Login.jsp">商户中心</a>
 					</li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21bihi.html"
+						href="#">帮助中心</a>
+					</li>
+					<li><a
+						href="#"
 						target="_blank">裹儿</a></li>
 				</ul>
 			</div>
@@ -125,14 +125,14 @@
 				<img src="image/begins.jpg" width="233" height="60">
 				<ul class="sub-menu">
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21introduction.html">公司简介</a></li>
+						href="page/about.jsp">公司简介</a></li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21service.html">服务介绍</a></li>
-					<li><a href="http://www.shouhuobao.com/shooter/news.html">媒体报道</a></li>
+						href="page/services.jsp">服务介绍</a></li>
+					<li><a href="page/news.jsp">媒体报道</a></li>
 					<li><a
-						href="http://www.shouhuobao.com/shooter/index%21cooperation.html">合作联系</a></li>
+						href="page/cooperation.jsp">合作联系</a></li>
 					<li class="on"><a
-						href="http://www.shouhuobao.com/shooter/index%21joinus.html">加入我们</a></li>
+						href="#">加入我们</a></li>
 				</ul>
 			</div>
 			<div class="mRight businessPage">
@@ -141,9 +141,9 @@
 						<tr>
 							<td class="intro-con" valign="bottom"><strong>您的位置：</strong>
 								<a
-								href="http://www.shouhuobao.com/shooter/index%21introduction.html">关于我们</a>
+								href="page/about.jsp">关于我们</a>
 								&gt; <a
-								href="http://www.shouhuobao.com/shooter/index%21joinus.html">加入我们</a></td>
+								href="#">加入我们</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -153,9 +153,9 @@
 				<!-- <h2 class="imgtitle" style="font-weight: lighter;color:#000;font-size:28px;line-height:50px;">加入我们</h2> -->
 				<div class="joinusnew">
 					<dl>
-						<dt>在收货宝工作大有不同</dt>
+						<dt>在宅小递工作大有不同</dt>
 						<dd>
-							<p>在收货宝，创业的氛围让每个人都积极创新，为更快乐的生活而努力。在这里没有大公司的等级观念，每个人都可以随时提出自己的创意和想法。</p>
+							<p>在宅小递，创业的氛围让每个人都积极创新，为更快乐的生活而努力。在这里没有大公司的等级观念，每个人都可以随时提出自己的创意和想法。</p>
 						</dd>
 						<dd>
 							<a href="http://www.shouhuobao.com/shooter/index%21job.html"
@@ -165,7 +165,7 @@
 					<dl>
 						<dt>一起做出让生活更简单的服务</dt>
 						<dd>
-							<p>让生活更简单。收货宝在国内首创了第三方代收快递的服务模式，致力于建设社区服务生态链。你现在就有机会参与这一切，让这项美好的服务惠及我们这一代人，我们上一代人，我们下一代甚至更多代人！</p>
+							<p>让生活更简单。宅小递在国内首创了第三方代收快递的服务模式，致力于建设社区服务生态链。你现在就有机会参与这一切，让这项美好的服务惠及我们这一代人，我们上一代人，我们下一代甚至更多代人！</p>
 						</dd>
 						<dd>
 							<a href="http://www.shouhuobao.com/shooter/index%21job.html"
@@ -186,7 +186,7 @@
         <h3>关注我们</h3>
         <ul>
           <li><img src="images/er3.jpg" />
-            <p> 收货宝官方微信 </p>
+            <p> 宅小递官方微信 </p>
           </li>
           <li><img src="images/er4.jpg" />
             <p> 社区服务联盟官方微信 </p>
@@ -196,7 +196,7 @@
       </div> -->
 				<div class="clearfix"></div>
 			</div>
-			<!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">收货宝简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
+			<!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">宅小递简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
 			<div class="copyRight bh-overf">
 				<p>
 					<span>©2011-2015 Shouhuobao.com 版权所有</span><span
