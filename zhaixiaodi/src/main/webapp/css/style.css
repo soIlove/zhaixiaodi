@@ -2702,3 +2702,74 @@ div.autoDiv{
 .guanzhuTan{display:none;width:420px;height:420px;position:absolute;position:fixed;left:50%;top:50%;margin-left:-210px;margin-top:-210px;z-index:9999999;}
 .daimgs{display:block;width:400px;height:400px;margin:0 auto;padding-top:10px;}
 .guanzhuTan img.guanicon{cursor:pointer;width:36px;height:36px;position:absolute;top:0;right:0;}
+
+
+
+/* 代递列表 */
+#topic_list{margin-bottom:10px;}
+#topic_list .li_1{color:#336699; height:16px; line-height:16px;}
+#topic_list .li_1 a {color:#336699; font-size:14px;}
+#topic_list .li_1 a:visited {color:#482872;}
+#topic_list .li_1 span{float:right; height:18px; margin-right:12px;}
+#topic_list .li_1 .reply_index{background:url(http://static.epaidai.com/images/bbs/new/nums-bg0.png?v=4) no-repeat; display:inline-block; padding-left:8px; color:#FFFFFF; text-decoration:none; font-size:12px;}
+#topic_list .li_1 .reply_index:visited{color:#FFFFFF; text-decoration:none;}
+#topic_list .li_1 .reply_index b{background:url(http://static.epaidai.com/images/bbs/new/nums-bg0.png?v=4) no-repeat right top; padding-right:8px; display:inline-block; line-height:18px; height:18px;}
+#topic_list .li_1 .reply_index:hover{color:#FFFFFF; text-decoration:none; background:url(http://static.epaidai.com/images/bbs/new/nums-bg1.png?v=3) no-repeat;}
+#topic_list .li_1 .reply_index:hover b{background:url(http://static.epaidai.com/images/bbs/new/nums-bg1.png?v=3) no-repeat right top;}
+#topic_list .li_2{font-size:12px; height:16px; margin-top:2px; line-height:16px;}
+#topic_list .li_2 a {color:#7D98AF;}
+#topic_list .li_2 a:visited {color:#7D98AF;}
+#topic_list .li_s{color:#787878; margin-left:12px;}
+#topic_list .li_c{color:#c8c8c8; margin-left:10px;}
+#topic_list .li_3{color:#323232; font-size:12px; padding:5px 12px 17px 0px; line-height:1.5em;}
+#topic_list ul{list-style-type:none; margin:0px; padding:0px;}
+#topic_list ul li{display:inline-block; padding:4px 0px 0px 0px; border-bottom:1px solid #E6E6E6; margin-bottom:10px;}
+#topic_list ul .li_last{display:inline-block; padding:4px 0px 0px 0px; border-bottom:0px solid #E6E6E6; margin-bottom:10px;}
+
+/* 下单用户头像 */
+.topic .u_photo{float:left; width:52px;}
+.topic .u_photo img{border:none; vertical-align:middle;}
+.topic .u_photo a{display:block; padding:1px; border:1px solid #D3D7DA;}
+.topic .u_post{float:left; margin-left:12px; width:630px;}
+.topic .u_post .i_title{width:534px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+/* 订单奖励金额，送货地点等 */
+.active_readNum, .readNum {background: url(http://static.epaidai.com/images/bbs/read_iconh.gif?v=2) no-repeat 0 3px;padding-left: 16px;line-height: 14px;}
+.active_collectNum, .collectNum {background: url(http://static.epaidai.com/images/bbs/collect_iconh.gif?v=2) no-repeat 0 3px;padding-left: 13px;line-height: 14px;}
+.readNum, .collectNum {background-position: 0px -17px;}
+
+
+/*首页查看更多快递*/
+.content .more{width:386px; height:25px; float:left; margin-top:-20px; margin-bottom:40px; padding-left:340px;}
+.content .more p{width:80px; height:25px; background:#fff; text-align:right;}
+.content .more a:link,.com-w .more a:visited{width:114px; height:33px; padding:0 0 0 32px; float:right; text-align:left; line-height:33px; color:#000; background:url(http://static.epaidai.com/images/new/moreTheme_btn.gif) no-repeat left top; filter:Dropshadow(offx=0,offy=1,color=white)Dropshadow(offx=-1,offy=0,color=white);*filter:none;text-shadow:0 1px #ffffff;}
+.content .more a:active{background:url("/image/moreTheme_btn.jpg") no-repeat left bottom; text-decoration:none;}
+.content .more a:hover{text-decoration:none;}
+
+/* 分类筛选 */
+.tag_list{width:715px; padding:8px 0; overflow:hidden;}
+.tag_list dl{width:760px; float:left; display:inline;}
+.tag_list dt{width:38px; height:75px; float:left; display:inline; border-right:2px solid #ddd;}
+.tag_list dt em{width:30px; height:24px; background:#87c239; border-radius:2px; display:inline-block; font-weight:bold; color:#fff; text-align:center; line-height:24px;}
+.tag_list dd{width:720px; float:left;}
+.tag_list span{width:110px; margin-bottom:2px; word-warp: break-warp;word-break: break-all;white-space: nowrap; float:left; display:inline; text-align:left;}
+.tag_list a{color:#777; float:left; padding:2px 5px; height:20px; line-height:20px; margin-left:5px; color:#336699;}
+.tag_list a.act,.tag_list a:hover{background:#7d95b7; color:#ffffff; text-decoration:none; border-color:#7e95b9; border-radius:2px;}
+.tag_list a em{color:#646464; cursor:pointer;}
+.tag_list a.act em{color:#fff;}
+.tag_list a:hover em{color:#fff;}
+
+
+.page-sep-wrap{overflow: auto;}
+.page-sep{margin: 20px 0px 40px 0px;float: right;} 
+
+/*page column*/
+.page-sep{height:23px; overflow:hidden;font-size:12px;}
+.page-sep ul li{margin:0 0 0 3px; float:left; display:inline;}
+.page-sep ul li span{height:23px; padding:0 10px; line-height:23px; border:none; color:#fff; background:#5f7a5b; border-radius:2px; display:inline-block;}
+.page-sep ul li a:link,.page-sep ul li a:visited{height:23px; padding:0 10px; border:none; display:inline-block; background:#e9f5e7; color:#5f7a5b; border-radius:2px; line-height:23px;}
+.page-sep ul li a:hover{color:#fff; background:#5f7a5b; text-decoration:none;}
+.page-sep ul li a.page-sep-l:link, .page-sep ul li a.page-sep-l:visited{height:23px; padding:0 16px 0 10px; background:url(http://static.epaidai.com/images/bbs/a_bg.gif) no-repeat right -78px; line-height:23px;}
+.page-sep ul li a.page-sep-l:hover{background-position:right bottom;}
+.page-sep ul li a.page-sep-f{height:23px; padding:0 10px 0 16px; background:url(http://static.epaidai.com/images/bbs/a_bg.gif) no-repeat left -78px; line-height:23px;}
+.page-sep ul li a.page-sep-f:hover{background-position:left bottom;}

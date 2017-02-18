@@ -5,10 +5,8 @@
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>宅小递</title>
-<link rel="icon" href="images/favicon.ico"
-	type="image/x-icon">
-<link rel="shortcut icon" href="images/favicon.ico"
-	type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
@@ -90,19 +88,11 @@
 			</div>
 			<div class="menu">
 				<ul>
-					<li class="on"><a
-						href="#">首页</a></li>
-					<li><a
-						href="page/about.jsp">关于我们</a>
-					</li>
-					<li><a href="page/Login.jsp">商户中心</a>
-					</li>
-					<li><a
-						href="#">帮助中心</a>
-					</li>
-					<li><a
-						href="#"
-						target="_blank">裹儿</a></li>
+					<li class="on"><a href="#">首页</a></li>
+					<li><a href="page/about.jsp">关于我们</a></li>
+					<li><a href="page/Login.jsp">商户中心</a></li>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#" target="_blank">裹儿</a></li>
 				</ul>
 			</div>
 			<div class="navShow"></div>
@@ -128,7 +118,7 @@
 				target="_blank"><img src="image/banner-4.jpg"></a></li>
 		</ul>
 		<div class="slidetabs">
-			 <span class="" style="transition: all 0.5s ease 0s;"></span>
+			<span class="" style="transition: all 0.5s ease 0s;"></span>
 			<!--<span style="transition: all 0.5s ease 0s;" class=""></span>
 			<span style="transition: all 0.5s ease 0s;" class=""></span>
 			<span style="transition: all 0.5s ease 0s;" class="current"></span> -->
@@ -137,48 +127,271 @@
 			class="nextSlider" style="display: none;"></b>
 	</div>
 	<div class="content">
-		<div class="com-w">
+		<div class="com-w" id="container_l">
 			<h3 class="com-title">让生活更简单</h3>
-			<div class="lifeEasy">
-				<ul class="bh-overf">
-					<li><img src="image/img1.jpg">
-						<h1>让体验更简单</h1>
-						<dl>
-							<dd>离家100米的社区生活服务</dd>
-							<dd>便捷安全的代收快递服务</dd>
-							<dd>更便捷的发(jiao)快递服务</dd>
-						</dl>
-						<p>
-							<a href="http://www.shouhuobao.com/shooter/index%21service.html"
-								target="_blank" class="yellow-btn">了解更多</a>
-						</p></li>
-					<li><img src="image/img2.jpg">
-						<h1>让生意更简单</h1>
-						<dl>
-							<dd>电商包裹轻松导流</dd>
-							<dd>各种快递服务轻松赚钱</dd>
-							<dd>超值进货更省心</dd>
-						</dl>
-						<p>
-							<a
-								href="http://www.shouhuobao.com/merchant/merchant/disp-merchant-add.html"
-								target="_blank" class="yellow-btn">立即加入</a>
-						</p></li>
-					<li style="margin-right: 0px;"><img src="image/img3.jpg">
-						<h1>让营销更简单</h1>
-						<dl>
-							<dd>微信百万北上广剁手党</dd>
-							<dd>万余社区门店垂直渠道</dd>
-							<dd>快递服务更好更精准</dd>
-						</dl>
-						<p>
-							<a
-								href="http://www.shouhuobao.com/shooter/index%21cooperation.html"
-								target="_blank" class="yellow-btn">了解更多</a>
-						</p></li>
+			<div class="content-bottom-l-1">
+				<div class="tag_list">
+					<dl>
+						<dt>
+							<em>分类</em>
+						</dt>
+						<dd>
+							<span><a href="http://www.paidai.com/more.php?cid=21">顺丰快递<em>(5440)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=14">圆通快递<em>(2292)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=30">申通快递<em>(1054)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=20">韵达快递<em>(870)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=42">汇通快递<em>(812)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=18">国通快递<em>(584)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=49">天天快递<em>(167)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=26">中通快递<em>(148)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=39">全峰快递<em>(80)</em></a></span>
+							<!-- <!-- <span><a href="http://www.paidai.com/more.php?cid=37">论坛公告<em>(71)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=50">微商<em>(53)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=36">仓储管理<em>(53)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=44">客服攻略<em>(37)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=51">跨境电商<em>(27)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=45">找服务商<em>(2)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=48">找淘宝客<em>(2)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=47">货源供求<em>(2)</em></a></span>
+							<span><a href="http://www.paidai.com/more.php?cid=news">资讯<em>(3800)</em></a></span> --> -->
+							<span><a href="http://www.paidai.com/more.php">全部(15494)</a></span>
+						</dd>
+					</dl>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="l_box_list" id="topic_list">
+				<ul>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/549785" target="_blank"><img
+								src="image/85_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1176811" target="_blank"
+									title="圆通快递">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/549785">D4-110</a> <em
+									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
+									class="collectNum li_s">￥5</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://news.paidai.com/" target="_blank"><img
+								src="image/120-10.png" height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://news.paidai.com/18032" target="_blank"
+									title="顺丰快递">顺丰快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://news.paidai.com/18032">D6-333</a> <em
+									class="li_s">8小时前</em> <em class="active_readNum li_s">大包裹</em><em
+									class="collectNum li_s">￥10</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/161676" target="_blank"><img
+								src="image/76_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1175968" target="_blank"
+									title="顺丰快递">顺丰快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/161676">D6-330</a> <em
+									class="li_s">9小时前</em> <em class="readNum li_s">小包裹</em><em
+									class="collectNum li_s">￥7</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/1473927" target="_blank"><img
+								src="image/27_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1173633" target="_blank"
+									title="申通快递">申通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/1473927">D2-333</a> <em
+									class="li_s">9小时前</em> <em class="active_readNum li_s">小包裹</em><em
+									class="collectNum li_s">￥7</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/1167891" target="_blank"><img
+								src="image/91_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1176048" target="_blank"
+									title="【神速力】不提什么牛逼的技术，讲讲过去一年的运营经历">韵达快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/1167891">D1-223</a> <em
+									class="li_s">9小时前</em> <em class="active_readNum li_s">大包裹</em><em
+									class="collectNum li_s">￥12</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://news.paidai.com/" target="_blank"><img
+								src="image/120-3.png" height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://news.paidai.com/18031" target="_blank"
+									title="2017实体店必将崛起的30个信号！未来可能比电商还要疯狂100倍">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://news.paidai.com/18031">C5-103</a> <em
+									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
+									class="collectNum li_s">￥5</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/643883" target="_blank"><img
+								src="image/83_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1175283" target="_blank"
+									title="整理几个差评，逗蒙了，忙累了来乐一乐">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/643883">D5-203</a> <em
+									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
+									class="collectNum li_s">￥6</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">云喇叭圆通速递，尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/3" target="_blank"><img
+								src="image/03_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1176114" target="_blank"
+									title="官方直播——三招快速提高质量分，降低直通车点击成本">韵达快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/3">D4-401</a> <em class="li_s">9小时前</em>
+								<em class="active_readNum li_s">大包裹</em><em
+									class="active_collectNum li_s">￥13</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，如果我不在寝室我室友会帮我代领一下，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<a href="http://my.paidai.com/357829" target="_blank"><img
+								src="image/29_avatar_m.jpg"
+								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
+								height="48" width="48"></a>
+						</div>
+						<div class="u_post">
+							<div class="li_1" style="line-height: 21px;">
+
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="http://bbs.paidai.com/topic/1175782" target="_blank"
+									title="二师兄直通车系列第一章：“测款”----教你挖掘潜力爆款">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="http://my.paidai.com/357829">D1-401</a> <em
+									class="li_s">7小时前</em> <em class="active_readNum li_s">小包裹</em><em
+									class="active_collectNum li_s">￥5</em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上送过来，谢谢</div>
+						</div>
+					</li>
 				</ul>
+
+				<!-- <div class="more" style="margin-top: 20px">
+					<p>
+						<a href="page/moreExpress.jsp" title="更多快递">更多快递</a>
+					</p>
+				</div> -->
+			</div>
+			<div class="page-sep-wrap">
+				<div class="page-sep">
+					<ul>
+						<li><span>1</span></li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=2">2</a></li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=3">3</a></li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=4">4</a></li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=5">5</a></li>
+						<li><em
+							style="display: block; height: 30px; line-height: 16px;">...</em>
+						</li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=272">100</a></li>
+						<li><a
+							href="http://www.paidai.com/more.php?cid=21&amp;page=2"
+							class="page-sep-l">下一页</a></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
 			</div>
 		</div>
+
 	</div>
 	<div class="cooperative">
 		<img src="image/mycompany.png" width="100%">
