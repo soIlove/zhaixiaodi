@@ -91,7 +91,7 @@
         </div>
         <div class="bh-posRlt mt5">
           <label for="remember" id="cbRemberMe"><a href="#">忘记密码?</a></label>
-           <label for="remember" id="cbRemberMe"><a href="#">注册新用户</a></label>
+           <label for="remember" id="cbRemberMe"><a href="pageRegister.jsp">注册新用户</a></label>
         </div>
         <input class="btn" style="cursor:pointer;" onclick="loginSub()" value="快速登录" type="button">
       </form>

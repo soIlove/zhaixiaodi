@@ -335,7 +335,7 @@ body {
 }
 .zln-banner_in a {
 	height: 200px;
-	background: url(../images/zln-banner_in.jpg) no-repeat center center;
+	background: url(../image/zln-banner_in.jpg) no-repeat center center;
 	display: block;
 }
 .zln-w970 {
@@ -478,6 +478,8 @@ body {
 	font-size: 16px;
 	color: #333;
 }
+
+
 .zln-join_box li.zln-li1 .zln-text {
 	border: 2px solid #c6ccd2;
 	border-radius: 5px;
@@ -919,7 +921,7 @@ body {
 *zoom:1;
 }
 .yzm-btn {
-	background: url(../images/yzm-btn.jpg) no-repeat bottom;
+	background: url(../image/yzm-btn1.jpg) no-repeat bottom;
 	width: 99px;
 	height: 27px;
 	border: 0 none;
@@ -927,7 +929,7 @@ body {
 	margin: 3px 0 0 6px;
 }
 .zln-join_box .yzm-btn.disabled {
-	background: url(../images/yzm-btn1.jpg) no-repeat bottom;
+	background: url(../image/yzm-btn1.jpg) no-repeat bottom;
 	color: #fff;
 }
 .address-text {
