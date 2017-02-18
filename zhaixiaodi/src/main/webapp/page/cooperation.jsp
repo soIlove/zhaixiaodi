@@ -5,10 +5,8 @@
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>宅小递</title>
-<link rel="icon" href="images/favicon.ico"
-	type="image/x-icon">
-<link rel="shortcut icon" href="images/favicon.ico"
-	type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
@@ -81,34 +79,21 @@
 	</div>
 
 
-
-
-
-
-
 	<div class="header-mid">
 		<div class="com-w bh-posRlt">
 			<div class="logo" id="logo">
 				<p>
-					<a href="http://www.shouhuobao.com/shooter/index.html"><img
+					<a href="http://www.zhaixiaodi.com/shooter/index.html"><img
 						src="image/Logo.jpg"></a>
 				</p>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="index.jsp">首页</a>
-					</li>
-					<li class="on"><a
-						href="page/about.jsp">关于我们</a>
-					</li>
-					<li><a href="page/Login.jsp">商户中心</a>
-					</li>
-					<li><a
-						href="#">帮助中心</a>
-					</li>
-					<li><a
-						href="#"
-						target="_blank">裹儿</a></li>
+					<li><a href="index.jsp">首页</a></li>
+					<li class="on"><a href="page/about.jsp">关于我们</a></li>
+					<li><a href="page/Login.jsp">商户中心</a></li>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#" target="_blank">裹儿</a></li>
 				</ul>
 			</div>
 			<div class="navShow"></div>
@@ -124,15 +109,11 @@
 				<div class="sub-shadow"></div>
 				<img src="image/begins.jpg" width="233" height="60">
 				<ul class="sub-menu">
-					<li><a
-						href="#">公司简介</a></li>
-					<li><a
-						href="page/services.jsp">服务介绍</a></li>
+					<li><a href="#">公司简介</a></li>
+					<li><a href="page/services.jsp">服务介绍</a></li>
 					<li><a href="page/news.jsp">媒体报道</a></li>
-					<li class="on"><a
-						href="page/cooperation.jsp">合作联系</a></li>
-					<li><a
-						href="page/joinus.jsp">加入我们</a></li>
+					<li class="on"><a href="page/cooperation.jsp">合作联系</a></li>
+					<li><a href="page/joinus.jsp">加入我们</a></li>
 				</ul>
 			</div>
 			<div class="mRight businessPage">
@@ -141,9 +122,9 @@
 						<tr>
 							<td class="intro-con" valign="bottom"><strong>您的位置：</strong>
 								<a
-								href="http://www.shouhuobao.com/shooter/index%21introduction.html">关于我们</a>
+								href="http://www.zhaixiaodi.com/shooter/index%21introduction.html">关于我们</a>
 								&gt; <a
-								href="http://www.shouhuobao.com/shooter/index%21cooperation.html">合作联系</a></td>
+								href="http://www.zhaixiaodi.com/shooter/index%21cooperation.html">合作联系</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -155,45 +136,39 @@
 				<h3 class="imgtitle2" style="font-weight: lighter;">联系客服</h3>
 				<p>
 					客服电话： 4007333390，010-5980 2933 (8:00-20:00)<br> 在线客服QQ
-					：4007333390<br> 微信服务号：shouhuobao<br> 客服邮箱：
-					kf@shouhuobao.com
+					：4007333390<br> 微信服务号：zhaixiaodi<br> 客服邮箱：
+					kf@zhaixiaodi.com
 				</p>
 				<h3 class="imgtitle2" style="font-weight: lighter;">商务合作</h3>
 				<p>
 					<strong>裹儿快递合作</strong>
 				</p>
 				<p>
-					联系人：胡星宇<br> 手机：18211068320<br> 邮箱：kevinhu@shouhuobao.com<br>
+					联系人：黄福州<br> 手机：18211068320<br> 邮箱：kevinhu@zhaixiaodi.com<br>
 				</p>
 				<p>
 					<strong>宅小递网点加盟</strong>
 				</p>
 				<p>
-					加盟电话：4007333390<br> 邮箱：jiameng@shouhuobao.com<br> <a
-						href="http://www.shouhuobao.com/merchant/merchant/disp-merchant-add.html"
+					加盟电话：4007333390<br> 邮箱：jiameng@zhaixiaodi.com<br> <a
+						href="http://www.zhaixiaodi.com/merchant/merchant/disp-merchant-add.html"
 						target="_blank">提交在线自助加盟申请&gt;&gt;</a>
 				</p>
 				<p>
 					<strong>商务合作</strong>
 				</p>
 				<p>
-					联系人：王超<br> 邮箱：jiandan.wangc@iseastar.com
+					联系人：黄福州<br> 邮箱：jiandan.wangc@iseastar.com
 				</p>
 				<h3 class="imgtitle2" style="font-weight: lighter;">联系我们</h3>
 				<p>
-					<strong>北京</strong>
+					<strong>湖南</strong>
 				</p>
 				<p>
-					地址：北京市朝阳区小关北里甲2号渔阳置业大厦B418<br> 电话：010-64381868<br>
-					邮箱：jannyli@shouhuobao.com
+					地址：湖南省衡阳市珠晖区湖南工学院<br> 电话：010-64381868<br>
+					邮箱：jannyli@zhaixiaodi.com
 				</p>
-				<p>
-					<strong>上海</strong>
-				</p>
-				<p>
-					地址：上海市长宁区番禺路390号时代大厦2106<br> 电话：021-34533336<br>
-					邮箱：richiejin@shouhuobao.com
-				</p>
+				 
 			</div>
 		</div>
 	</div>
@@ -216,10 +191,10 @@
       </div> -->
 				<div class="clearfix"></div>
 			</div>
-			<!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">宅小递简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
+			<!-- <div class="pad-help"> <a href="http://www.zhaixiaodi.com/index!introduction.html">宅小递简介</a> <a href="http://www.zhaixiaodi.com/index!service.html">什么是代收货服务</a> <a href="http://www.zhaixiaodi.com/index!cooperation.html">对外合作</a> <a href="http://www.zhaixiaodi.com/index!join.html">网点加盟</a> </div> -->
 			<div class="copyRight bh-overf">
 				<p>
-					<span>©2011-2015 Shouhuobao.com 版权所有</span><span
+					<span>©2011-2015 zhaixiaodi.com 版权所有</span><span
 						class="copyright-icp">京ICP证140708号 京ICP备11018594号-1<b>京公网安备编号：11010502026840</b></span>
 					<span class="copyAddress">公司地址：北京市朝阳区小关北里甲2号渔阳置业大厦B418室</span>
 				</p>

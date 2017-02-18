@@ -5,10 +5,8 @@
 <base href="/zhaixiaodi/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>宅小递</title>
-<link rel="icon" href="images/favicon.ico"
-	type="image/x-icon">
-<link rel="shortcut icon" href="images/favicon.ico"
-	type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
@@ -18,25 +16,17 @@
 	content="宅小递 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
 <meta property="qc:admins" content="2550506277630750572176375">
 
-<link rel="stylesheet" type="text/css"
-	href="css/style.css">
-<script src="js/jquery-1.js"
-	type="text/javascript"></script>
-<script src="js/swiper.js"
-	type="text/javascript"></script>
-<script src="js/base.js"
-	type="text/javascript"></script>
-<script src="js/page.js"
-	type="text/javascript"></script>
-<script src="js/wb.js"
-	type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/jquery-1.js" type="text/javascript"></script>
+<script src="js/swiper.js" type="text/javascript"></script>
+<script src="js/base.js" type="text/javascript"></script>
+<script src="js/page.js" type="text/javascript"></script>
+<script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
 <!--[if lt IE 9]>
 		<script type="text/javascript" src="/shooter/js/respond.min.js"></script>
 <![endif]-->
-<script charset="UTF-8"
-	src="js/bundle.js"></script>
-<script charset="UTF-8"
-	src="js/iframeWidget.js"></script>
+<script charset="UTF-8" src="js/bundle.js"></script>
+<script charset="UTF-8" src="js/iframeWidget.js"></script>
 </head>
 <body>
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
@@ -60,8 +50,7 @@
 						<div class="sina-tanchu" style="left: 845px; display: none;">
 							<b></b>
 							<p>
-								宅小递官方微博： <br> <img
-									src="image/logo1.png">
+								宅小递官方微博： <br> <img src="image/logo1.png">
 							</p>
 							<wb:follow-button uid="2137795655" type="red_1" width="67"
 								height="24" class="gz2">
@@ -83,8 +72,7 @@
 							</wb:follow-button>
 						</div>
 					</li>
-					<li class="h-tel"><em></em><img
-						src="image/tel.jpg"></li>
+					<li class="h-tel"><em></em><img src="image/tel.jpg"></li>
 				</ul>
 			</div>
 		</div>
@@ -92,33 +80,20 @@
 
 
 
-
-
-
-
 	<div class="header-mid">
 		<div class="com-w bh-posRlt">
 			<div class="logo" id="logo">
 				<p>
-					<a href="#"><img
-						src="image/Logo.jpg"></a>
+					<a href="#"><img src="image/Logo.jpg"></a>
 				</p>
 			</div>
 			<div class="menu">
 				<ul>
-					<li><a href="#">首页</a>
-					</li>
-					<li class="on"><a
-						href="page/about.jsp">关于我们</a>
-					</li>
-					<li><a href="page/Login.jsp">商户中心</a>
-					</li>
-					<li><a
-						href="#">帮助中心</a>
-					</li>
-					<li><a
-						href="#"
-						target="_blank">裹儿</a></li>
+					<li><a href="#">首页</a></li>
+					<li class="on"><a href="page/about.jsp">关于我们</a></li>
+					<li><a href="page/Login.jsp">商户中心</a></li>
+					<li><a href="#">帮助中心</a></li>
+					<li><a href="#" target="_blank">裹儿</a></li>
 				</ul>
 			</div>
 			<div class="navShow"></div>
@@ -133,18 +108,13 @@
 					我们的服务<b class="sub-tab"></b>
 				</h3>
 				<div class="sub-shadow"></div>
-				<img src="image/begins.jpg" width="233"
-					height="60">
+				<img src="image/begins.jpg" width="233" height="60">
 				<ul class="sub-menu">
-					<li><a
-						href="page/about.jsp">公司简介</a></li>
-					<li class="on"><a
-						href="page/services.jsp">服务介绍</a></li>
+					<li><a href="page/about.jsp">公司简介</a></li>
+					<li class="on"><a href="page/services.jsp">服务介绍</a></li>
 					<li><a href="page/news.jsp">媒体报道</a></li>
-					<li><a
-						href="page/cooperation.jsp">合作联系</a></li>
-					<li><a
-						href="page/joinus.jsp">加入我们</a></li>
+					<li><a href="page/cooperation.jsp">合作联系</a></li>
+					<li><a href="page/joinus.jsp">加入我们</a></li>
 				</ul>
 			</div>
 			<div class="mRight servicePage">
@@ -161,8 +131,7 @@
 				</table>
 
 				<h1>
-					<img src="image/fuwu.jpg" width="643"
-						height="160">
+					<img src="image/fuwu.jpg" width="643" height="160">
 				</h1>
 				<h2 class="imgtitle"
 					style="font-weight: lighter; color: #000; font-size: 28px; line-height: 50px;">服务介绍</h2>
@@ -227,10 +196,9 @@
 				<p>
 					<span>©2011-2015 Shouhuobao.com 版权所有</span><span
 						class="copyright-icp">京ICP证140708号 京ICP备11018594号-1<b>京公网安备编号：11010502026840</b></span>
-					<span class="copyAddress">公司地址：北京市朝阳区小关北里甲2号渔阳置业大厦B418室</span>
+					<span class="copyAddress">公司地址：湖南省衡阳市珠晖区湖南工学院</span>
 				</p>
-				<img src="image/copyRight.jpg"
-					class="bh-fr">
+				<img src="image/copyRight.jpg" class="bh-fr">
 			</div>
 		</div>
 	</div>
@@ -250,7 +218,6 @@
 						+ _bdhmProtocol
 						+ "hm.baidu.com/h.js%3F9822e568556ad7e8e899fff38b907343' type='text/javascript'%3E%3C/script%3E"));
 	</script>
-	<script src="js/h.js"
-		type="text/javascript"></script>
+	<script src="js/h.js" type="text/javascript"></script>
 </body>
 </html>
