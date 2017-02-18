@@ -2735,16 +2735,10 @@ div.autoDiv{
 
 /* 订单奖励金额，送货地点等 */
 .active_readNum, .readNum {background: url(http://static.epaidai.com/images/bbs/read_iconh.gif?v=2) no-repeat 0 3px;padding-left: 16px;line-height: 14px;}
-.active_collectNum, .collectNum {background: url(http://static.epaidai.com/images/bbs/collect_iconh.gif?v=2) no-repeat 0 3px;padding-left: 13px;line-height: 14px;}
+.active_collectNum, .collectNum {background: url(http://static.epaidai.com/images/bbs/collect_iconh.gif?v=2) no-repeat 0 3px;padding-left: 13px;line-height: 14px;font-color:red;}
 .readNum, .collectNum {background-position: 0px -17px;}
+.money{color:red;}
 
-
-/*首页查看更多快递*/
-.content .more{width:386px; height:25px; float:left; margin-top:-20px; margin-bottom:40px; padding-left:340px;}
-.content .more p{width:80px; height:25px; background:#fff; text-align:right;}
-.content .more a:link,.com-w .more a:visited{width:114px; height:33px; padding:0 0 0 32px; float:right; text-align:left; line-height:33px; color:#000; background:url(http://static.epaidai.com/images/new/moreTheme_btn.gif) no-repeat left top; filter:Dropshadow(offx=0,offy=1,color=white)Dropshadow(offx=-1,offy=0,color=white);*filter:none;text-shadow:0 1px #ffffff;}
-.content .more a:active{background:url("/image/moreTheme_btn.jpg") no-repeat left bottom; text-decoration:none;}
-.content .more a:hover{text-decoration:none;}
 
 /* 分类筛选 */
 .tag_list{width:715px; padding:8px 0; overflow:hidden;}
