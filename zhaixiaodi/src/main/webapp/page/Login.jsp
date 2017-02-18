@@ -11,15 +11,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="icon" href="http://www.shouhuobao.com/merchant/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="http://www.shouhuobao.com/merchant/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <script src="js/jquery-1.js" type="text/javascript"></script>
 <script src="js/swiper.js" type="text/javascript"></script>
 <script src="js/base_002.js" type="text/javascript"></script>
 <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
-<!--[if lt IE 9]>
-	<script type="text/javascript" src="res2/js/respond.min.js"></script>
-<![endif]-->
+
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css"><script charset="UTF-8" src="js/bundle.js"></script><script charset="UTF-8" src="js/iframeWidget.js"></script></head>
 <body><iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 <div class="header-top">
@@ -30,8 +28,8 @@
         <li class="h-qq"> <em></em>
           <div class="qq-tanchu"> <b></b>
             <p> 宅小递在线客服<br>
-              <span class="gray">4007333390</span> </p>
-            <a onclick='KF.closeIMC(this,"SOFTWARE")' class="btn" target="_blank" href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4007333390&amp;f=1&amp;ty=1&amp;">点击交谈</a>
+              <span class="gray">1914588314</span> </p>
+            <a onclick='KF.closeIMC(this,"SOFTWARE")' class="btn" target="_blank" href="#">点击交谈</a>
           </div></li>
         <!--未关注-->
         <li class="h-sina"> <em></em>
@@ -90,8 +88,8 @@
           <input id="j_password" name="j_password" placeholder="密码" type="password">
         </div>
         <div class="bh-posRlt mt5">
-          <label for="remember" id="cbRemberMe"><a href="#">忘记密码?</a></label>
-           <label for="remember" id="cbRemberMe"><a href="pageRegister.jsp">注册新用户</a></label>
+          <label for="remember" id="cbRemberMe"><a href="htm/findPwd.html">忘记密码?</a></label>
+           <label for="remember" id="cbRemberMe"><a href="page/Register.jsp">注册新用户</a></label>
         </div>
         <input class="btn" style="cursor:pointer;" onclick="loginSub()" value="快速登录" type="button">
       </form>
@@ -192,71 +190,13 @@
   <div class="com-w">
     <h3 class="com-title">加盟流程</h3>
     <img src="image/steps-1.png" style="margin:15px auto;display:block;margin-bottom:50px;">
-    <!-- <ul class="bh-overf bh-posRlt">
-      <li><img src="res2/images/join1.jpg" />
-        <h5>提出申请</h5>
-        <p>社区门店提出加盟申请</p>
-      </li>
-      <li><img src="res2/images/join2.jpg" />
-        <h5>审核资质</h5>
-        <p>联盟审核机构核准相关资质</p>
-        <b></b></li>
-      <li class="last2"><img src="res2/images/join3.jpg" />
-        <h5>签署合同</h5>
-        <p>加盟合同审定并签署</p>
-        <b></b></li>
-      <li class="last"><img src="res2/images/join4.jpg" />
-        <h5>缴纳费用</h5>
-        <p>缴纳平台使用费、保证金</p>
-        <b></b></li>
-    </ul> -->
   </div>
 </div>
 <div class="big-yellow-btn"><a href="http://www.shouhuobao.com/merchant/merchant/disp-merchant-add.html">加入宅小递联盟，用互联网+赚钱更轻松</a></div>
 <div class="footer">
   <div class="com-w">
     <div class="bh-overf">
-      <!-- <div class="f-help">
-        <dl>
-          <dt><a href="http://www.shouhuobao.com/index!introduction.html">关于宅小递 </a></dt>
-           <dd> <a href="http://www.shouhuobao.com/index!introduction.html">宅小递简介</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!service.html">我们的服务</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </dd>
-        </dl>
-        <dl>
-          <dt><a href="http://www.shouhuobao.com/index!shb.html">新手上路 </a></dt>
-          <dd> <a href="http://www.shouhuobao.com/index!shb.html">什么是代收货服务</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!pointinfo.html">如何查询代收点</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!useshb.html">如何使用宅小递</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!touseshb.html">为什么要用宅小递</a> </dd>
-        </dl>
-        <dl>
-          <dt><a href="http://www.shouhuobao.com/index!first.html">电商快递专享</a> </dt>
-          <dd> <a href="http://www.shouhuobao.com/index!first.html">电商用户首选</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!last.html"> 快递最后一公里 </a> </dd>
-          <dd>&nbsp;</dd>
-        </dl>
-        <dl>
-          <dt><a href="http://www.shouhuobao.com/index!standard.html">用户权益</a> </dt>
-          <dd> <a href="http://www.shouhuobao.com/index!standard.html">代收/寄标准</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!rights.html">维权流程</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!protocol.html">服务协议</a> </dd>
-          <dd> <a href="http://www.shouhuobao.com/index!privacy.html">隐私权条款</a> </dd>
-        </dl>
-      </div> -->
-      <!-- <div class="f-aboutUs">
-        <h3>关注我们</h3>
-        <ul>
-          <li><img src="res2/images/er3.jpg" />
-            <p> 宅小递官方微信 </p>
-          </li>
-          <li><img src="res2/images/er4.jpg" />
-            <p> 社区服务联盟官方微信 </p>
-          </li>
-          <div class="clearfix"></div>
-        </ul>
-      </div> -->
+   
       <div class="clearfix"></div>
     </div>
    <!-- <div class="pad-help"> <a href="http://www.shouhuobao.com/index!introduction.html">宅小递简介</a> <a href="http://www.shouhuobao.com/index!service.html">什么是代收货服务</a> <a href="http://www.shouhuobao.com/index!cooperation.html">对外合作</a> <a href="http://www.shouhuobao.com/index!join.html">网点加盟</a> </div> -->
