@@ -12,8 +12,8 @@
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="Cache-Control" content="no-cache">
 
-<link rel="icon" href="http://www.shouhuobao.com/merchant/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="http://www.shouhuobao.com/merchant/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="css/theme.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -25,16 +25,7 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.css">	
 
 <script type="text/javascript" src="css/jquery-1.js"></script>
-<!-- <script type="text/javascript" -->
 
-<!-- <script type="text/javascript" -->
-
-
-<!-- 百度统计开放平台JS API -->
-<script>
-	var _hmt = _hmt || [];
-	_hmt.push(['_setAccount', '450f34e18b8751446775cba4abdb88c2']);
-</script>
 <title>商户中心 | 宅小递</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,410 +40,11 @@
     <script src="js/uploadPreview.js" type="text/javascript"></script>
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/api" type="text/javascript"></script><script type="text/javascript" src="js/getscript"></script>
-    <script>
-
-
-        $(function(){
-
-            layer.ready(function () {
-                
-            });
-
-
-        	var map = new BMap.Map("allmap");    // 创建Map实例
-        	map.centerAndZoom("北京市",15);  // 初始化地图,设置中心点坐标和地图级别
-        	function seachPoint(){
-                // 百度地图API功能
-        		var allOverlay = map.getOverlays();
-        		for (var i = 0; i < allOverlay.length ; i++){
-        			map.removeOverlay(allOverlay[i]);
-        		}
-                var sCity = $("#shiCon").prev(".zln-select_box").html();
-                var sArea =  $("#quCon").prev(".zln-select_box").html();
-                var sOther =  $("#otherCon").prev(".zln-select_box").html();
-                var sAddress = $('#address').val();
-                // 创建地址解析器实例
-                var myGeo = new BMap.Geocoder();
-                // 将地址解析结果显示在地图上,并调整地图视野
-                myGeo.getPoint(sCity+sArea+sOther+sAddress, function(point){
-                    if (point) {
-                        $('#lat').val(point.lat);
-                        $('#lng').val(point.lng);
-                        $('#addressLine1').val(sCity+sArea);
-                        map.centerAndZoom(point, 16);
-                        map.addOverlay(new BMap.Marker(point));
-                    }else{
-                        layer.msg("您选择地址没有解析到结果!");
-                    }
-                }, sCity);
-            }
-        	$("#searchPoint").on("click",seachPoint);
-
-
-            $.ajax(
-                    {
-                        type: "POST",
-                        url: "/merchant/search/json-lookup-state.html",
-                        data: "params=&ajax=true",
-                        success: function (msg) {
-                            var oo = eval("("+msg+")");
-                            oo.forEach(function(p){
-                                var option = "<option value='" + p.value  + "'>" +p.label  + "</option>";
-                                $("#selProvince").append(option);
-                                $("#shengCon").append("<p><a href='javascript:;' _title=" + p.value + ">" + p.label + "</a></p>");
-                            })
-                        }
-                    }
-            );
-
-
-            $("#selProvince").change(function() {
-                var selValue = $("#shengCon").prev(".zln-select_box").attr("_title");
-                $("#selCity option:gt(0)").remove();
-                $("#shiCon").html("<p><a href='javascript:;' _title='0'>市</a></p>");
-                $("#shiCon").prev(".zln-select_box").html("市");
-                $("#shiCon").prev().css({"color":"#c6ccd2"});
-
-                $.ajax(
-                        {
-                            type: "POST",
-                            url: "/merchant/search/json-lookup-cityjson.html",
-                            data: "params=" + selValue + "&ajax=true&type=city",
-                            success: function (msg) {
-                                var oo = eval("("+msg+")");
-                                oo.forEach(function(p){
-                                    var option = "<option value='" + p.value  + "'>" +p.label  + "</option>";
-                                    $("#selCity").append(option);
-                                    $("#shiCon").append("<p><a href='javascript:;' _title=" + p.value + ">" + p.label + "</a></p>");
-                                })
-                            }
-                        }
-                );
-
-
-            });
-            $("#selCity").change(function() {
-                var selValue = $("#shiCon").prev(".zln-select_box").attr("_title");
-                var city = $("#shiCon").prev(".zln-select_box").html();
-                //layer.msg(city);
-                $("#selDistrict option:gt(0)").remove();
-                $("#quCon").html("<p><a href='javascript:;' _title='0'>区</a></p>");
-                $("#quCon").prev(".zln-select_box").html("区");
-                $("#quCon").prev().css({"color":"#c6ccd2"});
-				initMap(city);
-                $.ajax(
-                        {
-                            type: "POST",
-                            url: "/merchant/search/json-lookup-areajson.html",
-                            data: "params=" + selValue + "&ajax=true&type=area",
-                            success: function (msg) {
-                                var oo = eval("("+msg+")");
-                                oo.forEach(function(p){
-                                    var option = "<option value='" + p.value  + "'>" +p.label  + "</option>";
-                                    $("#selDistrict").append(option);
-
-                                    $("#quCon").append("<p><a href='javascript:;' _haschild='1' _title=" + p.value + ">" + p.label + "</a></p>");
-                                })
-                            }
-                        }
-                );
-            });
-            $("#selDistrict").change(function() {
-                if($("#quCon").prev(".zln-select_box").attr("_haschild")==1){
-                    $("#otherCon").parent().show();
-                    var selValue = $("#quCon").prev(".zln-select_box").attr("_title");
-                    $("#selOther option:gt(0)").remove();
-                    $("#otherCon").html("<p><a href='javascript:;' _title='BZ9999'>其他</a></p>");
-                    $("#otherCon").prev(".zln-select_box").html("商圈");
-                    $("#otherCon").prev().css({"color":"#c6ccd2"});
-
-                    $.ajax({
-                                type: "POST",
-                                url: "/merchant/search/json-lookup-bizcirclejson.html",
-                                data: "params=" + selValue + "&ajax=true&type=bizcircle",
-                                success: function (msg) {
-                                    var oo = eval("("+msg+")");
-                                    oo.forEach(function(p){
-                                        var option = "<option value='" + p.value  + "'>" +p.label  + "</option>";
-                                        $("#selOther").append(option);
-
-                                        $("#otherCon").append("<p><a href='javascript:;' _title=" + p.value + ">" + p.label + "</a></p>");
-                                    })
-
-                                }
-                            });
-                }
-                else{
-                    $("#otherCon").parent().hide();
-                }
-            });
-            /*省 市 区*/
-            $(".zln-select_box").click(function(event) {
-                if ($(this).hasClass("hoer")) {
-                    $(this).removeClass("hoer");
-                    $(this).next().hide();
-                } else {
-                    $(".zln-select_box").removeClass("hoer");
-                    $(".zln-select_fola").hide();
-                    $(this).addClass("hoer");
-                    $(this).next().show();
-                }
-                event.stopPropagation();
-            });
-            $(document).click(function(event) {
-                $(".zln-select_box").removeClass("hoer");
-                $(".zln-select_box").next().hide();
-            });
-
-            $("#vphone").on('input',function(){
-        		 var phoneNum = $("#vphone").val();
-                 if (phoneNum.length == 11) {
-                     var isPhone = /^1[3-9]\d{9}$/;
-                     if (isPhone.test(phoneNum)) {
-                         $("#getMsgBtn").removeAttr("disabled");//启用按钮
-                         $("#getMsgBtn").removeClass("disabled");
-                         $("#getMsgBtn").val('');
-                         layer.msg('请点击获取验证码');
-                     } else {
-                         layer.msg('您输入的电话号码不对哦,电话号为' + phoneNum);
-                     }
-                 } else {
-                     $("#getMsgBtn").attr("disabled", "disabled");//关闭按钮
-                 }
-        	});
-
-            $("#getMsgBtn").click(function () {
-
-                $.ajax({
-                    type: "POST",
-                    url: "json-lookup-vaild.html",
-                    data: "params=" + $("#vphone").val() + "&ajax=true",
-                    success: function (msg) {
-                        layer.msg('验证码已发送，请注意查收。');
-                        $('#vaild').val(msg);
-                    }
-                });
-
-        		var times;
-        		var time=60;
-        		$(this).addClass("disabled");
-        		$(this).val("倒计时"+time+"秒");
-        		$(this).attr("disabled","disabled");
-        		var _this=$(this);
-                times = setInterval(function () {
-        			time=time-1;
-                    _this.val("倒计时"+time+"秒");
-        			if(time==0){
-        				clearInterval(times);
-        				_this.removeClass("disabled");
-        				_this.removeAttr("disabled");
-        				_this.val('');
-        			}
-                }, 1000);
-            });
-
-            $('#vaildNum').on('blur', function () {
-
-                var that = this;
-                var inputvaild = $('#vaildNum').val();
-                var vaild = $('#vaild').val();
-                if (inputvaild != "" && inputvaild == vaild) {
-                    layer.tips('OK,请您继续输入其他信息', that);
-                    $('#proposerPhone').val($('#vphone').val());
-                } else {
-                    layer.tips('验证码不对哦，亲', that);
-                }
-
-            });
-
-            $('#submitOk').on('click',function(){
-                if(JqValidate()){
-                    $("#iform").submit();
-//                    alert('tijiao');
-                }
-            });
-
-            function initMap(city){
-            	// 百度地图API功能
-            	map.centerAndZoom(city,15);
-            	 $('#lat').val("");
-                 $('#lng').val("");
-            }
-
-            $('#outpic').on('click',function (){
-                new uploadPreview({ UpBtn: "outpic", DivShow: "divoutdoor", ImgShow: "imgoutdoor" ,ImgType:["jpg","png","bmp","jpeg"],callback:function(){
-                    $('#outpicname').val($('#outpic').val());
-                }});
-
-            });
-            $('#innerpic').on('click',function (){
-                new uploadPreview({ UpBtn: "innerpic", DivShow: "divinnerdoor", ImgShow: "imginnerdoor" ,ImgType:["jpg","png","bmp","jpeg"],callback:function(){
-                    $('#innerpicname').val($('#innerpic').val());
-                }});
-
-            });
-
-            $('#licensepic').on('click',function (){
-                new uploadPreview({ UpBtn: "licensepic", DivShow: "divlicense", ImgShow: "imglicense" ,ImgType:["jpg","png","bmp","jpeg"],callback:function(){
-                    $('#licensepicname').val($('#licensepic').val());
-                }});
-
-            });
-
-
-            $('#idcardf').on('click',function (){
-                new uploadPreview({ UpBtn: "idcardf", DivShow: "divdcardf", ImgShow: "imgidcardf" ,ImgType:["jpg","png","bmp","jpeg"],callback:function(){
-                    $('#idcardfname').val($('#idcardf').val());
-                }});
-
-            });
-            $('#idcardb').on('click',function (){
-                new uploadPreview({ UpBtn: "idcardb", DivShow: "dividcardb", ImgShow: "imgidcardb" ,ImgType:["jpg","png","bmp","jpeg"],callback:function(){
-                    $('#idcardbname').val($('#idcardb').val());
-                }});
-
-            });
-            function JqValidate()
-            {
-                if($('#iform :input[id=vphone]').val() == ""){
-//                    layer.confirm($('#iform :input[id=landMark]').val());
-                    layer.confirm('手机号不能为空');
-                    return false;
-                }
-                if($('#iform :input[id=vaildNum]').val() == ""){
-                    layer.confirm('验证码不能为空');
-                    return false;
-                }else{
-                    if($('#iform :input[id=vaildNum]').val() != $('#iform :input[id=vaild]').val()){
-                        layer.confirm('验证码不正确');
-                        return false;
-                    }
-                }
-
-                if($('#selProvince').val() == ""){
-                    layer.confirm("请选择省份！");
-                    return false;
-                }
-
-                if($('#selCity').val() == ""){
-                    layer.confirm("请选择城市！");
-                    return false;
-                }
-                if($('#selDistrict').val() == ""){
-                    layer.confirm("请选择行政区！");
-                    return false;
-                }
-                if($('#selOther').val() == ""){
-                    layer.confirm("请选择商圈！");
-                    return false;
-                }
-
-
-                if($('#iform :input[id=address]').val() == ""){
-                    layer.confirm('请输入详细地址');
-                    return false;
-                }
-                if($('#iform :input[id=lat]').val() == ""){
-                    layer.confirm('请点击搜索标准定位您店铺的位置');
-                    return false;
-                }
-                if($('#iform :input[id=name]').val() == ""){
-                    layer.confirm('门店名不能为空');
-                    return false;
-                }
-                if($('#iform :input[id=landMark]').val() == ""){
-                    layer.confirm('请输入所在小区');
-                    return false;
-                }
-                if($('#iform :input[id=tmCategoryId]').val() == ""){
-                    layer.confirm('请选择商户类型');
-                    return false;
-                }
-                if($('#iform :input[id=openBegin]').val() == ""){
-                    layer.confirm('请选择营业开始时间');
-                    return false;
-                }
-                if($('#iform :input[id=openEnd]').val() == ""){
-                    layer.confirm('请选择营业结束时间');
-                    return false;
-                }
-                if($('#iform :input[id=telephone]').val() == ""){
-                    layer.confirm('请填写对外联系电话');
-                    return false;
-                }
-                if($('#iform :input[id=outpic]').val() == ""){
-                    layer.confirm('请选择要上传的门头照片');
-                    return false;
-                }
-                if($('#iform :input[id=innerpic]').val() == ""){
-                    layer.confirm('请选择要上传的店内照片');
-                    return false;
-                }
-                if($('#iform :input[id=licensepic]').val() == ""){
-               	 layer.confirm('请选择营业执照货房屋租赁协议照片');
-                    return false;
-                }
-                if($('#iform :input[id=proposerName]').val() == ""){
-                    layer.confirm('请填写签约人姓名');
-                    return false;
-                }
-                if($('#iform :input[id=proposerPhone]').val() == ""){
-                    layer.confirm('请填写签约人电话');
-                    return false;
-                }
-                if($('#iform :input[id=card_type]').val() == ""){
-                    layer.confirm('请选择证件类型');
-                    return false;
-                }
-                if($('#iform :input[id=proposer_card_id]').val() == ""){
-                    layer.confirm('请输入证件号码');
-                    return false;
-                }
-                if($('#iform :input[id=idcardf]').val() == ""){
-                    layer.confirm('请选择要上传的证件照片正面');
-                    return false;
-                }
-                if($('#iform :input[id=idcardb]').val() == ""){
-                    layer.confirm('请选择要上传的证件照片反面');
-                    return false;
-                }
-                if(!document.getElementById("isnot").checked){
-                    layer.confirm('请勾选确认签约！');
-                    return false;
-                }
-                
-                return true;
-            };
-            
-
-        });
-        
-        function joinUs(){
-         			layer.open({
-                    type: 0,
-                    title: '加盟协议',
-                    area: ['800px', '360px'],
-                    //btn: ['接受', '拒绝'],
-                    shadeClose: false, //点击遮罩关闭
-                    content: $('#confirm').html(),
-                    yes: function (index, layero) {
-                        //layer.msg('您已同意加盟协议，请填写加盟信息');
-                        layer.close(index);
-                        $("#isnot").attr("checked",true);
-                    },
-                    cancel: function (index) {
-                        //layer.msg('您未同意加盟协议，回到首页');
-                        //location.href = "/";
-                    }
-                });	
-        }
-
-    </script>
+    
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
 <body><iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	
-
 
 <style type="text/css">
 .s_code_pickup {
@@ -488,12 +80,9 @@
 <div id="header-top">
 	<div id="header-top-content" class="clearfix">
 		<div class="fll lh20">
-			
-				
+
 					<div class="headerInfoBeforeLogin">宝，欢迎来到宅小递！</div>
-				
-				
-			
+	
 		</div>
 		<div class="flr">
 			<ul>
@@ -510,14 +99,10 @@
 	</div>
 </div>
 <div id="header-logo" class="clearfix">
-	
 	<div class="fll">
-		
-			
+
 				<a href="http://www.shouhuobao.com/merchant"><img alt="" src="image/merchant-logo.jpg"></a>
-			
-			
-		
+	
 	</div>
 	<div class="flr">
 
@@ -525,80 +110,10 @@
 	<input id="_merchantReceivePointId" value="" type="hidden"> <input id="merchantPhoneHidden" type="hidden">
 </div>
 <div id="maskLayer" class="modal-backdrop fade hide" style="z-index: 2000;">
-	<img alt="" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/loading-big.gif" style="left: 50%; margin-left: -62px; margin-top: 18%; position: absolute;">
-</div>
-<!-- 手机版下载 -->
-<div class="modal hide fade" id="mobileDownloadWindow" style="width: 700px;">
-	<div class="modal-header">
-		<a class="close" data-dismiss="modal">×</a>
-		<h3>手机版下载</h3>
-	</div>
-	<div class="modal-body" style="overflow: inherit;">
-		<form class="bs-docs-example form-horizontal">
-			<div class="alert alert-info mb20 cb">
-				<p>
-					<strong>商户中心手机版，无需开电脑，使用更方便！</strong> <a target="_blank" class="flr blue" href="http://www.shouhuobao.com/merchant/help/help-center.html?cat=Zero&amp;item=modify-phone">查看手机版使用帮助＞＞</a>
-				</p>
-			</div>
-			<div class="fll mb20" style="width: 320px;">
-				<ul>
-					<li style="list-style-type: disc; height: 25px;">包裹签收，用户取件，新建快件等功能使用更便捷！</li>
-					<li style="list-style-type: disc; height: 25px;">运单号无需输入，直接扫描二维码即可！</li>
-					<li><img alt="" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/phone_receive.jpg"></li>
-					<li>店小三Android版</li>
-				</ul>
-			</div>
-			<div class="flr mb20" style="width: 320px;">
-				<ul>
-					<li class="clearfix h30"><span class="botton_serial1"></span><b>扫描二维码，获取下载地址</b></li>
-					<li class="clearfix"><div class="fll w100 ml20">
-							<img alt="" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/ewm.jpg">
-						</div>
-						<div class="flr w170">使用您手机上的条码扫描程序扫描下面的二维码，即可获得下载链接。</div></li>
-					<li class="clearfix h30"><span class="botton_serial2"></span><b>填写手机号，短信获取下载地址</b></li>
-					<li><input name="sss" placeholder="预制老板手机号" id="userPointPhone" class="ml20" disabled="disabled" type="text"> <input name="button" class="phonedownload ml10" style="width: 48px;" onclick="login.sendDownloadHref()" id="sendSuccess" value="发送" type="button">
-						<br>
-						<p class="red ml20 none" id="sendTips">已发送成功，请注意查收</p></li>
-					<li class="clearfix h30"><span class="botton_serial3"></span><b>直接电脑下载，下载后手动安装</b></li>
-					<li><a href="http://www.shouhuobao.com/file/app/dianxiaosan-android/PoseidonShop.apk" target="_blank" class="ml20 phonedownload">立即下载</a></li>
-					<li><p class="ml20">下载安装文件后，通过数据线或者读卡器传输到手机存储卡中，在文件管理器中执行安装。</p></li>
-				</ul>
-			</div>
-		</form>
-	</div>
-</div>
-<div id="qrcodeModal" class="modal hide fade in" aria-hidden="false">
-	<div class="modal-header">
-		<a data-dismiss="modal" class="close">×</a>
-		<h3>扫描关注官方微信</h3>
-	</div>
-	<div style="overflow: inherit; text-align: center;" class="modal-body">
-		<img alt="" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/qrcode_big.jpg" width="400px" height="400px">
-	</div>
-	<div class="modal-footer">
-		<a data-dismiss="modal" class="btn" href="#">关闭</a>
-	</div>
+	<img alt="" src="image/loading-big.gif" style="left: 50%; margin-left: -62px; margin-top: 18%; position: absolute;">
 </div>
 
-<!-- 支付弹出层 -->
-<form id="payForm" action="pay-success-page.html" method="post">
-	<div id="layer-pay" class="modal hide fade in" aria-hidden="false">
-		<input name="orderId" id="accountNumberForPay" type="hidden">
-		<div class="modal-header">
-			<a id="btnCancel_pay" data-dismiss="modal" class="close">×</a>
-			<h3>网上支付提示</h3>
-		</div>
-		<div class="recordInfo">
-			
-				<div class="control-group tac">支付完成前，请不要关闭此支付验证窗口</div>
-				<div class="control-group tac">支付完成后，请根据您支付的情况点击下面按钮</div>
-			
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-primary" id="pay_finish">支付完成</button>
-			<a href="#" class="btn" id="pay_problem">支付遇到问题</a>
-		</div>
-	</div></form>
+
 
 <!--  
 
@@ -665,65 +180,7 @@
         <div class="zln-join">
             <div class="zln-join_in">
                 <h4>请填写注册信息</h4>
-                <!-- 流程块 -->
-              <!--   <div class="zln-liuchen">
-                    第一步 经过时有一个hover样式
-                    <dl class="zln-hover">
-                        <dt>
-                        <div class="zln-dldl"><span>填写注册信息</span><font><img src="image/join_03.jpg" width="9" height="6"></font></div>
-                        </dt>
-                        <dd>
-                            <div class="zln-yuan">
-                                <div class="zln-yuan_img"></div>
-                                <div class="zln-yuan_hover"></div>
-                            </div>
-                            <div class="zln-size"></div>
-                        </dd>
-                    </dl>
-                    第二步
-                    <dl>
-                        <dt>
-                        <div class="zln-dldl"><span>申请报名</span><font><img src="image/join_03.jpg" width="9" height="6"></font></div>
-                        </dt>
-                        <dd>
-                            <div class="zln-yuan">
-                                <div class="zln-yuan_img">
-                                    <div class="zln-yuan_hover"></div>
-                                </div>
-                            </div>
-                            <div class="zln-size">资格审核</div>
-                        </dd>
-                    </dl>
-                    第三步
-                    <dl>
-                        <dt>
-                        <div class="zln-dldl"><span>申请报名</span><font><img src="image/join_03.jpg" width="9" height="6"></font></div>
-                        </dt>
-                        <dd>
-                            <div class="zln-yuan">
-                                <div class="zln-yuan_img">
-                                    <div class="zln-yuan_hover"></div>
-                                </div>
-                            </div>
-                            <div class="zln-size">签约</div>
-                        </dd>
-                    </dl>
-
-                    第四步
-                    <dl>
-                        <dt>
-                        <div class="zln-dldl"><span>申请报名</span><font><img src="image/join_03.jpg" width="9" height="6"></font></div>
-                        </dt>
-                        <dd>
-                            <div class="zln-yuan  bgno">
-                                <div class="zln-yuan_img">
-                                    <div class="zln-yuan_hover"></div>
-                                </div>
-                            </div>
-                            <div class="zln-size">开通上线</div>
-                        </dd>
-                    </dl>
-                </div> -->
+             
                 <form class="form-horizontal" action="merchant-add.html" method="post" id="iform" enctype="multipart/form-data">
                     <div class="f14 mt20">请您认真填写下列信息，有助于提供审核通过几率，谢谢您的认真填写</div>
 
@@ -731,8 +188,8 @@
                         <div class="zln-join_title"><span>验证信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>手机号</span>
-                                <input id="vphone" name="receivePointJoin.vphone" class="zln-text1" maxlength="11" type="text">
-                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码" disabled="disabled" type="button">
+                                <input id="vphone" name="vphone" class="zln-text1" maxlength="11" type="text">
+                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码" disabled="disabled" type="button" onclick="getCaptcha()">
                             </li>
                             <li class="zln-li1"><span>手机验证码</span>
                                 <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="4" type="text">
@@ -926,6 +383,8 @@
             <img src="image/copyRight.jpg" class="bh-fr"></div>
     </div>
 </div>
+
+
 <script type="text/javascript" src="js/map.js"></script>
 <script type="text/javascript" src="js/tripledes.js"></script>
 <script type="text/javascript" src="js/jquery_003.js"></script>
@@ -944,32 +403,27 @@
 <script type="text/javascript" src="js/qrcode.js"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 
-
-<script type="text/javascript">
-	app.ctx = '/merchant';
-	app.staticUrlPrefix = '/merchant';
-	var __currentLoginUserIno = '';
-	
-	
+<script>
+function joinUs(){
+		layer.open({
+    type: 0,
+    title: '加盟协议',
+    area: ['800px', '360px'],
+    //btn: ['接受', '拒绝'],
+    shadeClose: false, //点击遮罩关闭
+    content: $('#confirm').html(),
+    yes: function (index, layero) {
+        //layer.msg('您已同意加盟协议，请填写加盟信息');
+        layer.close(index);
+        $("#isnot").attr("checked",true);
+    },
+    cancel: function (index) {
+        //layer.msg('您未同意加盟协议，回到首页');
+        //location.href = "/";
+    }
+});	
+}
 </script>
-<script type="text/javascript">
-	/**
-	百度统计* 
-	 */
-	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
-			: " http://");
-	document
-			.write(unescape("%3Cscript src='"
-					+ _bdhmProtocol
-					+ "hm.baidu.com/h.js%3F450f34e18b8751446775cba4abdb88c2' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="js/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=450f34e18b8751446775cba4abdb88c2" target="_blank"><img src="image/21.gif" width="20" height="20" border="0"></a>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			if ($('#_merchantReceivePointId').val() == "") {
-				$(".headerInfoAfterLogin").hide();
-			}
-		});
-	</script>
 
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
  <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" frameborder="0"></iframe></div>
