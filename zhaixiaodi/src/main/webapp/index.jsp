@@ -116,7 +116,7 @@
 				target="_blank"><img src="image/banner-3.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
 				href="http://www.shouhuobao.com/shooter/index%21introduction.html"
-				target="_blank"><img src="image/banner-4.jpg"></a></li>
+				target="_blank"><img src="image/banner-2.jpg"></a></li>
 		</ul>
 		<div class="slidetabs">
 			<span class="" style="transition: all 0.5s ease 0s;"></span>
@@ -398,10 +398,10 @@
 			<h3 class="com-title">关注我们</h3>
 			<ul class="bh-overf guanzhul">
 				<li>
-					<div class="guanzhuwms">
+					<!-- <div class="guanzhuwms">
 						<img src="image/shbwx.jpg"><span class="shbwx1">我要代收货
 						</span><i>关注宅小递微信</i>
-					</div>
+					</div> -->
 					<div class="guanzhuTan guanzhu1">
 						<p>
 							<img src="image/shbwxda.jpg" class="daimgs"><img
@@ -412,7 +412,7 @@
 				<li>
 					<div class="guanzhuwms">
 						<img src="image/shbwxq.jpg"><span
-							style="background-color: #fcd020;" class="shbwx1">我要发快递 </span><i>关注裹儿快递微信</i>
+							style="background-color: #fcd020;" class="shbwx1">我要发快递 </span><i>关注宅小递快递微信</i>
 					</div>
 					<div class="guanzhuTan guanzhu1">
 						<p>
@@ -422,10 +422,10 @@
 					</div>
 				</li>
 				<li class="mobileShow">
-					<div class="guanzhuwms">
+					<!-- <div class="guanzhuwms">
 						<img src="image/newsbd.jpg"><span><a
 							href="http://www.shouhuobao.com/shooter/news.html">媒体最新报道</a></span><i>双11物流进入高峰</i>
-					</div>
+					</div> -->
 
 				</li>
 			</ul>
