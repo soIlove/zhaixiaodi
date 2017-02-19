@@ -146,15 +146,6 @@
 							<span><a href="http://www.paidai.com/more.php?cid=49">天天快递<em>(167)</em></a></span>
 							<span><a href="http://www.paidai.com/more.php?cid=26">中通快递<em>(148)</em></a></span>
 							<span><a href="http://www.paidai.com/more.php?cid=39">全峰快递<em>(80)</em></a></span>
-							<!-- <!-- <span><a href="http://www.paidai.com/more.php?cid=37">论坛公告<em>(71)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=50">微商<em>(53)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=36">仓储管理<em>(53)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=44">客服攻略<em>(37)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=51">跨境电商<em>(27)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=45">找服务商<em>(2)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=48">找淘宝客<em>(2)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=47">货源供求<em>(2)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=news">资讯<em>(3800)</em></a></span> --> -->
 							<span><a href="http://www.paidai.com/more.php">全部(15494)</a></span>
 						</dd>
 					</dl>
@@ -179,10 +170,10 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/549785">D4-110</a> <em
 									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s">￥5</em>
+									class="collectNum li_s"><span class="money">￥5</span></em><span style="margin-left:100px;border-style: ">我要抢单</span>
 							</div>
 							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！jfkahfd接发就发发就开始发烧的金风科技啊回复阿萨德</div>
 						</div>
 					</li>
 					<li class="topic ">
@@ -199,7 +190,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://news.paidai.com/18032">D6-333</a> <em
 									class="li_s">8小时前</em> <em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s">￥10</em>
+									class="collectNum li_s"><span class="money">￥10</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
@@ -221,7 +212,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/161676">D6-330</a> <em
 									class="li_s">9小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s">￥7</em>
+									class="collectNum li_s"><span class="money">￥7</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
@@ -243,7 +234,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/1473927">D2-333</a> <em
 									class="li_s">9小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s">￥7</em>
+									class="collectNum li_s"><span class="money">￥7</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
@@ -265,7 +256,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/1167891">D1-223</a> <em
 									class="li_s">9小时前</em> <em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s">￥12</em>
+									class="collectNum li_s"><span class="money">￥12</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上，谢谢</div>
@@ -285,7 +276,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://news.paidai.com/18031">C5-103</a> <em
 									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s">￥5</em>
+									class="collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
@@ -308,7 +299,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/643883">D5-203</a> <em
 									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s">￥6</em>
+									class="collectNum li_s"><span class="money">￥6</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">云喇叭圆通速递，尽量中午，谢谢</div>
@@ -330,7 +321,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/3">D4-401</a> <em class="li_s">9小时前</em>
 								<em class="active_readNum li_s">大包裹</em><em
-									class="active_collectNum li_s">￥13</em>
+									class="active_collectNum li_s"><span class="money">￥13</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，如果我不在寝室我室友会帮我代领一下，谢谢</div>
@@ -353,7 +344,7 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/357829">D1-401</a> <em
 									class="li_s">7小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="active_collectNum li_s">￥5</em>
+									class="active_collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上送过来，谢谢</div>
@@ -361,11 +352,6 @@
 					</li>
 				</ul>
 
-				<!-- <div class="more" style="margin-top: 20px">
-					<p>
-						<a href="page/moreExpress.jsp" title="更多快递">更多快递</a>
-					</p>
-				</div> -->
 			</div>
 			<div class="page-sep-wrap">
 				<div class="page-sep">
