@@ -2708,7 +2708,7 @@ div.autoDiv{
 
 /* 代递列表 */
 #topic_list{margin-bottom:10px;}
-#topic_list .li_1{color:#336699; height:16px; line-height:16px;}
+#topic_list .li_1{color:#336699; height:16px; line-height:16px; }
 #topic_list .li_1 a {color:#336699; font-size:14px;}
 #topic_list .li_1 a:visited {color:#482872;}
 #topic_list .li_1 span{float:right; height:18px; margin-right:12px;}
@@ -2733,6 +2733,9 @@ div.autoDiv{
 .topic .u_photo a{display:block; padding:1px; border:1px solid #D3D7DA;}
 .topic .u_post{float:left; margin-left:12px; width:630px;}
 .topic .u_post .i_title{width:534px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+.topic .btn_order{position:absolute;width:90px;height:35px;background-color: green;margin-left:490px;margin-top:5px;}
+
 
 /* 订单奖励金额，送货地点等 */
 .active_readNum, .readNum {background: url(http://static.epaidai.com/images/bbs/read_iconh.gif?v=2) no-repeat 0 3px;padding-left: 16px;line-height: 14px;}
