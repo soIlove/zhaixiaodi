@@ -34,4 +34,12 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource"/>
 	</bean>
+	
+	 <!-- 指定可以做为spring容器管理的对象的包 -->
+    <context:component-scan base-package="com.yc.zxd"/>
+		 <!--以注解的方式把连接点与切入点关联起来
+    		 		@Transactional
+    		   -->
+    		   <tx:annotation-driven transaction-manager="transactionManager"/>
+    		    <aop:aspectj-autoproxy/><!-- 自动切入 -->
 </beans>

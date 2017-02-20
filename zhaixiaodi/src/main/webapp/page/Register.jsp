@@ -40,9 +40,12 @@
     <script src="js/uploadPreview.js" type="text/javascript"></script>
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/api" type="text/javascript"></script><script type="text/javascript" src="js/getscript"></script>
-    
+     <script src="js_1/Register.js" type="text/javascript"></script>
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
+<script type="text/javascript" src="js_1/jquery-1.12.4.js" ></script>
+
+
 <body><iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	
 
@@ -146,10 +149,10 @@
                 <!--已关注-->
                 <li class="h-sina" style="display:none;">
                     <div class="sina-followed">
-                        <wb:follow-button uid="2137795655" type="red_1" width="67" height="24" class="gz3"><iframe src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/followbutton_002.htm" scrolling="no" marginheight="0" width="67" height="24" frameborder="0"></iframe></wb:follow-button>
+                        <wb:follow-button uid="2137795655" type="red_1" width="67" height="24" class="gz3"><iframe src="htm/followbutton_002.htm" scrolling="no" marginheight="0" width="67" height="24" frameborder="0"></iframe></wb:follow-button>
                     </div>
                 </li>
-                <li class="h-tel"><em></em><img src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/tel.jpg"></li>
+                <li class="h-tel"><em></em><img src="image/tel.jpg"></li>
             </ul>
         </div>
     </div>
@@ -181,27 +184,27 @@
             <div class="zln-join_in">
                 <h4>请填写注册信息</h4>
              
-                <form class="form-horizontal" action="merchant-add.html" method="post" id="iform" enctype="multipart/form-data">
+                <form class="form-horizontal" action="" method="post" id="iform" enctype="multipart/form-data">
                     <div class="f14 mt20">请您认真填写下列信息，有助于提供审核通过几率，谢谢您的认真填写</div>
-
+						
                     <div class="zln-join_box zln-c">
                         <div class="zln-join_title"><span>验证信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>手机号</span>
                                 <input id="vphone" name="vphone" class="zln-text1" maxlength="11" type="text">
-                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码" disabled="disabled" type="button" onclick="getCaptcha()">
+                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码"  type="button" onclick="getCaptcha()">
                             </li>
                             <li class="zln-li1"><span>手机验证码</span>
-                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="4" type="text">
+                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="6" type="text">
                                 <input id="vaild" name="vaild" type="hidden"></li>
-                                
+                      
                               <li class="zln-li1"><span>登录密码</span>
-                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="4" type="password">
-                                <input id="vaild" name="vaild" type="hidden"></li>
+                                <input class="zln-text1" id="password" name="password" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
+                              </li>
                                 
                                  <li class="zln-li1"><span>确认密码</span>
-                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="4" type="password">
-                                <input id="vaild" name="vaild" type="hidden"></li>
+                                <input class="zln-text1" id="password02" name="password02" maxlength="12" type="password" placeholder="请再次确认密码">
+                               </li>
                             
                         </ul>
                     </div>
@@ -211,14 +214,14 @@
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>用户昵称</span>
-                                <input id="proposerName" name="receivePointJoin.proposerName" class="zln-text1" type="text"> <font></font>
+                                <input id="proposerName" name="zname" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
                              <li class="zln-li1"><span>用户性别</span>
                               &nbsp;<input type="radio" name="Sex" value="man" checked="checked"> &nbsp;男&nbsp;&nbsp;<input type="radio" name="Sex" value="womale"/>  &nbsp; 女
                                
                             </li>
                             <li class="zln-li1"><span>联系电话</span>
-                                <input id="proposerPhone" name="receivePointJoin.proposerPhone" class="zln-text1" type="text"> <font></font>
+                                <input id="proposerPhone" name="receivePointJoin.proposerPhone" class="zln-text1" type="text" required="required"> <font></font>
                             </li>
                                <li class="zln-li1"><span>用户邮箱</span>
                                 <input id="proposerPhone" name="receivePointJoin.proposerPhone" class="zln-text1" type="text"> <font></font>
@@ -259,14 +262,14 @@
                                 <div class="zln-c hint1">*像素要求必须为640*340像素，支持.jpg .jpeg .bmp .png格式，大小不超过5M</div> -->
                             </li>
                             <li class="zln-li1" style="padding-left:153px;color:#000;font-size:14px">
-                                <input id="isnot" name="isnot" type="checkbox"> 同意协议 <a href="javascript:void(null)" onclick="joinUs();" style="color:#00f">点击查看协议条款&gt;&gt;</a>
+                                <input id="isnot" name="isnot" type="checkbox" required="required"> 同意协议 <a href="javascript:void(null)" onclick="joinUs();" style="color:#00f">点击查看协议条款&gt;&gt;</a>
                             </li>
                             <li class="zln-dtest zln-li1"><span>&nbsp;</span>
 
                                 <div class="zln-libt_a">
                                 	
-                                    <input id="submitOk" value="完成注册" class="zln-button" type="button">
-
+                                    <!-- <input id="submitOk" value="完成注册" class="zln-button" type="button"> -->
+									 <button id="submitOk" value="完成注册" class="zln-button" >完成注册</button>
                                     <!-- 等待 -->
                          
                                     <!-- 完成 -->
@@ -424,7 +427,7 @@ function joinUs(){
 });	
 }
 </script>
-
+<script src="js_1/Register.js" type="text/javascript"></script>
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
- <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" frameborder="0"></iframe></div>
+ <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" ></iframe></div>
 </body></html> 
