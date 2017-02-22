@@ -44,6 +44,7 @@
 	</bean>
  -->
 	<!-- 配制mybatis与spring整合的SqlSessionFactory的对象 -->
+<<<<<<< HEAD
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.yc.zxd.entity" />
@@ -72,4 +73,21 @@
 	
 	
 	
+=======
+	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource"/>
+	</bean> -->
+	
+	<!-- 配置mybatis与spring整合的SQLSessionFactory的对象      mybatis-spring里面 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource"/>
+    	<property name="typeAliasesPackage" value="com.yc.zxd.entity"/>
+    	<property name="mapperLocations" value="classpath:mapper/*Mapper.xml"/>
+    </bean>
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="com.yc.zxd.mapper"/>
+    	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+>>>>>>> branch 'master' of https://github.com/soIlove/zhaixiaodi.git
 </beans>

@@ -154,7 +154,7 @@
 			</div>
 			<div class="l_box_list" id="topic_list">
 				<ul>
-					<li class="topic ">
+					<li class="topic">
 						<div class="u_photo">
 							<a href="http://my.paidai.com/549785" target="_blank"><img
 								src="image/85_avatar_m.jpg"
@@ -162,6 +162,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1176811" target="_blank"
@@ -170,10 +171,11 @@
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="http://my.paidai.com/549785">D4-110</a> <em
 									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥5</span></em><span style="margin-left:100px;border-style: ">我要抢单</span>
+									class="collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！jfkahfd接发就发发就开始发烧的金风科技啊回复阿萨德</div>
+
 						</div>
 					</li>
 					<li class="topic ">
@@ -182,6 +184,7 @@
 								src="image/120-10.png" height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://news.paidai.com/18032" target="_blank"
@@ -204,6 +207,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1175968" target="_blank"
@@ -226,6 +230,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1173633" target="_blank"
@@ -248,6 +253,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1176048" target="_blank"
@@ -268,6 +274,7 @@
 								src="image/120-3.png" height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://news.paidai.com/18031" target="_blank"
@@ -290,8 +297,8 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
-
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1175283" target="_blank"
 									title="整理几个差评，逗蒙了，忙累了来乐一乐">圆通快递</a>
@@ -313,6 +320,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
 									href="http://bbs.paidai.com/topic/1176114" target="_blank"
@@ -335,6 +343,7 @@
 								height="48" width="48"></a>
 						</div>
 						<div class="u_post">
+							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"

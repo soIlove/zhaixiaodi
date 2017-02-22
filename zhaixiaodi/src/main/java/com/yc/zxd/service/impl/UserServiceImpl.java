@@ -3,6 +3,7 @@ package com.yc.zxd.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import com.yc.zxd.mapper.UserMapper;
 import com.yc.zxd.service.UserService;
 
@@ -41,6 +42,21 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 		return true;
+=======
+import com.yc.zxd.entity.User;
+import com.yc.zxd.mapper.UserMapper;
+import com.yc.zxd.service.UserService;
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserMapper userMapper;
+	
+	@Override
+	public User login(User user) {
+		//user.setPassword(Encrypt.md5AndSha(user.getPassword()));
+		return userMapper.getUser(user);
+>>>>>>> branch 'master' of https://github.com/soIlove/zhaixiaodi.git
 	}
 
 }
