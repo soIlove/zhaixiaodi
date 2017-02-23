@@ -1,4 +1,4 @@
-package com.yc.zxd.service.impl;
+package com.yc.zxd.filter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterConfig;

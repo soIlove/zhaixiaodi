@@ -1,6 +1,6 @@
 function getCaptcha(){
-	var phonenum=$("#vphone").val();
-	$.post("zxduser/captcha",{"vphone":phonenum},function (data){				
+	var phonenum=$("#uphone").val();
+	$.post("zxd/captcha",{"uphone":phonenum},function (data){				
 		$("#vaild").val(data);
 	},"json")
 	
@@ -24,8 +24,8 @@ function getCaptcha(){
 				
 }
 
-$("#vphone").blur(function(){
-	 var phoneNum = $("#vphone").val();
+$("#uphone").blur(function(){
+	 var phoneNum = $("#uphone").val();
     if (phoneNum.length == 11) {
         var isPhone = /^1[3-9]\d{9}$/;
         if (isPhone.test(phoneNum)) {
@@ -55,7 +55,7 @@ $("#vaildNum").blur(function(){
 })
 
 $("#password02").blur(function(){
-		var password1=$("#password").val();
+		var password1=$("#upwd").val();
 		var password2=$("#password02").val();
 		if(password2!=password1){
 			alert("两次密码不统一,请重新输入");
@@ -63,9 +63,15 @@ $("#password02").blur(function(){
 	
 })
 
-$("submitOk").onclick(function(){
-		var param=$("#iform").serialize();
+function Register(){
+		var param=$("#iform").serialize()+"&upicture="+$("input[name='upicture']").val();
+		alert(param);
+		$.post("zxd/Register",param,function(data){
+				alert("成功了")
+		},"json")
 		
-		
-	
-})
+}
+function addpic(obj){
+	var picStr = window.URL.createObjectURL(obj.files[0]);
+	$("#upicimage").attr("src", picStr);
+};

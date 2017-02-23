@@ -191,7 +191,7 @@
                         <div class="zln-join_title"><span>验证信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>手机号</span>
-                                <input id="vphone" name="vphone" class="zln-text1" maxlength="11" type="text">
+                                <input id="uphone" name="uphone" class="zln-text1" maxlength="11" type="text">
                                 <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码"  type="button" onclick="getCaptcha()">
                             </li>
                             <li class="zln-li1"><span>手机验证码</span>
@@ -199,13 +199,13 @@
                                 <input id="vaild" name="vaild" type="hidden"></li>
                       
                               <li class="zln-li1"><span>登录密码</span>
-                                <input class="zln-text1" id="password" name="password" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
+                                <input class="zln-text1" id="upwd" name="upwd" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
                               </li>
                                 
                                  <li class="zln-li1"><span>确认密码</span>
                                 <input class="zln-text1" id="password02" name="password02" maxlength="12" type="password" placeholder="请再次确认密码">
                                </li>
-                            
+                             
                         </ul>
                     </div>
                   
@@ -214,17 +214,19 @@
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>用户昵称</span>
-                                <input id="proposerName" name="zname" class="zln-text1" type="text" placeholder="" > <font></font>
+                                <input id="uname" name="uname" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
                              <li class="zln-li1"><span>用户性别</span>
-                              &nbsp;<input type="radio" name="Sex" value="man" checked="checked"> &nbsp;男&nbsp;&nbsp;<input type="radio" name="Sex" value="womale"/>  &nbsp; 女
+                              &nbsp;<input type="radio" name="usex" value="男" checked="checked"> &nbsp;男&nbsp;&nbsp;<input type="radio" name="usex" value="女"/>  &nbsp; 女
                                
                             </li>
-                            <li class="zln-li1"><span>联系电话</span>
-                                <input id="proposerPhone" name="receivePointJoin.proposerPhone" class="zln-text1" type="text" required="required"> <font></font>
-                            </li>
+                           
                                <li class="zln-li1"><span>用户邮箱</span>
-                                <input id="proposerPhone" name="receivePointJoin.proposerPhone" class="zln-text1" type="text"> <font></font>
+                                <input id="uemail" name="uemail" class="zln-text1" type="text"> 
+                            </li>
+                             
+                               <li class="zln-li1"><span>所在学校</span>
+                                <input id="uaddr" name="uaddr" class="zln-text1" type="text"> 
                             </li>
                             
                            <!--  <li class="zln-li1"><span>证件类型</span>
@@ -249,8 +251,8 @@
                           <b class="need">(点我)</b></span>
 
                                 <div class="zw">
-                                    <input name="idcardf1" id="idcardf" style="display:none" onclick="" multiple="" type="file">
-                                    <a href="" onclick="document.getElementById('idcardf').click();return false;"><div id="divdcardf"><img id="imgidcardf" src="image/zw.jpg"></div></a>
+                                    <input name="upicture" id="upicture" style="display:none" multiple="multiple" type="file" onchange="addpic(this)">
+                                    <a href="" onclick="document.getElementById('upicture').click();return false;"><div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
                                 </div>
                           <!--   <span class="last">证件照片<br>
                                 <b class="need">（背面）</b></span>
@@ -268,8 +270,8 @@
 
                                 <div class="zln-libt_a">
                                 	
-                                    <!-- <input id="submitOk" value="完成注册" class="zln-button" type="button"> -->
-									 <button id="submitOk" value="完成注册" class="zln-button" >完成注册</button>
+                                    <input id="submitOk" value="完成注册" class="zln-button" type="button" onclick="Register()">
+									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
                                     <!-- 等待 -->
                          
                                     <!-- 完成 -->
@@ -381,8 +383,8 @@
     <div class="com-w">
         
        <div class="copyRight bh-overf">
-            <p><span>©2011-2015 Shouhuobao.com 版权所有</span><span class="copyright-icp">京ICP证110890号   京ICP备11018594号-1<b>京公网安备编号：110105013415</b></span>
-                <span class="copyAddress">公司地址：北京市朝阳区小关北里甲2号渔阳置业大厦B403室</span></p>
+            <p><span>©2017-2027 Zhaixiaodi.com 版权所有</span><span class="copyright-icp">湘ICP证110890号   湘ICP备11018594号-1<b>京公网安备编号：110105013415</b></span>
+                <span class="copyAddress">公司地址：湖南省衡阳市珠晖区湖南工学院</span></p>
             <img src="image/copyRight.jpg" class="bh-fr"></div>
     </div>
 </div>
