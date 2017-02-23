@@ -18,7 +18,7 @@ function verify() {
 	}
 	code = {"code" : code};
 	var result = false;
-	$.post("user/verifyCode", code, function(data) {
+	$.post("zxd/verifyCode", code, function(data) {
 		if (data) {
 			var username = $("input[name='username']").val();
 			window.location.href = "htm/findPwd2.html?username=" + username;
@@ -54,7 +54,7 @@ function confirmCode() {
 	var result = false;
 	if(code.length <= 4){
 		code = {"code" : code};
-		$.post("user/verifyCode", code, function(data) {
+		$.post("zxd/verifyCode", code, function(data) {
 			if (data) {
 				$("#code").text("");
 				result = true;
@@ -64,7 +64,6 @@ function confirmCode() {
 		}, "json");
 	}
 	
-//	alert("验证码:"+result);
 	return result;
 }
 
@@ -72,7 +71,6 @@ function editPwd() {
 	var result = false;
 	check();// 检查验证
 	confirm();// 检查两次密码
-//	alert("最后验证码:"+confirmCode());
 	if ($("#repwd_span").text().length<=1 && $("#pwd_span").text().length<=1
 			&& $("#code").text().length<=1) {// 校验验证码
 		result = true;
@@ -82,15 +80,6 @@ function editPwd() {
 	password = {
 		"password" : password
 	};
-	// $.post("user/editPwd",password,function(data){
-	// if(data){
-	// alert("验证码正确!");
-	// result=true;
-	// }else{
-	// alert("验证码错误!");
-	//				 
-	// }
-	// },"json");
-	alert("是否提交:"+result);
+	 
 	return result;
 }

@@ -6,7 +6,7 @@ $("input[name='username']").blur(function(){
 	 }
 	 
 	tel={"tel":tel};
-	$.post("user/check",tel,function(data){
+	$.post("zxd/check",tel,function(data){
 		if(!data){
 			if($("#IDErrer") != null){
 				$("input[name='username']").after("<lable  id='IDErrer' style='color: red'  >账号不存在</lable>");
@@ -28,7 +28,7 @@ $("input[name='username']").blur(function(){
 		 return;
 	}
 	code={"code":code};
-	$.post("user/verifyCode",code,function(data){
+	$.post("zxd/verifyCode",code,function(data){
 		if(data){
 			var username=$("input[name='username']").val();
 			window.location.href="htm/findPwd2.html?username="+username;

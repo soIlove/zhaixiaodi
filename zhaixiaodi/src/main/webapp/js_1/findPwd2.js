@@ -6,7 +6,7 @@ $(document).ready(function(){
 	}
 	$("#tel").val(tel);
 	tel={"tel":tel};
-	$.post("user/getMail",tel,function(data){
+	$.post("zxd/getMail",tel,function(data){
 		if(data != null){
 			$("#mail").val(data);
 			$(".red").html(data);
@@ -19,7 +19,7 @@ $(document).ready(function(){
 function sendMail(   email ){
 	email={"email":email};
 	alert("验证码正在前往邮箱!!!!请耐心等候");
-	$.post("user/sendMail",email,function(data){
+	$.post("zxd/sendMail",email,function(data){
 		if(data){
 			alert("邮件发送成功,请注意查收!!!");
 		}else{
@@ -43,7 +43,7 @@ function verify(){
 	}
 	code={"code":code};
 	var result=false;
-	$.post("user/verifyCode",code,function(data){
+	$.post("zxd/verifyCode",code,function(data){
 		if(data){
 			result= true;
 			var tel= GetQueryString("username") ;
