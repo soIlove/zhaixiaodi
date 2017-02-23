@@ -1,18 +1,42 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与对应映射接口的全类名一致 -->
 <mapper namespace="com.yc.zxd.mapper.UserMapper">
-	<!-- <update id="updateUser" parameterType="User">
-	    update t_admin set password=#{password} where username=#{username}
+	
+	
+	<!-- 定义sql语句  变量 -->
+	<sql id="selectProfile">
+		select * from ZUSERS
+	</sql>
+
+	<select id="findUser" parameterType="String" resultType="String">
+		<include refid="selectProfile"/>  where  uphone=#{tel}
+	</select>
+	
+<<<<<<< HEAD
+	<insert id="RegisterUser" parameterType="User"  >
+			insert into zusers  values(seq_zusers.nextval,#{upwd},#{uname},#{uphone},#{uemail},#{usex},#{upicture},#{uaddr},0,null,null)
+	</insert>
+=======
+	<select id="getMail" parameterType="String" resultType="String">
+		select uemail from ZUSERS  where  uphone=#{tel}
+	</select>
+	
+	<update id="editPwdByTel" parameterType="Zusers"  >
+		update ZUSERS set  upwd=#{password} where  uphone=#{tel}
 	</update>
-	 -->
 	
 	<select id="getUser" parameterType="User" resultType="User">
 	    select * from zusers where uphone=#{uphone} and  upwd = #{upwd}
 	</select>
-	
-	<insert id="RegisterUser" parameterType="User"  >
-			insert into zusers  values(seq_zusers.nextval,#{upwd},#{uname},#{uphone},#{uemail},#{usex},#{upicture},#{uaddr},0,null,null)
-	</insert>
+
+
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 </mapper>
+
+
+
+
+
