@@ -15,11 +15,11 @@
 		<include refid="selectProfile"/>  where  uphone=#{tel}
 	</select>
 	
-<<<<<<< HEAD
+
 	<insert id="RegisterUser" parameterType="User"  >
 			insert into zusers  values(seq_zusers.nextval,#{upwd},#{uname},#{uphone},#{uemail},#{usex},#{upicture},#{uaddr},0,null,null)
 	</insert>
-=======
+
 	<select id="getMail" parameterType="String" resultType="String">
 		select uemail from ZUSERS  where  uphone=#{tel}
 	</select>
@@ -32,8 +32,6 @@
 	    select * from zusers where uphone=#{uphone} and  upwd = #{upwd}
 	</select>
 
-
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 </mapper>
 
 

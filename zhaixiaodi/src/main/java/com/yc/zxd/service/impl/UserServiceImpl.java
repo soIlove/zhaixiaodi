@@ -48,17 +48,17 @@ public class UserServiceImpl implements UserService {
 	public User login(User user) {
 		//user.setPassword(Encrypt.md5AndSha(user.getPassword()));
 		return userMapper.getUser(user);	
+	}
 
-<<<<<<< HEAD
 	@Override
 	public boolean RegisterUser(User user) {
 		// TODO Auto-generated method stub
 		return userMapper.RegisterUser(user);
 	}
 
-=======
-	}
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
+
+	
+
 }
 
 

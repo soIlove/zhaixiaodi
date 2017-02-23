@@ -1,15 +1,14 @@
 package com.yc.zxd.web.handler;
 
-<<<<<<< HEAD
+
 import java.io.File;
 import java.io.IOException;
-=======
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +17,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.RequestParam;
-=======
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,13 +27,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.Gson;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
-<<<<<<< HEAD
+
 import com.yc.zxd.util.PhoneCode;
 import com.yc.zxd.util.ServletUtil;
 
-=======
 import com.yc.zxd.service.impl.UserServiceImpl;
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
+
 
 @Controller
 @RequestMapping("/zxd")

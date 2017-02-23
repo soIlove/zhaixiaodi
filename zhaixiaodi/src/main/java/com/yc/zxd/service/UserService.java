@@ -9,11 +9,9 @@ public interface UserService {
 	
 	User login(User user);
 
-<<<<<<< HEAD
 	boolean RegisterUser(User user);
-=======
+
 	boolean editPwdByTel(String tel, String password);
 
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 
 }
