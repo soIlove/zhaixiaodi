@@ -6,7 +6,7 @@
 <base href="/zhaixiaodi/">
 
 <meta  charset="UTF-8">
-<title>Insert title here</title>
+<title>信息填写</title>
 
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -39,8 +39,8 @@
     <script src="js/layer.js" type="text/javascript"></script><link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss" style="">
     <script src="js/uploadPreview.js" type="text/javascript"></script>
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/api" type="text/javascript"></script><script type="text/javascript" src="js/getscript"></script>
-     <script src="js_1/Register.js" type="text/javascript"></script>
+      
+     <script src="js_1/order.js" type="text/javascript"></script>
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
 <script type="text/javascript" src="js_1/jquery-1.12.4.js" ></script>
@@ -168,8 +168,8 @@
                     <li> <a href="index.jsp">首页</a> </li>
 			        <li> <a href="page/about">关于我们</a> </li>
 			        <li class="on"> <a href="page/Login.jsp">商户中心</a> </li>
-			        <li> <a href="#">帮助中心</a> </li>
-			        <li> <a href="#">裹儿</a> </li>
+			        <li> <a href="page/order.jsp">我要投单</a> </li>
+			        <li> <a href="page/profile.jsp">个人中心</a> </li>
                 </ul>
             </ul>
         </div>
@@ -182,95 +182,49 @@
     <div class="zln-w970">
         <div class="zln-join">
             <div class="zln-join_in">
-                <h4>请填写注册信息</h4>
+                <h4>请填写快递相关信息</h4>
              
-                <form class="form-horizontal" action="" method="post" id="iform" enctype="multipart/form-data">
-                    <div class="f14 mt20">请您认真填写下列信息，有助于提供审核通过几率，谢谢您的认真填写</div>
+                <form class="form-horizontal" action="" method="post" id="iform" >
+                	  <input id="uid"  name="uid"  type="hidden"  value=${sessionScope.loginUser }>  
+                    <div class="f14 mt20">请您认真填写下列信息，有助于更快为您领取快递，谢谢您的认真填写</div>
 						
-                    <div class="zln-join_box zln-c">
-                        <div class="zln-join_title"><span>验证信息</span><font></font></div>
-                        <ul>
-                            <li class="zln-li1"><span>手机号</span>
-                                <input id="uphone" name="uphone" class="zln-text1" maxlength="11" type="text">
-                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码"  type="button" onclick="getCaptcha()">
-                            </li>
-                            <li class="zln-li1"><span>手机验证码</span>
-                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="6" type="text">
-                                <input id="vaild" name="vaild" type="hidden"></li>
-                      
-                              <li class="zln-li1"><span>登录密码</span>
-                                <input class="zln-text1" id="upwd" name="upwd" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
-                              </li>
-                                
-                                 <li class="zln-li1"><span>确认密码</span>
-                                <input class="zln-text1" id="password02" name="password02" maxlength="12" type="password" placeholder="请再次确认密码">
-                               </li>
-                             
-                        </ul>
-                    </div>
-                  
                     <!-- 详细信息 -->
                     <div class="zln-join_box zln-c">
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
-                            <li class="zln-li1"><span>用户昵称</span>
-                                <input id="uname" name="uname" class="zln-text1" type="text" placeholder="" > <font></font>
-                            </li>
-                             <li class="zln-li1"><span>用户性别</span>
-                              &nbsp;<input type="radio" name="usex" value="男" checked="checked"> &nbsp;男&nbsp;&nbsp;<input type="radio" name="usex" value="女"/>  &nbsp; 女
-                               
-                            </li>
-                           
-                               <li class="zln-li1"><span>用户邮箱</span>
-                                <input id="uemail" name="uemail" class="zln-text1" type="text"> 
-                            </li>
-                             
-                               <li class="zln-li1"><span>所在学校</span>
-                                <input id="uaddr" name="uaddr" class="zln-text1" type="text"> 
+                            <li class="zln-li1"><span>真实名字</span>
+                                <input id="orelname" value="肖坤" required="required" name="orelname" autofocus="autofocus" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
                             
-                           <!--  <li class="zln-li1"><span>证件类型</span>
-                                <input name="receivePointJoin.card_type" id="card_type" type="hidden">
-
-                                <div class="zln-select zln-selectb">
-                                    <div class="zln-select_box">请选择</div>
-                                    <div class="zln-select_fola" style="display: none;">
-                                        <p>
-                                            <a onclick="javascript:$('#card_type').attr('value','身份证');">身份证</a>
-                                        </p>
-
-                                        <p>
-                                            <a onclick="javascript:$('#card_type').attr('value','护照');">护照</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <span class="last">证件号码</span>
-                                <input id="proposer_card_id" name="receivePointJoin.proposerCardId" class="zln-text1" type="text"> <font></font>
-                            </li> -->
-                            <li class="zln-li1"> <span>用户头像<br>
-                          <b class="need">(点我)</b></span>
-
-                                <div class="zw">
-                                    <input name="upicture" id="upicture" style="display:none" multiple="multiple" type="file" onchange="addpic(this)">
-                                    <a href="" onclick="document.getElementById('upicture').click();return false;"><div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
-                                </div>
-                          <!--   <span class="last">证件照片<br>
-                                <b class="need">（背面）</b></span>
-
-                                <div class="zw">
-                                    <input name="idcardb1" id="idcardb" style="display:none" onclick="" multiple="" type="file">
-                                    <a href="" onclick="document.getElementById('idcardb').click();return false;"><div id="dividcardb"><img id="imgidcardb" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/zw.jpg"></div></a>
-                                </div>
-                                <div class="zln-c hint1">*像素要求必须为640*340像素，支持.jpg .jpeg .bmp .png格式，大小不超过5M</div> -->
+                             <li class="zln-li1"><span>取货码</span>
+                              <input id="ocode" name="ocode" value="0909" required="required"  class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
-                            <li class="zln-li1" style="padding-left:153px;color:#000;font-size:14px">
-                                <input id="isnot" name="isnot" type="checkbox" required="required"> 同意协议 <a href="javascript:void(null)" onclick="joinUs();" style="color:#00f">点击查看协议条款&gt;&gt;</a>
+                            
+                             <li class="zln-li1"><span>包裹大小</span>
+                              &nbsp;<input type="radio" name="osize" value="小包裹" checked="checked"> &nbsp;小包裹&nbsp;&nbsp;
+                              <input type="radio" name="osize" value="大包裹"/>  &nbsp; 大包裹
                             </li>
+                           
+                               <li class="zln-li1"><span>投单描述</span>
+                               <!--  <input id="uemail" name="uemail" class="zln-text1" type="text">  -->
+                               <textarea rows="5" cols="25"  name="odesc" id="odesc"  > 请尽快送达!谢谢!</textarea>
+                            </li>
+                             
+                               <li class="zln-li1"><span>地址</span>
+                                <input id="oaddr" name="oaddr" readonly="readonly" class="zln-text1" type="text" value="湖南工学院D6-318">&nbsp;&nbsp;<input type="button" value="更改地址"  id="modify" name="modify"/> 
+                            </li>
+                            
+                               <li class="zln-li1"><span>代递金额</span>
+                                <input id="oprice" name="oprice" value="10" required="required"  class="zln-text1" type="text"> 
+                            </li>
+                               <li class="zln-li1"><span>快递类型</span>
+                                <input id="otype" name="otype" value="中通" required="required"  class="zln-text1" type="text"> 
+                            </li>
+                            
+                            
                             <li class="zln-dtest zln-li1"><span>&nbsp;</span>
-
                                 <div class="zln-libt_a">
-                                	
-                                    <input id="submitOk" value="完成注册" class="zln-button" type="button" onclick="Register()">
+                                    <input id="submitOk" value="我要投单" class="zln-button" type="button" onclick="order()">
 									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
                                     <!-- 等待 -->
                          
@@ -398,7 +352,6 @@
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/appbuilder.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/subTabSwitch.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/WdatePicker.js"></script>
@@ -429,7 +382,7 @@ function joinUs(){
 });	
 }
 </script>
-<script src="js_1/Register.js" type="text/javascript"></script>
+<script src="js_1/order.js" type="text/javascript"></script>
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
  <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" ></iframe></div>
 </body></html> 

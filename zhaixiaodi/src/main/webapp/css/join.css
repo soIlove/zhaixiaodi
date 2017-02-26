@@ -927,6 +927,7 @@ body {
 	border: 0 none;
 	cursor: pointer;
 	margin: 3px 0 0 6px;
+	color:#fff;
 }
 .zln-join_box .yzm-btn.disabled {
 	background: url(../image/yzm-btn1.jpg) no-repeat bottom;
