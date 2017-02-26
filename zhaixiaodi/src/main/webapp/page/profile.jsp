@@ -170,7 +170,7 @@
 						<li><a href="https://www.ele.me/profile/info">个人资料</a></li>
 						<li><a href="https://www.ele.me/profile/address">地址管理</a></li>
 						<li><a
-							href="https://www.ele.me/profile/security/changepassword">修改密码</a></li>
+							href="page/modifyPwd.jsp">修改密码</a></li>
 					</ul></li>
 
 			</ul>

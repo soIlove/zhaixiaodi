@@ -18,10 +18,6 @@
 							href="htm/findPwd3_files/modify-password.css">
 							<script async="" src="htm/findPwd3_files/analytics.js"></script>
 							<script src="htm/findPwd3_files/ga.js"></script>
-							<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 							<script type="text/javascript" charset="utf-8" async=""
 								data-requirecontext="_" data-requiremodule="register-config"
 								src="htm/findPwd3_files/register-config.js"></script>
@@ -48,11 +44,19 @@
 								data-requirecontext="_"
 								data-requiremodule="apps/bindcsdn-third-part"
 								src="htm/findPwd3_files/bindcsdn-third-part.js"></script>
-								<script type="text/javascript" src= "htm/findPwd3_files/jquery-1.12.4.js" ></script> 
+							<script type="text/javascript"
+								src="htm/findPwd3_files/jquery-1.12.4.js"></script>
 							<script type="text/javascript" charset="utf-8" async=""
 								data-requirecontext="_"
 								data-requiremodule="apps/register-message"
 								src="htm/findPwd3_files/register-message.js"></script>
+						</link>
+					</link>
+				</link>
+			</link>
+		</meta>
+	</meta>
+</meta>
 </head>
 <style type="text/css" id="14124101297"></style>
 <body>
@@ -90,37 +94,51 @@
 					<span class="icon"></span>
 				</h3>
 				<div class="user-info">
-					<form action="zxd/editPwd"	method="post" >
-						<input type="hidden" name="tel" id="tel" value="">
-						<input	type="hidden" name="active"	value="f1ddb09aea536016b0bd13068d8a0374">
+					<form action="zxd/editPwd" method="post">
+						<input type="hidden" name="tel" id="tel" value=""> <input
+							type="hidden" name="active"
+							value="f1ddb09aea536016b0bd13068d8a0374"/>
 								<ul>
 									<li><font color="red"> </font></li>
-									<li><span>登录密码</span> 
-									<input type="password" onblur="check()"	name="password" id="password" class="password main-password"></li>
-									<label id="pwd_span"  style="color: red"> </label>
-									<li><span>再输入一次</span> 
-									<input type="password"	onblur="confirm()"	name="confirmpassword" id="confirmpassword" class="password password-agin"></li>
-									<label id="repwd_span"  style="color: red"> </label>
+									<li><span>登录密码</span> <input type="password"
+										onblur="check()" name="password" id="password"
+										class="password main-password"/></li>
+									<label id="pwd_span" style="color: red"> </label>
+									<li><span>再输入一次</span> <input type="password"
+										onblur="confirm()" name="confirmpassword" id="confirmpassword"
+										class="password password-agin"/></li>
+									<label id="repwd_span" style="color: red"> </label>
 									<li>
 										<div>
-											<span class="code-title">验证码</span>
-											 <input type="text"	class="code" oninput="confirmCode()" id="randomCode" name="randomCode" maxlength="4"  >
+											<span class="code-title">验证码</span> <input type="text"
+												class="code" oninput="confirmCode()" id="randomCode"
+												name="randomCode" maxlength="4"/>
 										</div>
 										<div class="clearfix">
-											<img src="randImg.jpg" id="yanzheng" alt="正在加载验证码..." style="cursor: pointer;"
-												title="换一张" class="code-img">  
+											<img src="randImg.jpg" id="yanzheng" alt="正在加载验证码..."
+												style="cursor: pointer;" title="换一张" class="code-img">
 												<script>
-												$("input[name='yanzheng']").css('width', '136px');
-												$("#yanzheng").click(function() {
-													$("#yanzheng").attr('src', 'randImg.jpg?' + new Date().getTime());
-												});
-											</script>
-										</div>
-										<label id="code"  style="color: red">&nbsp;&nbsp;</label>
+													$("input[name='yanzheng']")
+															.css('width',
+																	'136px');
+													$("#yanzheng")
+															.click(
+																	function() {
+																		$(
+																				"#yanzheng")
+																				.attr(
+																						'src',
+																						'randImg.jpg?'
+																								+ new Date()
+																										.getTime());
+																	});
+												</script>
+										</div> <label id="code" style="color: red">&nbsp;&nbsp;</label>
 									</li>
 									<li class="next-btn tracking-ad" data-mod="popu_35"><span></span>
-										<input type="submit" value="确认修改" id="edit" onclick="return editPwd()" class="next-step"></li>
-										<script type="text/javascript" src="js_1/findPwd3.js" ></script>
+										<input type="submit" value="确认修改" id="edit"
+										onclick="return editPwd()" class="next-step"/></li>
+									<script type="text/javascript" src="js_1/findPwd3.js"></script>
 								</ul>
 					</form>
 				</div>
@@ -134,8 +152,8 @@
 
 		</div>
 	</div>
-		 
-		 
-		<input type="hidden" id="aa_g_data_ids">
+
+
+	<input type="hidden" id="aa_g_data_ids">
 </body>
 </html>

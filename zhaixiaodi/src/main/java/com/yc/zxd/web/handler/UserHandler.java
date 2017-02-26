@@ -17,9 +17,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,11 +25,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.Gson;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
-
+import com.yc.zxd.service.impl.UserServiceImpl;
 import com.yc.zxd.util.PhoneCode;
 import com.yc.zxd.util.ServletUtil;
-
-import com.yc.zxd.service.impl.UserServiceImpl;
 
 
 @Controller
@@ -166,23 +162,26 @@ public class UserHandler {
 	
 	@RequestMapping("/Register")
 	@ResponseBody
-	public boolean RegisterUser(@RequestParam(name="upicture",required=false)MultipartFile upicture,User user ){
+	public boolean RegisterUser(@RequestParam(name="upicdata",required=false)MultipartFile upicture,User user ){
 		LogManager.getLogger().debug("用户申请注册");
 
 		System.out.println(upicture+"upicture****************");
 		if(upicture!=null && !upicture.isEmpty()){
 			try {
-				File file=new File(ServletUtil.UPLOAD_DIR_NAME,upicture.getOriginalFilename());
+				File file=new File(ServletUtil.UPLOAD_DIR,upicture.getOriginalFilename());
 				upicture.transferTo(file);
 				user.setUpicture("/"+ServletUtil.UPLOAD_DIR_NAME+"/"+upicture.getOriginalFilename());
 				LogManager.getLogger().debug("头像上传成功，上传地址为:"+file);
 			} catch (IllegalStateException | IOException e) {
 				LogManager.getLogger().debug("头像上传失败：",e);	
 			}
-	
 		}
-	
 		return userService.RegisterUser(user);
 	}
 	
+	 
+	
+	 
+ 
+
 }
