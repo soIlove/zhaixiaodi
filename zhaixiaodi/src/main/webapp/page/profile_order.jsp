@@ -237,7 +237,7 @@
 								<td class="ordertimeline-avatar"><a ng-href="/shop/331786"
 									href="https://www.ele.me/shop/331786"><img
 										ng-src="//fuss10.elemecdn.com/3/12/9ddf12f8d91d31b26274e38a012a3jpeg.jpeg?imageMogr2/thumbnail/70x70"
-										src="%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%20_%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90_files/9ddf12f8d91d31b26274e38a012a3jpeg.jpg"></a></td>
+										src="image/1.jpg"></a></td>
 								<td class="ordertimeline-info"><h3
 										class="ordertimeline-title">
 										<a ng-href="/shop/331786" ng-bind="item.restaurant.name"
@@ -353,7 +353,7 @@
 								ng-repeat="item in orderList">
 								<td class="ordertimeline-time"><p
 										class="ordertimeline-title ng-binding"
-										ng-bind="item.created_at | parseDate">昨天</p>
+										ng-bind="item.created_at | parseDate">2/23</p>
 									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">11:50</p>
 									<!-- ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
 									<i class="ordertimeline-time-icon icon-uniE65E finish ng-scope"
@@ -362,8 +362,13 @@
 									href="https://www.ele.me/shop/331786"><img
 										ng-src="//fuss10.elemecdn.com/3/12/9ddf12f8d91d31b26274e38a012a3jpeg.jpeg?imageMogr2/thumbnail/70x70"
 										src="image/picp_bg.jpg" height="30"></a>
+									</td>
+									</tr>
+									</tbody>
+									</table>
+									
 									</div>
-									</div> </footer> <script src="js_1/textStatic.js"></script> <script
-										src="js_1/textStatic.js"></script>
+									</div> </footer> <script src="js_1/textStatic.js"></script> 
+									<script src="js_1/textStatic.js"></script>
 </body>
 </html>

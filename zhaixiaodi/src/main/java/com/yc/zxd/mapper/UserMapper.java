@@ -1,6 +1,10 @@
 package com.yc.zxd.mapper;
 
+import java.util.List;
+
+import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.User;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -15,5 +19,17 @@ public interface UserMapper {
 
 
 	boolean RegisterUser(User user);
+
+	User getUserMsg(String phonenum);
+
+	boolean updatemsg(User user);
+
+	List<Address> getAddr(int uuid);
+
+	boolean deladdr(int zid);
+
+	boolean addaddr(Address address);
+
+	
 
 }

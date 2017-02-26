@@ -15,10 +15,13 @@ create table zusers(
 drop table zusers;
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
-insert into zusers  values(seq_zusers.nextval,'aa','花vv生',1511533115151,'382418631@qq.com','女',null,'皇家工学院',1,null,null);
+insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
 insert into zusers  values(seq_zusers.nextval,'11','1133333','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
 select * from zusers;
+update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
+
 select * from zusers where uphone=15115115151 and  upwd = 'aa';
+delete from ZUSERS where uphone='18188970546'
 --管理员表
 create table admin(
 	adid int primary key,--管理员编号
@@ -56,12 +59,17 @@ create table dusers(
 --收货地址表
 create table zaddr(
 	zid int primary key,--地址编号
-    uuid int references zusers(uuid) delete on cascade,--引用用户编号
+    uuid int references zusers(uuid) on delete cascade,--引用用户编号
 	zaddr varchar2(200) not null,--地址
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-
+drop table zaddr;
+create sequence seq_zid start with 100001;
+insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
+insert into zaddr values(seq_zid.nextval,1004,'2栋教学楼2514教室',null,null);
+insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
+select * from zaddr;
 --投单表
 create table zorders(
 	oid int primary key,   --投单编号，一般可以考虑引用物流单号，
