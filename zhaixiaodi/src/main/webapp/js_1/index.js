@@ -107,6 +107,18 @@ function getExpress(pageNum){
 
 	},"json");
 }
-
-
 getExpress(1);	
+
+function getType(){
+	$.get("zxd/type",function(data){
+		alert(data.length);
+		$("#typelist").empty();
+		for(var i=0;i<data.length;i++){
+			$("#typelist").append(
+						"<span><a href='javascript:void(0)'>"+data[i].otype
+						+"<em>("+data[i].num+")</em></a></span>")
+		}
+		
+	},"json");
+}
+getType();

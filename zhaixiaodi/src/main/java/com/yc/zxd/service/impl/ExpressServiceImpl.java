@@ -1,9 +1,12 @@
 package com.yc.zxd.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yc.zxd.entity.Express;
+import com.yc.zxd.entity.ExpressType;
 import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.mapper.ExpressMapper;
 import com.yc.zxd.service.ExpressService;
@@ -25,6 +28,11 @@ public class ExpressServiceImpl implements ExpressService {
 		}
 		expressBean=expressMapper.getExpressPagination(expressBean);
 		return expressBean;
+	}
+
+	@Override
+	public List<ExpressType> typeList() {
+		return expressMapper.typeList();
 	}
 
 }

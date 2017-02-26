@@ -129,12 +129,12 @@
 		<div class="com-w" id="container_l">
 			<h3 class="com-title">让生活更简单</h3>
 			<div class="content-bottom-l-1">
-				<div class="tag_list">
+				<div class="tag_list" >
 					<dl>
 						<dt>
 							<em>分类</em>
 						</dt>
-						<dd>
+						<dd id="typelist">
 							<span><a href="javascript:void(0)">顺丰快递<em>(5440)</em></a></span>
 							<span><a href="javascript:void(0)">圆通快递<em>(2292)</em></a></span>
 							<span><a href="javascript:void(0)">申通快递<em>(1054)</em></a></span>
@@ -352,25 +352,6 @@
 			</div>
 			 <div class="page-sep-wrap">
 				<div class="page-sep" id="pagation">
-					 <!-- <ul>
-						<li><span>1</span></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=2">2</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=3">3</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=4">4</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=5">5</a></li>
-						<li><em
-							style="display: block; height: 30px; line-height: 16px;">...</em>
-						</li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=272">100</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=2"
-							class="page-sep-l">下一页</a></li> 
-					</ul> -->
 					<div class="clear"></div>
 				</div>
 			</div>

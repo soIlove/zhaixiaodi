@@ -19,6 +19,7 @@ insert into zusers  values(seq_zusers.nextval,'aa','花生',15115115151,'3824186
 insert into zusers  values(seq_zusers.nextval,'aa','生',15115115152,'382418632@qq.com','女',null,'皇家工学院',1,null,null);
 insert into zusers  values(seq_zusers.nextval,'aa','花',15115115153,'382418633@qq.com','女',null,'皇家工学院',1,null,null);
 insert into zusers  values(seq_zusers.nextval,'aa','g花生',15115115154,'382418634@qq.com','女',null,'皇家工学院',1,null,null);
+insert into zusers  values(seq_zusers.nextval,'aa','略略',15115105154,'382618634@qq.com','女',null,'皇家工学院',1,null,null);
 
 
 
@@ -75,7 +76,7 @@ insert into zaddr values(seq_zaddr.nextval,1001,'湖南工学院润泽公寓D4-2
 insert into zaddr values(seq_zaddr.nextval,1002,'湖南工学院润泽公寓D5-222',null,null);
 insert into zaddr values(seq_zaddr.nextval,1003,'湖南工学院润泽公寓D2-222',null,null);
 insert into zaddr values(seq_zaddr.nextval,1004,'湖南工学院润泽公寓D1-222',null,null);
-
+insert into zaddr values(seq_zaddr.nextval,1020,'湖南工学院润泽公寓D6-222',null,null);
 select * from zaddr;
 
 
@@ -95,6 +96,8 @@ create table zorders(
 	uremain2 varchar2(50)
          
 )
+select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
+
 drop table zorders;
 drop sequence seq_zorders;
 
@@ -107,6 +110,15 @@ insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','�
 insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','圆通快递',null,null);
+
+insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','6789','小包裹','尽量中午',101,'5','申通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','679','小包裹','尽量中午',101,'5','汇通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','韵达快递',null,null);
+insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','全峰快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','中通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','国通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','中通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','中通快递',null,null);
 
 delete from zorders;
 select * from zorders;

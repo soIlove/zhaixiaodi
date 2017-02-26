@@ -34,11 +34,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	<!-- ======================================================================================= -->
-	<!-- <insert id="insertTag" parameterType="Tag"> <selectKey keyColumn="tid" 
-		keyProperty="tid" resultType="int" order="BEFORE"> select tid from tag t 
-		right join (select '${tname}' tn from dual) temp on t.tname = temp.tn </selectKey> 
-		<choose> <when test="tid!=null"> update tag set tcount = tcount + 1 where 
-		tid =#{tid} </when> <otherwise> insert into tag values(seq_tag.nextval,#{tname},1) 
-		</otherwise> </choose> </insert> -->
+	<select id="typeList" resultType="ExpressType">
+		select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc
+	</select>
+	
+	<!-- <resultMap id="TypeMap" type="ExpressType">
+		
+	</resultMap> -->
 </mapper>
