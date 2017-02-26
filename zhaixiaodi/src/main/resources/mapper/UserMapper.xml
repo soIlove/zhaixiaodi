@@ -24,13 +24,14 @@
 		select uemail from ZUSERS  where  uphone=#{tel}
 	</select>
 	
-	<update id="editPwdByTel" parameterType="Zusers"  >
+	<update id="editPwdByTel" parameterType="User"  >
 		update ZUSERS set  upwd=#{password} where  uphone=#{tel}
 	</update>
 	
 	<select id="getUser" parameterType="User" resultType="User">
 	    select * from zusers where uphone=#{uphone} and  upwd = #{upwd}
 	</select>
+ 
 
 </mapper>
 

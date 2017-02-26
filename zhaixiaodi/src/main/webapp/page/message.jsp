@@ -9,6 +9,7 @@
 <link href="css/vendor.css" rel="stylesheet">
 
 <link href="css/profile.css" rel="stylesheet">
+<!-- 引入矢量图标 -->
 <link href="css/icon/iconfont.css" type="text/css" rel="stylesheet">
 
 <script src="js_1/perf.js" type="text/javascript"
@@ -145,7 +146,7 @@
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
-						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">消息</a>
+						<i class="iconfont">&#xe649;</i><a href="zxd/message">消息</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
@@ -175,12 +176,10 @@
 
 			</ul>
 
-
-
 			<div class="profile-panel" role="main">
 				<!-- ngIf: pageTitleVisible -->
 				<h3 ng-if="pageTitleVisible" class="profile-paneltitle ng-scope">
-					<span ng-bind="pageTitle" class="ng-binding">近三个月订单</span> <span
+					<span ng-bind="pageTitle" class="ng-binding">消息</span> <span
 						class="subtitle ng-binding"
 						ng-bind-html="pageSubtitle | toTrusted"></span>
 				</h3>
@@ -196,178 +195,58 @@
 							href="https://static11.elemecdn.com/eleme/desktop/mobile/index.html"
 							target="_blank">随时关注订单状态</a>
 					</div>
-					<div class="loading ng-binding ng-isolate-scope ng-hide" loading=""
-						ng-show="!orderList">
-						<!-- ngIf: type==='profile' -->
-						<img ng-if="type==='profile'" src="image/profile-loading.gif"
-							alt="正在加载" class="ng-scope">
-						<!-- end ngIf: type==='profile' -->
-						<!-- ngIf: type==='normal' -->
-						正在载入数据...
-					</div>
+					 
 					<div class="order-nocontent nodata ng-isolate-scope ng-hide"
 						ng-show="orderList &amp;&amp; !orderList.length" nodatatip=""
 						content="暂无记录，现在就去&lt;a href='/place'&gt;订餐&lt;/a&gt;吧!">
 						<p class="nodata-container ng-binding"
 							ng-bind-html="content | toTrusted">
-							暂无记录，现在就去<a href="https://www.ele.me/place">订餐</a>吧!
+							暂无记录，现在就去<a href="https://www.ele.me/place">下单</a>吧!
 						</p>
 					</div>
-					<table class="order-list ng-scope" ng-show="orderList.length">
+					<table class="order-list ng-scope"   ng-show="orderList.length">
 						<thead>
 							<tr>
 								<th>下单时间</th>
-								<th class="order-list-infoth">订单内容</th>
-								<th></th>
-								<th>支付金额（元）</th>
-								<th>状态</th>
-								<th>操作</th>
+								<th>快递类型</th>
+								<th>取货码</th>
+								<th>包裹大小</th>
+								<th>地址</th>
+								<th>费用</th>
+								<th class="order-list-infoth">备注</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr></tr>
 							<!-- ngRepeat: item in orderList -->
-							<tr class="timeline" order-timeline=""
+							<tr onclick="show(this)" style="cursor: pointer;" class="timeline" order-timeline=""
 								ng-repeat="item in orderList">
-								<td class="ordertimeline-time"><p
-										class="ordertimeline-title ng-binding"
-										ng-bind="item.created_at | parseDate">昨天</p>
+								<td class="ordertimeline-time">
 									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">17:35</p>
 									<!-- ngIf: item.realStatus !== 5 --> <i
 									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"
 									ng-if="item.realStatus !== 5"
 									ng-class="{'unfinish': item.realStatus !== 4, 'unreview': item.realStatus === 4}"></i>
-									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 --></td>
-								<td class="ordertimeline-avatar"><a ng-href="/shop/331786"
-									href="https://www.ele.me/shop/331786"><img
-										ng-src="//fuss10.elemecdn.com/3/12/9ddf12f8d91d31b26274e38a012a3jpeg.jpeg?imageMogr2/thumbnail/70x70"
-										src="%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%20_%20%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BD%91%E4%B8%8A%E8%AE%A2%E9%A4%90_files/9ddf12f8d91d31b26274e38a012a3jpeg.jpg"></a></td>
-								<td class="ordertimeline-info"><h3
-										class="ordertimeline-title">
-										<a ng-href="/shop/331786" ng-bind="item.restaurant.name"
-											class="ng-binding" href="https://www.ele.me/shop/331786">大厨小炒(合福市场店)</a>
-										<!-- ngIf: item.is_book -->
-									</h3>
-									<p class="ordertimeline-info-food">
-										<a ng-href="order/id/1202287633299312769"
-											href="https://www.ele.me/profile/order/id/1202287633299312769"><span
-											class="ordertimeline-food ng-binding" ng-bind="item.product">农家一碗香1份</span>
-											<!-- ngIf: item.productnamenum > 2 --> <span
-											class="ordertimeline-info-productnum ng-binding"
-											ng-bind="item.productnum">1</span> <span>个菜品</span></a>
-									</p>
-									<p>
-										订单号: <a ng-href="order/id/1202287633299312769"
-											ng-bind="item.unique_id" class="ng-binding"
-											href="https://www.ele.me/profile/order/id/1202287633299312769">1202287633299312769</a>
-									</p></td>
-								<td class="ordertimeline-amount"><h3
-										class="ordertimeline-title ordertimeline-price ui-arial ng-binding"
-										ng-bind="item.total_amount.toFixed(2)">12.00</h3>
-									<p ng-bind="item.is_online_paid ? '在线支付' : '货到付款'"
-										class="ng-binding">在线支付</p></td>
-								<td class="ordertimeline-status"><h3
-										ng-bind="item.statusText"
-										ng-class="{'waitpay': (item.realStatus === 1), 'end': (item.realStatus === 5)}"
-										class="ng-binding">等待评价</h3>
-									<p
-										class="ordertimeline-status-time ng-binding ordertimeline-status-warning"
-										ng-class="{'ordertimeline-status-warning' : item.realStatus !== 1}"
-										ng-bind="statusText">评价获取120积分</p></td>
-								<td class="ordertimeline-handle"><a
-									class="ordertimeline-handle-detail"
-									ng-href="order/id/1202287633299312769"
-									href="https://www.ele.me/profile/order/id/1202287633299312769">订单详情</a>
-									<!-- ngIf: item.realStatus === 1 --> <!-- ngIf: item.realStatus === 2 -->
-									<!-- ngIf: item.realStatus === 3 --> <!-- ngIf: item.realStatus === 4 -->
-									<span ng-if="item.realStatus === 4"
-									class="ordertimeline-handle-group ng-scope"><a
-										ng-href="order/rate/1202287633299312769"
-										href="https://www.ele.me/profile/order/rate/1202287633299312769">评价订单
-											<i class="icon-arrow-down"></i>
-									</a> <a href="javascript:" ng-click="bundle.restore(item)">再来一份</a></span>
-									<!-- end ngIf: item.realStatus === 4 --> <!-- ngIf: item.realStatus === 5 -->
-									<!-- ngIf: item.realStatus === 6 --></td>
+									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
+								</td>
+								<td class="ordertimeline-handle"><label>正在查询快递类型</label></td>
+
+								<td class="ordertimeline-handle"><label>正在查询取货码</label></td>
+
+								<td class="ordertimeline-handle"><label>正在查询包裹类型</label></td>
+								<td class="ordertimeline-handle">
+									  <label>正在查询地址这是无法呢违法款未付矿务局额if我看了福</label>
+								</td>
+								<td class="ordertimeline-handle"><label>正在查询费用</label></td>
+								<td class="ordertimeline-handle"><label>正在查询备注矿务局诶我就付款李文静覅看矿务局额if
+										文件附件为 窝IE</label></td>
 							</tr>
 							<!-- end ngRepeat: item in orderList -->
-							<tr class="timeline" order-timeline=""
-								ng-repeat="item in orderList">
-								<td class="ordertimeline-time"><p
-										class="ordertimeline-title ng-binding"
-										ng-bind="item.created_at | parseDate">昨天</p>
-									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">11:51</p>
-									<!-- ngIf: item.realStatus !== 5 --> <i
-									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"
-									ng-if="item.realStatus !== 5"
-									ng-class="{'unfinish': item.realStatus !== 4, 'unreview': item.realStatus === 4}"></i>
-									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 --></td>
-								<td class="ordertimeline-avatar"><a ng-href="/shop/331786"
-									href="https://www.ele.me/shop/331786"><img
-										ng-src="//fuss10.elemecdn.com/3/12/9ddf12f8d91d31b26274e38a012a3jpeg.jpeg?imageMogr2/thumbnail/70x70"
-										src="image/9ddf12f8d91d31b26274e38a012a3jpeg.jpg"></a></td>
-								<td class="ordertimeline-info"><h3
-										class="ordertimeline-title">
-										<a ng-href="/shop/331786" ng-bind="item.restaurant.name"
-											class="ng-binding" href="https://www.ele.me/shop/331786">大厨小炒(合福市场店)</a>
-										<!-- ngIf: item.is_book -->
-									</h3>
-									<p class="ordertimeline-info-food">
-										<a ng-href="order/id/1202248240538751105"
-											href="https://www.ele.me/profile/order/id/1202248240538751105"><span
-											class="ordertimeline-food ng-binding" ng-bind="item.product">黄焖排骨十青菜（盖码饭）1份</span>
-											<!-- ngIf: item.productnamenum > 2 --> <span
-											class="ordertimeline-info-productnum ng-binding"
-											ng-bind="item.productnum">1</span> <span>个菜品</span></a>
-									</p>
-									<p>
-										订单号: <a ng-href="order/id/1202248240538751105"
-											ng-bind="item.unique_id" class="ng-binding"
-											href="https://www.ele.me/profile/order/id/1202248240538751105">1202248240538751105</a>
-									</p></td>
-								<td class="ordertimeline-amount"><h3
-										class="ordertimeline-title ordertimeline-price ui-arial ng-binding"
-										ng-bind="item.total_amount.toFixed(2)">12.00</h3>
-									<p ng-bind="item.is_online_paid ? '在线支付' : '货到付款'"
-										class="ng-binding">在线支付</p></td>
-								<td class="ordertimeline-status"><h3
-										ng-bind="item.statusText"
-										ng-class="{'waitpay': (item.realStatus === 1), 'end': (item.realStatus === 5)}"
-										class="ng-binding">等待评价</h3>
-									<p
-										class="ordertimeline-status-time ng-binding ordertimeline-status-warning"
-										ng-class="{'ordertimeline-status-warning' : item.realStatus !== 1}"
-										ng-bind="statusText">评价获取120积分</p></td>
-								<td class="ordertimeline-handle"><a
-									class="ordertimeline-handle-detail"
-									ng-href="order/id/1202248240538751105"
-									href="https://www.ele.me/profile/order/id/1202248240538751105">订单详情</a>
-									<!-- ngIf: item.realStatus === 1 --> <!-- ngIf: item.realStatus === 2 -->
-									<!-- ngIf: item.realStatus === 3 --> <!-- ngIf: item.realStatus === 4 -->
-									<span ng-if="item.realStatus === 4"
-									class="ordertimeline-handle-group ng-scope"><a
-										ng-href="order/rate/1202248240538751105"
-										href="https://www.ele.me/profile/order/rate/1202248240538751105">评价订单
-											<i class="icon-arrow-down"></i>
-									</a> <a href="javascript:" ng-click="bundle.restore(item)">再来一份</a></span>
-									<!-- end ngIf: item.realStatus === 4 --> <!-- ngIf: item.realStatus === 5 -->
-									<!-- ngIf: item.realStatus === 6 --></td>
-							</tr>
-							<!-- end ngRepeat: item in orderList -->
-							<tr class="timeline" order-timeline=""
-								ng-repeat="item in orderList">
-								<td class="ordertimeline-time"><p
-										class="ordertimeline-title ng-binding"
-										ng-bind="item.created_at | parseDate">昨天</p>
-									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">11:50</p>
-									<!-- ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
-									<i class="ordertimeline-time-icon icon-uniE65E finish ng-scope"
-									ng-if="item.realStatus === 5"></i> <!-- end ngIf: item.realStatus === 5 --></td>
-								<td class="ordertimeline-avatar"><a ng-href="/shop/331786"
-									href="https://www.ele.me/shop/331786"><img
-										ng-src="//fuss10.elemecdn.com/3/12/9ddf12f8d91d31b26274e38a012a3jpeg.jpeg?imageMogr2/thumbnail/70x70"
-										src="image/picp_bg.jpg" height="30"></a>
-									</div>
-									</div> </footer> <script src="js_1/textStatic.js"></script> <script
-										src="js_1/textStatic.js"></script>
+
+							</div>
+							</div>
+							</footer>
+							<script type="text/javascript" src="js_1/textStatic.js"></script>
+							<script type="text/javascript" src="js_1/message.js"></script>
 </body>
 </html>

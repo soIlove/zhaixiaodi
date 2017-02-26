@@ -75,9 +75,8 @@ create table zorders(
 	otype varchar2(30) not null,--快递类型
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
-         
 )
-
+ 
 --接单表(多人抢单)
 create table zaccept(
 	aid int primary key,--接单编号

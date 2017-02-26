@@ -41,6 +41,7 @@ public class UserHandler {
 
 	@Autowired
 	private UserService userService;
+	
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -59,6 +60,7 @@ public class UserHandler {
 		result = userService.isExistUN(tel);// 检查用户是否存在
 		return result;
 	}
+	
 
 	@RequestMapping("/verifyCode") // 检查用户是否存在
 	@ResponseBody
