@@ -31,7 +31,27 @@
 	<select id="getUser" parameterType="User" resultType="User">
 	    select * from zusers where uphone=#{uphone} and  upwd = #{upwd}
 	</select>
- 
+
+	
+	<select id="getUserMsg" parameterType="String" resultType="User">
+	    select * from zusers where uphone=#{phonenum} 
+	</select>
+	
+	<update id="updatemsg" parameterType="User">
+			update zusers set uname=#{uname} , upicture=#{upicture} ,uaddr=#{uaddr},uemail=#{uemail},usex=#{usex} where uphone=#{uphone}
+	</update>
+	
+	<select id="getAddr" parameterType="int" resultType="Address">
+			select * from zaddr where uuid =#{uuid}
+	</select>
+		
+		<delete id="deladdr" parameterType="Integer">
+			delete from zaddr where zid=#{zid}
+		</delete>
+		
+		<insert id="addaddr" parameterType="Address">
+					insert into zaddr values(seq_zid.nextval,#{uuid},#{zaddr},null,null)
+		</insert>
 
 </mapper>
 

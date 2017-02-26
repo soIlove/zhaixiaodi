@@ -1,8 +1,11 @@
 package com.yc.zxd.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.mapper.UserMapper;
 import com.yc.zxd.service.UserService;
@@ -55,6 +58,36 @@ public class UserServiceImpl implements UserService {
 		return userMapper.RegisterUser(user);
 	}
 
+
+
+	@Override
+	public User getUserMsg(String phonenum) {
+			return userMapper.getUserMsg(phonenum);
+	}
+
+
+	@Override
+	public boolean updatemsg(User user) {
+			return userMapper.updatemsg(user);
+	}
+
+
+	@Override
+	public List<Address> getAddr(int uuid) {
+			return userMapper.getAddr(uuid);
+	}
+
+
+	@Override
+	public boolean deladdr(int zid) {
+			return userMapper.deladdr(zid);
+	}
+
+
+	@Override
+	public boolean addaddr(Address address) {
+		return userMapper.addaddr(address);
+	}
 
 
 	

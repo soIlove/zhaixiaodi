@@ -1,12 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html >
-
-
-<html xmlns:wb="http://open.weibo.com/wb">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <head>
-
+<meta charset="UTF-8">
 <base href="/zhaixiaodi/">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商户中心|宅小递</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
@@ -104,6 +102,7 @@
 				<form method="post" id="loginForm"
 					action="zxd/login" >
 					<h3>登录商户中心</h3>
+					<p><label style="color:red;" >${errorMsg }&nbsp;</label></p><c:remove var="errorMsg" scope="session"/>
 					<div class="bh-item">
 						<input id="j_username" name="uphone" placeholder="用户名/手机号/邮箱"
 							type="text">

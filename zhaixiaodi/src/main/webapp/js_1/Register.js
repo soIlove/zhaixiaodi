@@ -63,14 +63,17 @@ $("#password02").blur(function(){
 	
 })
 
-function Register(){
-		var param=$("#iform").serialize()+"&upicture="+$("input[name='upicture']").val();
-		alert(param);
-		$.post("zxd/Register",param,function(data){
-				alert("成功了")
-		},"json")
-		
-}
+
+$('#iform').form({    
+	
+    url:"zxd/Register",    
+    success:function(data){    
+    	if(data){
+    		alert("恭喜你注册成功")
+    	}
+    }    
+});    
+
 function addpic(obj){
 	var picStr = window.URL.createObjectURL(obj.files[0]);
 	$("#upicimage").attr("src", picStr);

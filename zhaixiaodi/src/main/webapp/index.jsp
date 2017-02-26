@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,10 +20,9 @@
 <script src="js/swiper.js" type="text/javascript"></script>
 <script src="js/base.js" type="text/javascript"></script>
 <script src="js/page.js" type="text/javascript"></script>
+<script src="js_1/index.js" type="text/javascript"></script>
 <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
-<!--[if lt IE 9]>
-		<script type="text/javascript" src="/shooter/js/respond.min.js"></script>
-<![endif]-->
+
 <script charset="UTF-8" src="js/bundle.js"></script>
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
 </head>
@@ -131,67 +129,66 @@
 		<div class="com-w" id="container_l">
 			<h3 class="com-title">让生活更简单</h3>
 			<div class="content-bottom-l-1">
-				<div class="tag_list">
+				<div class="tag_list" >
 					<dl>
 						<dt>
 							<em>分类</em>
 						</dt>
-						<dd>
-							<span><a href="http://www.paidai.com/more.php?cid=21">顺丰快递<em>(5440)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=14">圆通快递<em>(2292)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=30">申通快递<em>(1054)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=20">韵达快递<em>(870)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=42">汇通快递<em>(812)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=18">国通快递<em>(584)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=49">天天快递<em>(167)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=26">中通快递<em>(148)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php?cid=39">全峰快递<em>(80)</em></a></span>
-							<span><a href="http://www.paidai.com/more.php">全部(15494)</a></span>
+						<dd id="typelist">
+							<span><a href="javascript:void(0)">顺丰快递<em>(5440)</em></a></span>
+							<span><a href="javascript:void(0)">圆通快递<em>(2292)</em></a></span>
+							<span><a href="javascript:void(0)">申通快递<em>(1054)</em></a></span>
+							<span><a href="javascript:void(0)">韵达快递<em>(870)</em></a></span>
+							<span><a href="javascript:void(0)">汇通快递<em>(812)</em></a></span>
+							<span><a href="javascript:void(0)">国通快递<em>(584)</em></a></span>
+							<span><a href="javascript:void(0)">天天快递<em>(167)</em></a></span>
+							<span><a href="javascript:void(0)">中通快递<em>(148)</em></a></span>
+							<span><a href="javascript:void(0)">全峰快递<em>(80)</em></a></span>
+							<span><a href="javascript:void(0)">全部(15494)</a></span>
 						</dd>
 					</dl>
 					<div class="clear"></div>
 				</div>
 			</div>
 			<div class="l_box_list" id="topic_list">
-				<ul>
+				<ul id="expressList">
 					<li class="topic">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/549785" target="_blank"><img
+							<img
 								src="image/85_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1176811" target="_blank"
-									title="圆通快递">圆通快递</a>
+									href="javascript:void(0)"
+									>圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/549785">D4-110</a> <em
+								<a href="javascript:void(0)">D4-110</a> <em
 									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！jfkahfd接发就发发就开始发烧的金风科技啊回复阿萨德</div>
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
 
 						</div>
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://news.paidai.com/" target="_blank"><img
-								src="image/120-10.png" height="48" width="48"></a>
+							<img
+								src="image/120-10.png" height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://news.paidai.com/18032" target="_blank"
-									title="顺丰快递">顺丰快递</a>
+									href="javascript:void(0)" 
+									>顺丰快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://news.paidai.com/18032">D6-333</a> <em
+								<a href="javascript:void(0)">D6-333</a> <em
 									class="li_s">8小时前</em> <em class="active_readNum li_s">大包裹</em><em
 									class="collectNum li_s"><span class="money">￥10</span></em>
 							</div>
@@ -201,20 +198,19 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/161676" target="_blank"><img
+							<img
 								src="image/76_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1175968" target="_blank"
-									title="顺丰快递">顺丰快递</a>
+									href="javascript:void(0)"
+									>顺丰快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/161676">D6-330</a> <em
+								<a href="javascript:void(0)">D6-330</a> <em
 									class="li_s">9小时前</em> <em class="readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥7</span></em>
 							</div>
@@ -224,20 +220,19 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/1473927" target="_blank"><img
+							<img
 								src="image/27_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1173633" target="_blank"
-									title="申通快递">申通快递</a>
+									href="javascript:void(0)"
+									>申通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/1473927">D2-333</a> <em
+								<a href="javascript:void(0)">D2-333</a> <em
 									class="li_s">9小时前</em> <em class="active_readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥7</span></em>
 							</div>
@@ -247,20 +242,19 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/1167891" target="_blank"><img
+							<img
 								src="image/91_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1176048" target="_blank"
-									title="【神速力】不提什么牛逼的技术，讲讲过去一年的运营经历">韵达快递</a>
+									href="javascript:void(0)" 
+									>韵达快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/1167891">D1-223</a> <em
+								<a href="javascript:void(0)">D1-223</a> <em
 									class="li_s">9小时前</em> <em class="active_readNum li_s">大包裹</em><em
 									class="collectNum li_s"><span class="money">￥12</span></em>
 							</div>
@@ -270,18 +264,18 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://news.paidai.com/" target="_blank"><img
-								src="image/120-3.png" height="48" width="48"></a>
+							<img
+								src="image/120-3.png" height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://news.paidai.com/18031" target="_blank"
-									title="2017实体店必将崛起的30个信号！未来可能比电商还要疯狂100倍">圆通快递</a>
+									href="javascript:void(0)"
+									>圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://news.paidai.com/18031">C5-103</a> <em
+								<a href="javascript:void(0)">C5-103</a> <em
 									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥5</span></em>
 							</div>
@@ -291,20 +285,18 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/643883" target="_blank"><img
+							<img
 								src="image/83_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1175283" target="_blank"
-									title="整理几个差评，逗蒙了，忙累了来乐一乐">圆通快递</a>
+									href="javascript:void(0)">圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/643883">D5-203</a> <em
+								<a href="javascript:void(0)">D5-203</a> <em
 									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥6</span></em>
 							</div>
@@ -314,20 +306,18 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/3" target="_blank"><img
+							<img
 								src="image/03_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1176114" target="_blank"
-									title="官方直播——三招快速提高质量分，降低直通车点击成本">韵达快递</a>
+									href="javascript:void(0)" >韵达快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/3">D4-401</a> <em class="li_s">9小时前</em>
+								<a href="javascript:void(0)">D4-401</a> <em class="li_s">9小时前</em>
 								<em class="active_readNum li_s">大包裹</em><em
 									class="active_collectNum li_s"><span class="money">￥13</span></em>
 							</div>
@@ -337,21 +327,19 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<a href="http://my.paidai.com/357829" target="_blank"><img
+							<img
 								src="image/29_avatar_m.jpg"
-								onerror="this.onerror=null;this.src='http://static.epaidai.com/uploadpath/avatars/defavatar.gif';"
-								height="48" width="48"></a>
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="http://bbs.paidai.com/topic/1175782" target="_blank"
-									title="二师兄直通车系列第一章：“测款”----教你挖掘潜力爆款">圆通快递</a>
+									href="javascript:void(0)">圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="http://my.paidai.com/357829">D1-401</a> <em
+								<a href="javascript:void(0)">D1-401</a> <em
 									class="li_s">7小时前</em> <em class="active_readNum li_s">小包裹</em><em
 									class="active_collectNum li_s"><span class="money">￥5</span></em>
 							</div>
@@ -362,27 +350,8 @@
 				</ul>
 
 			</div>
-			<div class="page-sep-wrap">
-				<div class="page-sep">
-					<ul>
-						<li><span>1</span></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=2">2</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=3">3</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=4">4</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=5">5</a></li>
-						<li><em
-							style="display: block; height: 30px; line-height: 16px;">...</em>
-						</li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=272">100</a></li>
-						<li><a
-							href="http://www.paidai.com/more.php?cid=21&amp;page=2"
-							class="page-sep-l">下一页</a></li>
-					</ul>
+			 <div class="page-sep-wrap">
+				<div class="page-sep" id="pagation">
 					<div class="clear"></div>
 				</div>
 			</div>

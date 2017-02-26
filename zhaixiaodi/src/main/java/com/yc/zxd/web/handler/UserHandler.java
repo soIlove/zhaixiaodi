@@ -3,6 +3,7 @@ package com.yc.zxd.web.handler;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
+import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 import com.yc.zxd.service.impl.UserServiceImpl;
@@ -179,9 +181,44 @@ public class UserHandler {
 		return userService.RegisterUser(user);
 	}
 	
-	 
+	@RequestMapping("/getusermsg")
+	@ResponseBody
+	public User getUserMsg(String phonenum){
+		return userService.getUserMsg(phonenum);		
+	}
 	
-	 
- 
+	@RequestMapping("/updatemsg")
+	@ResponseBody
+	public boolean updatemsg(@RequestParam(name="upicdata",required=false)MultipartFile upicture, User user){
+		LogManager.getLogger().debug("用户申请修改个人资料");
+		if(upicture!=null && !upicture.isEmpty()){
+			try {
+				File file=new File(ServletUtil.UPLOAD_DIR,upicture.getOriginalFilename());
+				upicture.transferTo(file);//上传文件
+				user.setUpicture("/"+ServletUtil.UPLOAD_DIR_NAME+"/"+upicture.getOriginalFilename());
+				LogManager.getLogger().debug("头像上传成功，上传地址为:"+file);
+			} catch (IllegalStateException | IOException e) {
+				LogManager.getLogger().debug("头像上传失败：",e);	
+			}
+		}
+		return userService.updatemsg(user);
+	}
+	
+	@RequestMapping("/getaddr")
+	@ResponseBody
+		public List<Address> getAddr(int uuid){
+		return userService.getAddr(uuid);
+	}
+	
+	@RequestMapping("/deladdr")
+	@ResponseBody
+		public boolean deladdr(int zid){
+		return userService.deladdr(zid);
+	}
+	@RequestMapping("/addaddr")
+	@ResponseBody
+		public boolean addaddr(Address address){
+		return userService.addaddr(address);
+	}
 
 }
