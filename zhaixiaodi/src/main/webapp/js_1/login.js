@@ -21,7 +21,7 @@ $("#loginForm").form({
 
 
 function loginSub(){
-	/*if ($.trim($("#j_username").val()) == "") {
+	if ($.trim($("#j_username").val()) == "") {
 		alert("请输入登录名");
 		$("#j_username").focus();
 		return false;
@@ -30,7 +30,7 @@ function loginSub(){
 		alert("请输入密码");
 		$("#j_password").focus();
 		return false;
-	}*/
+	}
 	
 	
 }
