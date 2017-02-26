@@ -1,27 +1,25 @@
+select *from ZUSERS
+
 --普通用户表
 create table zusers(
-    uuid number(30) primary key,--用户编号
+    uuid int primary key,--用户编号
 	upwd varchar2(40) not null,--密码
     uname varchar2(30) not null,--昵称
-    uphone varchar2(40) unique not null,--电话
+    uphone number unique not null,--电话
     uemail varchar2(50) not null,--邮箱
-    usex varchar2(4) check(usex in('男','女')) ,--性别
+    usex varchar2(4) check(usex in('男','女')),--性别
     upicture varchar2(200),-- 用户头像
 	uaddr varchar2(40) not null, --用户地理位置 (学校)
-	utype int default 0 check (utype in(0,1) ) ,--是否成为代递员  0否  1是
+	utype int check (utype in(0,1)) not null,--是否成为代递员  0否  1是
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-drop table zusers;
-drop sequence seq_zusers;
-create sequence seq_zusers start with 1000;
-insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
-insert into zusers  values(seq_zusers.nextval,'11','1133333','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
-select * from zusers;
-update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
-
-select * from zusers where uphone=15115115151 and  upwd = 'aa';
-delete from ZUSERS where uphone='18188970546'
+create SEQUENCE seq_zusersId
+insert into ZUSERS values(seq_zusersId.nextval,
+	'a','xkj',13237343452,'xkj_0204@foxmail.com','男',null,'湖南工学院',0,null,null)
+	
+ update ZUSERS set upwd='a' where uphone='13237343452' 
+ 
 --管理员表
 create table admin(
 	adid int primary key,--管理员编号
@@ -37,7 +35,7 @@ create table admin(
 --被删除的用户表
 create table delusers(
 	delid int primary key,--删除用户编号
-	uuid int references zusers(uuid) delete on cascade,--用户编号
+	uuid int references zusers(uuid) on delete  cascade,--用户编号
 	deldesc varchar2(50),--删除原因描述
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
@@ -45,50 +43,53 @@ create table delusers(
 
 --代递员表
 create table dusers(
-    did int primary key,--代递员编号
-	uuid int references zusers(uuid) delete on cascade,--普通用户编号
-    dsid Integer not null,--认证学号
+    did varchar2(20) primary key,--代递员编号
+	uuid int references zusers(uuid) on delete cascade,--普通用户编号
+    dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
-	dscore double not null, --信誉度评分累计
-	dnum double not null,--接单次数
+	dscore  varchar2(30) not null, --信誉度评分累计
+	dnum  varchar2(30) not null,--接单次数
 	uremain1 varchar2(50),
-	uremain2 varchar2(50)
-	 
+	uremain2 varchar2(50)  
 )
 
 --收货地址表
 create table zaddr(
 	zid int primary key,--地址编号
-    uuid int references zusers(uuid) on delete cascade,--引用用户编号
+    uuid int references zusers(uphone) on delete  cascade,--引用用户编号
 	zaddr varchar2(200) not null,--地址
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-drop table zaddr;
-create sequence seq_zid start with 100001;
-insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
-insert into zaddr values(seq_zid.nextval,1004,'2栋教学楼2514教室',null,null);
-insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
 select * from zaddr;
+create SEQUENCE seq_zaddrId;
+insert into zaddr values(seq_zaddrId.nextval,'1','湖南工学院D6-318',null,null);
+
 --投单表
 create table zorders(
 	oid int primary key,   --投单编号，一般可以考虑引用物流单号，
-    uuid int references zusers(uuid) delete on cascade,--投单人用户编号
+    uuid int references zusers(uuid) on delete cascade,--投单人用户编号
     otime date not null,--投单时间
 	orelname varchar2(30) not null,--投单人真实姓名
 	ocode varchar2(30) not null,--取货码
-    odesc varchar2(100) not null,--投单描述（期望送达时间，包裹大小）
-	zid int references zaddr(zid) delete on cascade,--投单人地址编号
-    oprice int not null,--代递金额
+	osize varchar2(40) check(osize in ('大包裹','小包裹')) not null,--包裹大小
+    odesc varchar2(100) not null,--投单描述（期望送达时间）
+	zid int references zaddr(zid)   on delete cascade,  --投单人地址编号
+    oprice varchar2(30) not null,--代递金额
 	otype varchar2(30) not null,--快递类型
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
- 
+drop table zorders
+select * from zorders;
+create SEQUENCE seq_zordersId;
+insert into zorders values(seq_zordersId.currval,1,sysdate,'肖坤跻','3452','大包裹','我想尽快送到,是个小包裹',1,10,'申通',null,null)
+
 --接单表(多人抢单)
 create table zaccept(
 	aid int primary key,--接单编号
-	oid int references zorder(oid) delete on cascade,--投单编号
+	oid int references zorder(oid) on delete  cascade,--投单编号
+	did int references dusers(did) on delete  cascade,--接单人(待递员)编号
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
@@ -97,7 +98,7 @@ create table zaccept(
 --订单表
 create table order(
 	ooid int primary key,--订单编号
-	aid int references zaccept(aid) delete on cascade,--接单编号
+	aid int references zaccept(aid) on delete  cascade,--接单编号
 	oscore varchar2(20) not null, --评分
 	ostatus int check (ostatus in(0,1,2)),--1接单，0订单取消
 	uremain1 varchar2(50),

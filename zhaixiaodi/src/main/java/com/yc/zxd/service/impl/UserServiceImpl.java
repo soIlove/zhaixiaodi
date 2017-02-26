@@ -55,9 +55,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean RegisterUser(User user) {
-		// TODO Auto-generated method stub
 		return userMapper.RegisterUser(user);
 	}
+
 
 
 	@Override

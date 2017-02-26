@@ -92,8 +92,8 @@
 					<li class="on"><a href="#">首页</a></li>
 					<li><a href="page/about.jsp">关于我们</a></li>
 					<li><a href="page/Login.jsp">商户中心</a></li>
-					<li><a href="#">帮助中心</a></li>
-					<li><a href="#" target="_blank">裹儿</a></li>
+					<li><a href="page/order.jsp">我要投单</a></li>
+					<li><a href="page/profile.jsp" target="_blank">个人中心</a></li>
 				</ul>
 			</div>
 			<div class="navShow"></div>

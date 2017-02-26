@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与对应映射接口的全类名一致 -->
+<mapper namespace="com.yc.zxd.mapper.OrderMapper">
+
+
+	<!-- 定义sql语句 变量 -->
+	<sql id="selectProfile">
+		select * from zorders
+	</sql>
+
+
+
+	<insert id="order" parameterType="Order">
+		<selectKey keyProperty="zid" keyColumn="zid"
+			resultType="int" order="BEFORE">
+			select zid from zaddr where #{oaddr} =zaddr 
+		</selectKey>
+		
+		insert into zorders
+		values(seq_zordersId.nextval,#{uuid},sysdate,#{orelname},#{ocode},#{osize},#{odesc},#{zid},#{oprice},#{otype},null,null)
+	</insert>
+	
+	<select id="getIdByAddr" parameterType="String" resultType="Integer">
+		select zid from zaddr where #{zaddr} =zaddr
+	</select>
+
+
+
+
+</mapper>
+
+
+
+
+

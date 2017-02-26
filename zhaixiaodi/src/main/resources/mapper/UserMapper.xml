@@ -31,6 +31,7 @@
 	<select id="getUser" parameterType="User" resultType="User">
 	    select * from zusers where uphone=#{uphone} and  upwd = #{upwd}
 	</select>
+
 	
 	<select id="getUserMsg" parameterType="String" resultType="User">
 	    select * from zusers where uphone=#{phonenum} 
@@ -51,6 +52,7 @@
 		<insert id="addaddr" parameterType="Address">
 					insert into zaddr values(seq_zid.nextval,#{uuid},#{zaddr},null,null)
 		</insert>
+
 </mapper>
 
 

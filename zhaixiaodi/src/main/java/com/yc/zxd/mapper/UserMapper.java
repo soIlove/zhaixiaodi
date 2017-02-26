@@ -1,11 +1,13 @@
 package com.yc.zxd.mapper;
 
+
 import java.util.List;
 
 import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.User;
 
 import org.apache.ibatis.annotations.Param;
+
 
 public interface UserMapper {
 
@@ -16,7 +18,6 @@ public interface UserMapper {
 	Integer editPwdByTel(@Param("tel") String tel, @Param("password")String password);
 	
 	User getUser(User user);
-
 
 	boolean RegisterUser(User user);
 
@@ -30,6 +31,5 @@ public interface UserMapper {
 
 	boolean addaddr(Address address);
 
-	
 
 }
