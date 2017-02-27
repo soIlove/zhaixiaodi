@@ -251,7 +251,7 @@
                           <b class="need">(点我)</b></span>
 
                                 <div class="zw">
-                                    <input name="upicture" id="upicture" style="display:none" multiple="multiple" type="file" onchange="addpic(this)">
+                                    <input name="upicdata" id="upicture"  multiple="multiple" type="file" style="display:none"onchange="addpic(this)">
                                     <a href="" onclick="document.getElementById('upicture').click();return false;"><div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
                                 </div>
                           <!--   <span class="last">证件照片<br>
@@ -270,7 +270,7 @@
 
                                 <div class="zln-libt_a">
                                 	
-                                    <input id="submitOk" value="完成注册" class="zln-button" type="button" onclick="Register()">
+                                    <input id="submitOk" value="完成注册" class="zln-button" type="submit" >
 									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
                                     <!-- 等待 -->
                          
@@ -429,6 +429,9 @@ function joinUs(){
 });	
 }
 </script>
+<script src="easyui/jquery.min.js" type="text/javascript"></script>
+<script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
 <script src="js_1/Register.js" type="text/javascript"></script>
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
  <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" ></iframe></div>

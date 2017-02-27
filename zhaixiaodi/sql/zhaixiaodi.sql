@@ -15,21 +15,17 @@ create table zusers(
 drop table zusers;
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
-<<<<<<< HEAD
-insert into zusers  values(seq_zusers.nextval,'aa','花生',15115115151,'382418631@qq.com','女',null,'皇家工学院',1,null,null);
-insert into zusers  values(seq_zusers.nextval,'aa','生',15115115152,'382418632@qq.com','女',null,'皇家工学院',1,null,null);
-insert into zusers  values(seq_zusers.nextval,'aa','花',15115115153,'382418633@qq.com','女',null,'皇家工学院',1,null,null);
-insert into zusers  values(seq_zusers.nextval,'aa','g花生',15115115154,'382418634@qq.com','女',null,'皇家工学院',1,null,null);
-insert into zusers  values(seq_zusers.nextval,'aa','略略',15115105154,'382618634@qq.com','女',null,'皇家工学院',1,null,null);
+
+insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
 
 
-
-=======
-insert into zusers  values(seq_zusers.nextval,'aa','花vv生',1511533115151,'382418631@qq.com','女',null,'皇家工学院',1,null,null);
 insert into zusers  values(seq_zusers.nextval,'11','1133333','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
+
 select * from zusers;
+update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
+
 select * from zusers where uphone=15115115151 and  upwd = 'aa';
+delete from ZUSERS where uphone='18188970546'
 --管理员表
 create table admin(
 	adid int primary key,--管理员编号
@@ -74,6 +70,15 @@ create table zaddr(
 	zaddr varchar2(200) not null,--地址
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
+
+)
+drop table zaddr;
+create sequence seq_zid start with 100001;
+insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
+insert into zaddr values(seq_zid.nextval,1004,'2栋教学楼2514教室',null,null);
+insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
+select * from zaddr;
+
 );
 drop sequence seq_zaddr;
 create sequence seq_zaddr start with 100;
@@ -83,6 +88,7 @@ insert into zaddr values(seq_zaddr.nextval,1003,'湖南工学院润泽公寓D2-2
 insert into zaddr values(seq_zaddr.nextval,1004,'湖南工学院润泽公寓D1-222',null,null);
 insert into zaddr values(seq_zaddr.nextval,1020,'湖南工学院润泽公寓D6-222',null,null);
 select * from zaddr;
+
 
 
 --投单表
@@ -100,7 +106,7 @@ create table zorders(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-<<<<<<< HEAD
+
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
 
 drop table zorders;
@@ -134,11 +140,6 @@ select * from
 from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype='圆通快递')zd where rownum>=1)where rn<5;
 
 
-
-
-=======
- 
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 --接单表(多人抢单)
 create table zaccept(
 	aid int primary key,--接单编号

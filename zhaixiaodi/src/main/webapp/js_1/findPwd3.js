@@ -38,6 +38,7 @@ function check() {
 		$("#pwd_span").text("");
 	}
 }
+
 function confirm() {
 	if ($("#confirmpassword").val() != $("#password").val()) {
 		$("#repwd_span").text("两次密码不一致!");

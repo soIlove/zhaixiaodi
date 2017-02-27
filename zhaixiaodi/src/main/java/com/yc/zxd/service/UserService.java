@@ -1,5 +1,8 @@
 package com.yc.zxd.service;
 
+import java.util.List;
+
+import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.User;
 public interface UserService {
 
@@ -12,6 +15,16 @@ public interface UserService {
 	boolean RegisterUser(User user);
 
 	boolean editPwdByTel(String tel, String password);
+
+	User getUserMsg(String phonenum);
+
+	boolean updatemsg(User user);
+
+	List<Address> getAddr(int  uuid);
+
+	boolean deladdr(int zid);
+
+	boolean addaddr(Address address);
 
 
 

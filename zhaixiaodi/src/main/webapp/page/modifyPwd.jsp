@@ -177,77 +177,54 @@
 			</ul>
 
 			<div class="profile-panel" role="main">
-				<!-- ngIf: pageTitleVisible -->
-				<h3 ng-if="pageTitleVisible" class="profile-paneltitle ng-scope">
-					<span ng-bind="pageTitle" class="ng-binding">消息</span> <span
-						class="subtitle ng-binding"
-						ng-bind-html="pageSubtitle | toTrusted"></span>
-				</h3>
 				<!-- end ngIf: pageTitleVisible -->
 				<div class="profile-panelcontent" ng-transclude="">
-					<div class="order-fetchtakeout ng-scope ng-isolate-scope"
-						show-fetch-takeout-dialog="">
-						<img src="image/takeout.png">
-					</div>
-					<div class="order-extra ng-scope">
-						<a href="https://www.ele.me/support/question/hotissue"
-							target="_blank">热门问题</a> <a
-							href="https://static11.elemecdn.com/eleme/desktop/mobile/index.html"
-							target="_blank">随时关注订单状态</a>
-					</div>
-
-					<div class="order-nocontent nodata ng-isolate-scope ng-hide"
-						ng-show="orderList &amp;&amp; !orderList.length" nodatatip=""
-						content="暂无记录，现在就去&lt;a href='/place'&gt;订餐&lt;/a&gt;吧!">
-						<p class="nodata-container ng-binding"
-							ng-bind-html="content | toTrusted">
-							暂无记录，现在就去<a href="https://www.ele.me/place">下单</a>吧!
-						</p>
-					</div>
-					<table class="order-list ng-scope" ng-show="orderList.length">
-						<thead>
-							<tr>
-								<th>下单时间</th>
-								<th>快递类型</th>
-								<th>取货码</th>
-								<th>包裹大小</th>
-								<th>地址</th>
-								<th>费用</th>
-								<th class="order-list-infoth">备注</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-							<!-- ngRepeat: item in orderList -->
-							<tr onclick="show(this)" style="cursor: pointer;"
-								class="timeline" order-timeline="" ng-repeat="item in orderList">
-								<td class="ordertimeline-time">
-									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">17:35</p>
-									<!-- ngIf: item.realStatus !== 5 --> <i
-									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"
-									ng-if="item.realStatus !== 5"
-									ng-class="{'unfinish': item.realStatus !== 4, 'unreview': item.realStatus === 4}"></i>
-									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
-								</td>
-								<td class="ordertimeline-handle"><label>正在查询快递类型</label></td>
-
-								<td class="ordertimeline-handle"><label>正在查询取货码</label></td>
-
-								<td class="ordertimeline-handle"><label>正在查询包裹类型</label></td>
-								<td class="ordertimeline-handle"><label>正在查询地址这是无法呢违法款未付矿务局额if我看了福</label>
-								</td>
-								<td class="ordertimeline-handle"><label>正在查询费用</label></td>
-								<td class="ordertimeline-handle"><label>正在查询备注矿务局诶我就付款李文静覅看矿务局额if
-										文件附件为 窝IE</label></td>
-							</tr>
-							<!-- end ngRepeat: item in orderList -->
-						</tbody>
-					</table>
+					<form class="changepwd ng-scope ng-pristine ng-valid"
+						ng-submit="changePwdSubmit()" novalidate=""  id="modifyPwdForm" action="page/news.jsp">
+						<input type="hidden" value="13237343452" name="tel"/>
+						<p class="changepwd-tip">宅小递提示你：只能是3到6的数字或字母</p>
+						<!-- ngIf: !firstSet -->
+						<div class="formfield ng-isolate-scope"
+							ng-class="{ 'validate-error': model.$hintTypes[property] === 'error' }"
+							form-field="" label="新密码" model="changePwdData" property="newPwd">
+							<label ng-bind="label" class="ng-binding">新密码</label>
+							<input name="newPwd" id="newPwd" placeholder="请输入新密码"  
+								type="password" onblur="checkPwd()" />
+							 
+								<span id="errorNew" style="color: red"></span>
+							 
+						</div>
+						<div class="formfield ng-isolate-scope "
+							ng-class="{ 'validate-error': model.$hintTypes[property] === 'error' }"
+							form-field="" label="确认密码" model="changePwdData"
+							property="confirmPwd">
+							<label ng-bind="label" class="ng-binding">确认密码</label>
+							<input	name="confirm" id="confirm" ng-model="changePwdData.confirmPwd"
+								placeholder="请再次输入密码" class="ng-scope ng-valid ng-dirty"
+								type="password" onblur="confirmPwd()" />
+								
+								<span id="errorconfirm" style="color: red"></span>
+								
+							 
+						</div>
+						<div class="form-group formfield ng-isolate-scope"
+							ng-class="{ 'validate-error': model.$hintTypes[property] === 'error' }"
+							form-field="">
+							<label ng-bind="label" class="ng-binding"></label>
+							<button type="submit" class="btn-primary btn-lg ng-scope" onclick="return  ensure()">确认</button>
+							 
+						</div>
+					</form>
 				</div>
+
+
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="js_1/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js_1/textStatic.js"></script>
-	<script type="text/javascript" src="js_1/message.js"></script>
+	<script type="text/javascript" src="js_1/modifyPwd.js"></script>
 </body>
 </html>
+

@@ -9,8 +9,9 @@
 <link href="css/vendor.css" rel="stylesheet">
 
 <link href="css/profile.css" rel="stylesheet">
-<!-- 引入矢量图标 -->
-<link href="css/icon/iconfont.css" type="text/css" rel="stylesheet">
+<link href="css/profile_addr.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css" />
+<link type="text/css" rel="stylesheet" href="easyui/themes/default/easyui.css" />
 
 <script src="js_1/perf.js" type="text/javascript"
 	crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
 	crossorigin="anonymous"></script>
 <script src="js_1/profile.js" type="text/javascript"
 	crossorigin="anonymous"></script>
-
+<script src="js_1/jquery-1.12.4.js" type="text/javascript"></script>
 </head>
 
 <body cute-title=""
@@ -78,75 +79,16 @@
 	<div class="importantnotification container" role="banner">
 		<!-- ngIf: enable -->
 	</div>
-	<div class="sidebar" role="complementary">
-		<div class="sidebar-tabs">
-			<div class="toolbar-tabs-middle">
-				<a class="toolbar-btn icon-order toolbar-close"
-					href="https://www.ele.me/profile/order" hardjump="" tooltip="我的订单"
-					tooltip-placement="left" ubt-click="toolbar_order"> </a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-cartbtn icon-cart toolbar-open" href="javascript:"
-					template="cart"
-					ng-class="{'focus': (activeTemplate === 'cart' &amp;&amp; isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
-					ubt-click="390">购物车<!-- ngIf: foodCount.count --></a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-btn icon-notice toolbar-open modal-hide"
-					href="javascript:" template="message"
-					ng-class="{'focus': (activeTemplate === 'message' &amp;&amp; isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
-					tooltip="我的信息" tooltip-placement="left" ubt-click="392"> <!-- ngIf: messageCount.count -->
-				</a>
-			</div>
-			<div class="toolbar-tabs-bottom">
-				<div class="toolbar-btn icon-QR-code">
-					<div class="dropbox toolbar-tabs-dropbox"></div>
-				</div>
-				<a class="toolbar-btn icon-service" online-service="" tooltip="在线客服"
-					title="在线客服" tooltip-placement="left" id="live800iconlink"
-					target="_blank" href="javascript:" style="visibility: visible;"></a>
-				<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部"
-					title="回到顶部" href="javascript:" tooltip-placement="left"
-					style="visibility: hidden;"></a>
-			</div>
-		</div>
-		<div class="sidebar-content"></div>
-	</div>
 	<!-- ngView:  -->
 	<div ng-view="" role="main" class="ng-scope">
 		<div class="profile-container container" profile-container=""
-			page-name="order" page-title="近三个月订单">
-			<div class="clearfix">
-				<div class="location"
-					ng-style="{visibility: geohash ? '' : 'hidden'}" role="navigation"
-					location="" style="visibility: hidden;">
-					<span>当前位置:</span> <span class="location-current"><a
-						class="inherit ng-binding" ng-href="/place/" ubt-click="401"
-						ng-bind="place.name || place.address"
-						href="https://www.ele.me/place/"></a></span> <span
-						class="location-change"
-						ng-class="{ 'location-hashistory': user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }"><a
-						ng-href="/home" ubt-click="400" hardjump=""
-						href="https://www.ele.me/home">[切换地址]</a>
-						<ul class="dropbox location-dropbox" ubt-visit="398">
-							<li class="arrow"></li>
-							<!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo: 4 -->
-							<li class="changelocation"><a ng-href="/home" hardjump=""
-								href="https://www.ele.me/home">修改收货地址<span
-									class="icon-location"></span></a></li>
-						</ul></span> <span ng-transclude=""><i
-						class="icon-arrow-right ng-scope"></i><span
-						class="ng-binding ng-scope">近三个月订单</span></span>
-				</div>
-				<div search-input=""></div>
-			</div>
+			page-name="order" page-title="资料信息">
+
 			<ul class="profile-sidebar" role="navigation" profile-sidebar="">
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle"
 						ng-class="{ active: pageName === 'profile' }">
 						<i class="icon-line-home"></i><a href="https://www.ele.me/profile">个人中心</a>
-					</h2></li>
-				<li class="profile-sidebar-section"><h2
-						class="profile-sidebar-sectiontitle">
-						<i class="iconfont">&#xe649;</i><a href="zxd/message">消息</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
@@ -176,10 +118,12 @@
 
 			</ul>
 
+
+
 			<div class="profile-panel" role="main">
 				<!-- ngIf: pageTitleVisible -->
 				<h3 ng-if="pageTitleVisible" class="profile-paneltitle ng-scope">
-					<span ng-bind="pageTitle" class="ng-binding">消息</span> <span
+					<span ng-bind="pageTitle" class="ng-binding">收获地址管理</span> <span
 						class="subtitle ng-binding"
 						ng-bind-html="pageSubtitle | toTrusted"></span>
 				</h3>
@@ -196,58 +140,37 @@
 							target="_blank">随时关注订单状态</a>
 					</div>
 
-					<div class="order-nocontent nodata ng-isolate-scope ng-hide"
-						ng-show="orderList &amp;&amp; !orderList.length" nodatatip=""
-						content="暂无记录，现在就去&lt;a href='/place'&gt;订餐&lt;/a&gt;吧!">
-						<p class="nodata-container ng-binding"
-							ng-bind-html="content | toTrusted">
-							暂无记录，现在就去<a href="https://www.ele.me/place">下单</a>吧!
-						</p>
-					</div>
-					<table class="order-list ng-scope" ng-show="orderList.length">
-						<thead>
-							<tr>
-								<th>下单时间</th>
-								<th>快递类型</th>
-								<th>取货码</th>
-								<th>包裹大小</th>
-								<th>地址</th>
-								<th>费用</th>
-								<th class="order-list-infoth">备注</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr></tr>
-							<!-- ngRepeat: item in orderList -->
-							<tr onclick="show(this)" style="cursor: pointer;"
-								class="timeline" order-timeline="" ng-repeat="item in orderList">
-								<td class="ordertimeline-time">
-									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">17:35</p>
-									<!-- ngIf: item.realStatus !== 5 --> <i
-									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"
-									ng-if="item.realStatus !== 5"
-									ng-class="{'unfinish': item.realStatus !== 4, 'unreview': item.realStatus === 4}"></i>
-									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
-								</td>
-								<td class="ordertimeline-handle"><label>正在查询快递类型</label></td>
-
-								<td class="ordertimeline-handle"><label>正在查询取货码</label></td>
-
-								<td class="ordertimeline-handle"><label>正在查询包裹类型</label></td>
-								<td class="ordertimeline-handle"><label>正在查询地址这是无法呢违法款未付矿务局额if我看了福</label>
-								</td>
-								<td class="ordertimeline-handle"><label>正在查询费用</label></td>
-								<td class="ordertimeline-handle"><label>正在查询备注矿务局诶我就付款李文静覅看矿务局额if
-										文件附件为 窝IE</label></td>
-							</tr>
-							<!-- end ngRepeat: item in orderList -->
-						</tbody>
-					</table>
 				</div>
+				<div class="mainmsg">
+					<ul id="profile_ul_addr">
+													<!-- <li class="profile_li_addr_1">
+																<div class="profile_div_addr_1" >
+																		<span>湖南工学院D6-312寝室</span>&nbsp;&nbsp;
+																								<a  href="javaScript:deladdr(this)" class="profile_a_addr" >删除</a>										
+																</div>								
+														</li>			 -->													 								
+											</ul> 
+					<div class="profile_div_addr_2">
+						<a href="javaScript:addaddr()"><span>+添加新收获地址</span></a><br />
+					</div>
+				</div>
+
 			</div>
-		</div>
-	</div>
-	<script type="text/javascript" src="js_1/textStatic.js"></script>
-	<script type="text/javascript" src="js_1/message.js"></script>
+			<div id="addDIV">
+						<input type="text" id="newAdd" name="zaddr" placeholder="请输入新地址">
+						<input type="button" id="addaddr_2" onclick="addaddr_3()" value="添加">		
+			</div>
+			<footer> </footer>
+			
+				<script src="js_1/jquery-1.12.4.js" type="text/javascript"></script>
+			<script src="easyui/jquery.min.js" type="text/javascript"></script>
+			<script src="easyui/locale/easyui-lang-zh_CN.js"
+				type="text/javascript"></script>
+			<script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
+			<script src="js_1/textStatic.js"></script>
+			<script src="js_1/textStatic.js"></script>
+
+			<script src="js_1/profile_addrmanage.js" type="text/javascript"></script>
 </body>
 </html>
+
