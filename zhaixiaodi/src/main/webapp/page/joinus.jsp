@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,19 @@
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	<div class="header-top">
 		<div class="com-w">
-			<p class="h-wel">宅小递，社区物流与生活服务平台</p>
+			<c:choose>
+				<c:when test="${loginUser eq null }">
+					<p class="h-wel">
+						<a href="page/Login.jsp">[请登录]</a>宅小递
+					</p>
+				</c:when>
+				<c:otherwise>
+					<p class="h-wel">
+						<span
+							style="color: #E76D26; font-size: 14px; font-weight: bold; font-style: italic;">${loginUser.uname}</span>,&nbsp;欢迎你来到宅小递!
+					</p>
+				</c:otherwise>
+			</c:choose>
 			<div class="h-r">
 				<ul>
 					<li class="h-qq"><em></em>

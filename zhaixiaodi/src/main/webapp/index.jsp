@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,19 @@
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
 	<div class="header-top">
 		<div class="com-w">
-			<p class="h-wel">宅小递，社区物流与生活服务平台</p>
+			<c:choose>
+				<c:when test="${loginUser eq null }">
+					<p class="h-wel">
+						<a href="page/Login.jsp">[请登录]</a>宅小递
+					</p>
+				</c:when>
+				<c:otherwise>
+					<p class="h-wel">
+						<span
+							style="color: #E76D26; font-size: 14px; font-weight: bold; font-style: italic;">${loginUser.uname}</span>,&nbsp;欢迎你来到宅小递!
+					</p>
+				</c:otherwise>
+			</c:choose>
 			<div class="h-r">
 				<ul>
 					<li class="h-qq"><em></em>
@@ -129,13 +142,13 @@
 		<div class="com-w" id="container_l">
 			<h3 class="com-title">让生活更简单</h3>
 			<div class="content-bottom-l-1">
-				<div class="tag_list" >
+				<div class="tag_list">
 					<dl>
 						<dt>
 							<em>分类</em>
 						</dt>
 						<dd id="typelist">
-							<span><a href="javascript:void(0)">顺丰快递<em>(5440)</em></a></span>
+							<span><a href="zxd/findType?" onclick="findType(this)">顺丰快递<em>(5440)</em></a></span>
 							<span><a href="javascript:void(0)">圆通快递<em>(2292)</em></a></span>
 							<span><a href="javascript:void(0)">申通快递<em>(1054)</em></a></span>
 							<span><a href="javascript:void(0)">韵达快递<em>(870)</em></a></span>
@@ -143,8 +156,8 @@
 							<span><a href="javascript:void(0)">国通快递<em>(584)</em></a></span>
 							<span><a href="javascript:void(0)">天天快递<em>(167)</em></a></span>
 							<span><a href="javascript:void(0)">中通快递<em>(148)</em></a></span>
-							<span><a href="javascript:void(0)">全峰快递<em>(80)</em></a></span>
-							<span><a href="javascript:void(0)">全部(15494)</a></span>
+							<span><a href="javascript:void(0)">全峰快递<em>(80)</em></a></span> <span><a
+								href="javascript:void(0)">全部(15494)</a></span>
 						</dd>
 					</dl>
 					<div class="clear"></div>
@@ -152,142 +165,9 @@
 			</div>
 			<div class="l_box_list" id="topic_list">
 				<ul id="expressList">
-					<li class="topic">
+					 <li class="topic">
 						<div class="u_photo">
-							<img
-								src="image/85_avatar_m.jpg"
-								height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)"
-									>圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D4-110</a> <em
-									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥5</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
-
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/120-10.png" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)" 
-									>顺丰快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D6-333</a> <em
-									class="li_s">8小时前</em> <em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s"><span class="money">￥10</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/76_avatar_m.jpg"
-								height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)"
-									>顺丰快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D6-330</a> <em
-									class="li_s">9小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥7</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/27_avatar_m.jpg"
-								height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)"
-									>申通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D2-333</a> <em
-									class="li_s">9小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥7</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/91_avatar_m.jpg"
-								height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)" 
-									>韵达快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D1-223</a> <em
-									class="li_s">9小时前</em> <em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s"><span class="money">￥12</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/120-3.png" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)"
-									>圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">C5-103</a> <em
-									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥5</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img
-								src="image/83_avatar_m.jpg"
-								height="48" width="48">
+							<img src="image/85_avatar_m.jpg" height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
@@ -296,8 +176,123 @@
 									href="javascript:void(0)">圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D5-203</a> <em
-									class="li_s">10小时前</em> <em class="active_readNum li_s">小包裹</em><em
+								<a href="javascript:void(0)">D4-110</a> <em class="li_s">3小时前</em>
+								<em class="readNum li_s">小包裹</em><em class="collectNum li_s"><span
+									class="money">￥5</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
+
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/120-10.png" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">顺丰快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">D6-333</a> <em class="li_s">8小时前</em>
+								<em class="active_readNum li_s">大包裹</em><em
+									class="collectNum li_s"><span class="money">￥10</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/76_avatar_m.jpg" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">顺丰快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">D6-330</a> <em class="li_s">9小时前</em>
+								<em class="readNum li_s">小包裹</em><em class="collectNum li_s"><span
+									class="money">￥7</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/27_avatar_m.jpg" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">申通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">D2-333</a> <em class="li_s">9小时前</em>
+								<em class="active_readNum li_s">小包裹</em><em
+									class="collectNum li_s"><span class="money">￥7</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/91_avatar_m.jpg" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">韵达快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">D1-223</a> <em class="li_s">9小时前</em>
+								<em class="active_readNum li_s">大包裹</em><em
+									class="collectNum li_s"><span class="money">￥12</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/120-3.png" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">C5-103</a> <em class="li_s">10小时前</em>
+								<em class="active_readNum li_s">小包裹</em><em
+									class="collectNum li_s"><span class="money">￥5</span></em>
+							</div>
+							<div class="li_3"
+								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
+						</div>
+					</li>
+					<li class="topic ">
+						<div class="u_photo">
+							<img src="image/83_avatar_m.jpg" height="48" width="48">
+						</div>
+						<div class="u_post">
+							<div class="btn_order"></div>
+							<div class="li_1" style="line-height: 21px;">
+								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
+									href="javascript:void(0)">圆通快递</a>
+							</div>
+							<div class="li_2" style="margin-top: 15px;">
+								<a href="javascript:void(0)">D5-203</a> <em class="li_s">10小时前</em>
+								<em class="active_readNum li_s">小包裹</em><em
 									class="collectNum li_s"><span class="money">￥6</span></em>
 							</div>
 							<div class="li_3"
@@ -306,15 +301,13 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<img
-								src="image/03_avatar_m.jpg"
-								height="48" width="48">
+							<img src="image/03_avatar_m.jpg" height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)" >韵达快递</a>
+									href="javascript:void(0)">韵达快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
 								<a href="javascript:void(0)">D4-401</a> <em class="li_s">9小时前</em>
@@ -327,9 +320,7 @@
 					</li>
 					<li class="topic ">
 						<div class="u_photo">
-							<img
-								src="image/29_avatar_m.jpg"
-								height="48" width="48">
+							<img src="image/29_avatar_m.jpg" height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
@@ -339,18 +330,18 @@
 									href="javascript:void(0)">圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D1-401</a> <em
-									class="li_s">7小时前</em> <em class="active_readNum li_s">小包裹</em><em
+								<a href="javascript:void(0)">D1-401</a> <em class="li_s">7小时前</em>
+								<em class="active_readNum li_s">小包裹</em><em
 									class="active_collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上送过来，谢谢</div>
 						</div>
-					</li>
+					</li> 
 				</ul>
 
 			</div>
-			 <div class="page-sep-wrap">
+			<div class="page-sep-wrap">
 				<div class="page-sep" id="pagation">
 					<div class="clear"></div>
 				</div>

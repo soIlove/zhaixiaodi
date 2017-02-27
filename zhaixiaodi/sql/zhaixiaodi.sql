@@ -131,7 +131,7 @@ select * from zorders;
 select * from
 (select zd.* ,rownum rn from 
 (select oid,uname,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype 
-from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid )zd where rownum>=1)where rn<5;
+from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype='圆通快递')zd where rownum>=1)where rn<5;
 
 
 

@@ -35,4 +35,18 @@ public class ExpressServiceImpl implements ExpressService {
 		return expressMapper.typeList();
 	}
 
+	@Override
+	public PaginationBean<Express> findType(String currPage, String pageSize, String otype) {
+		PaginationBean<Express> expressBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			expressBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			expressBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		expressBean.setOtype(otype);
+		expressBean=expressMapper.getExpressTypePagination(expressBean);
+		return expressBean;
+	}
+
 }

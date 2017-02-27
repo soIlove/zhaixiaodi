@@ -10,12 +10,15 @@ import java.util.List;
  */
 public class PaginationBean<T> {
 	//分页的请求数据
-	private Integer pageSize=1;//每页的记录数据
+	private Integer pageSize=2;//每页的记录数据
 	private Integer currPage=1;//当前页
 	
 	private Integer totalPage;//总页数
 	private Integer total;//数据的总条数
 	private List<T> rows;//当前页的数据
+	
+	private String otype;
+	
 	
 	public PaginationBean() {
 		// TODO Auto-generated constructor stub
@@ -25,6 +28,15 @@ public class PaginationBean<T> {
 		super();
 		this.pageSize = pageSize;
 		this.currPage = currPage;
+	}
+
+	
+	public String getOtype() {
+		return otype;
+	}
+
+	public void setOtype(String otype) {
+		this.otype = otype;
 	}
 
 	public Integer getPageSize() {
@@ -70,8 +82,10 @@ public class PaginationBean<T> {
 	@Override
 	public String toString() {
 		return "PaginationBean [pageSize=" + pageSize + ", currPage=" + currPage + ", totalPage=" + totalPage
-				+ ", total=" + total + ", \nrows=" + rows + "]";
+				+ ", total=" + total + ", rows=" + rows + ", otype=" + otype + "]";
 	}
+
+	
 	
 	
 	

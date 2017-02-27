@@ -19,10 +19,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select="getPaginationExpress" />
 	</resultMap>
 
-	<sql id="selectExpress">
-		select * from zorders
-	</sql>
-
 	<!-- #是采取占位符，$是直接取到值 -->
 	<select id="getPaginationExpress" resultType="Express">
 		select * from
@@ -34,11 +30,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
+	<!-- **************************************************************************************** -->
+	
 	<select id="typeList" resultType="ExpressType">
 		select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc
 	</select>
 	
-	<!-- <resultMap id="TypeMap" type="ExpressType">
-		
-	</resultMap> -->
+	<!-- **************************************************************************************** -->
+	
+	<select id="getExpressTypePagination" parameterType="PaginationBean"
+		resultMap="PaginationBeanMap02">
+		select count(1) total, ceil(count(1)/${pageSize}) totalPage,
+		${pageSize} pageSize,${currPage} currPage ,#{otype} otype from zorders where otype=#{otype}
+	</select>
+	
+	<resultMap type="PaginationBean" id="PaginationBeanMap02">
+		<result column="pageSize" property="pageSize" />
+		<result column="currPage" property="currPage" />
+		<result column="otype" property="otype" />
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage,otype=otype}" ofType="Express"
+			select="getPaginationTypeExpress" />
+	</resultMap>
+
+	<select id="getPaginationTypeExpress" resultType="Express">
+		select * from
+		(select zd.* ,rownum rn from
+		(select oid,uname,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype
+		from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype='${otype}')zd
+		where ${pageSize} * ${currPage}>=rownum)
+		where rn>( ${currPage}-1 ) * ${pageSize}
+
+	</select>
+	
 </mapper>
