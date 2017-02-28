@@ -92,7 +92,7 @@
 						src="image/Logo.jpg"></a>
 				</p>
 			</div>
-			<div class="menu">
+			<div class="menu_1">
 				<ul>
 					<li><a href="index.jsp">首页</a></li>
 					<li class="on"><a href="page/about.jsp">关于我们</a></li>

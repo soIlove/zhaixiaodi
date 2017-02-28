@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yc.zxd.entity.Applyorder;
 import com.yc.zxd.entity.Order;
 import com.yc.zxd.service.OrderService;
 
@@ -29,6 +30,14 @@ public class OrderHandler {
 		order.setUuid(1);
 		result = orderService.order(order);// 检查用户是否存在
 		return result;
+	}
+	
+	@RequestMapping("/addzaccept")
+	@ResponseBody
+	public boolean addzaccept(Applyorder applyorder){
+		System.out.println(applyorder+"能获取对象吗");	
+		return orderService.addzaccept(applyorder);
+		
 	}
 
 }

@@ -162,7 +162,7 @@
         <div class="logo" id="logo">
             <p><a href="http://www.shouhuobao.com/index.html"><img src="image/Logo.jpg"></a></p>
         </div>
-        <div class="menu">
+        <div class="menu_1">
             <ul>
                 <ul>
                     <li> <a href="index.jsp">首页</a> </li>

@@ -26,7 +26,10 @@
 	<select id="getIdByAddr" parameterType="String" resultType="Integer">
 		select zid from zaddr where #{zaddr} =zaddr
 	</select>
-
+  	
+  	<insert id="addzaccept" parameterType="Applyorder">
+  			insert into zaccept values(seq_aid.nextval,#{oid},#{adesc},#{did},null)
+  	</insert>
 
 
 

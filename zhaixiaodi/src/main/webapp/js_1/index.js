@@ -6,7 +6,7 @@ function getExpress(pageNum){
 		for(var i=0;i<expresses.length;i++){
 			$("#expressList").append("<li class='topic'><div class='u_photo'>"+
 				"<img src='image/85_avatar_m.jpg'height='48' width='48'>"+
-				"</div><div class='u_post'><div class='btn_order'></div>"+
+				"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'></div></a>"+
 				"<div class='li_1' style='line-height: 21px;'>"+
 				"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
 				"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
@@ -111,7 +111,7 @@ getExpress(1);
 
 function getType(){
 	$.get("zxd/type",function(data){
-		alert(data.length);
+		
 		$("#typelist").empty();
 		for(var i=0;i<data.length;i++){
 			$("#typelist").append(
@@ -122,3 +122,50 @@ function getType(){
 	},"json");
 }
 getType();
+
+
+
+
+function Graborder(oid){
+	$("#hiddoid").val(oid);
+
+	
+	
+	$('#getordmsg').window({    
+		  width:400,    
+		    height:250,    
+		    modal:true,   
+		    minimizable:false,
+		    maximizable:false,
+		    collapsible:false,
+		    title:'填写抢单信息'
+	});  
+}
+function applyorder(){
+	var oid=$("#hiddoid").val();
+	var adesc=$("#ordoramsg").val();
+	var did=201
+	$.post("order/addzaccept",{"oid":oid,"adesc":adesc,"did":did},function(data){
+			if(data){
+				alert("抢单申请已为你提交，请等待对方确认");
+				$('#getordmsg').window('close')
+			}			
+},"json")
+/*	var socket=new WebSocket('ws://'+window.location.host+'/zhaixiaodi/pushmsg');
+	//连接与服务器的连接
+	socket.onopen = function () {
+		alert("连接")
+			socket.send("hello,my name is 黄福州");
+	};
+	//与服务之间的通信
+	socket.onmessage = function (message) {
+			alert("你有一个新消息"+message.data)
+	};
+	//断开与服务器的连接
+	socket.onclose = function () {
+
+	};*/
+}
+
+
+

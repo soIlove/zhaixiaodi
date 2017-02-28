@@ -49,20 +49,21 @@ create table delusers(
 
 --代递员表
 create table dusers(
-    did varchar2(20) primary key,--代递员编号
-	uuid int references zusers(uuid) on delete cascade,--普通用户编号
+    did int primary key,--代递员编号
+	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号  修改成唯一值
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
 	dscore  varchar2(30) not null, --信誉度评分累计
 	dnum  varchar2(30) not null,--接单次数
 	uremain1 varchar2(50),
-	uremain2 varchar2(50)
-	 
+	uremain2 varchar2(50)	 
 )
 drop table dusers;
 drop sequence seq_dusers;
 create sequence seq_dusers start with 200;
-
+insert into dusers values(seq_dusers.nextval,1004,'1420140315','/zxdImg/4.jpg','4.5','5',null,null)
+insert into dusers values(seq_dusers.nextval,1030,'1420140311','/zxdImg/4.jpg','4.5','5',null,null)
+select * from dusers;
 --收货地址表
 create table zaddr(
 	zid int primary key,--地址编号
@@ -111,16 +112,16 @@ select distinct otype,count(otype) num from zorders group by otype order by coun
 
 drop table zorders;
 drop sequence seq_zorders;
-
+select * from zorders;
 create sequence seq_zorders start with 10000;
-insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','6789','小包裹','尽量中午',101,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','679','小包裹','尽量中午',101,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','圆通快递',null,null);
-insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花花','6789','小包裹','wusuowuo午',100021,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花花','679','小包裹','尽量中午',100025,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花','6799','小包裹','都可以的',100030,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花小花','0789','小包裹','尽量中午',100028,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','你是不是傻',100030,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花','6799','小包裹','尽量中午',100030,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',100030,'5','圆通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花小花','0789','小包裹','尽量中午',100030,'5','圆通快递',null,null);
 
 insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','6789','小包裹','尽量中午',101,'5','申通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','679','小包裹','尽量中午',101,'5','汇通快递',null,null);
@@ -143,12 +144,16 @@ from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid )zd where ro
 --接单表(多人抢单)
 create table zaccept(
 	aid int primary key,--接单编号
-	oid int references zorder(oid) on delete cascade,--投单编号
+	oid int references zorders(oid) on delete cascade,--投单编号
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
-	uremain1 varchar2(50),
+	did int references dusers(did) on delete cascade,--接单人编号  （修改成唯一值）
 	uremain2 varchar2(50)
 )
-
+create sequence seq_aid start with 30001;
+drop sequence seq_aid;
+insert into zaccept values(seq_aid.nextval,10017,'4点能送达',201,null);
+select * from zaccept;
+drop table zaccept;
 --订单表
 create table order(
 	ooid int primary key,--订单编号
