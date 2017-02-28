@@ -17,6 +17,9 @@ public class PaginationBean<T> {
 	private Integer total;//数据的总条数
 	private List<T> rows;//当前页的数据
 	
+	private String otype;
+	
+	
 	public PaginationBean() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,6 +28,15 @@ public class PaginationBean<T> {
 		super();
 		this.pageSize = pageSize;
 		this.currPage = currPage;
+	}
+
+	
+	public String getOtype() {
+		return otype;
+	}
+
+	public void setOtype(String otype) {
+		this.otype = otype;
 	}
 
 	public Integer getPageSize() {
@@ -70,8 +82,10 @@ public class PaginationBean<T> {
 	@Override
 	public String toString() {
 		return "PaginationBean [pageSize=" + pageSize + ", currPage=" + currPage + ", totalPage=" + totalPage
-				+ ", total=" + total + ", \nrows=" + rows + "]";
+				+ ", total=" + total + ", rows=" + rows + ", otype=" + otype + "]";
 	}
+
+	
 	
 	
 	

@@ -12,5 +12,7 @@ public interface ExpressMapper {
 
 	List<ExpressType> typeList();
 
+	PaginationBean<Express> getExpressTypePagination(PaginationBean<Express> expressBean);
+
 	
 }

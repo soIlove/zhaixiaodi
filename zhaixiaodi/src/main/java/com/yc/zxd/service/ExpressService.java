@@ -12,4 +12,6 @@ public interface ExpressService {
 
 	List<ExpressType> typeList();
 
+	PaginationBean<Express> findType(String page, String rows, String otype);
+
 }
