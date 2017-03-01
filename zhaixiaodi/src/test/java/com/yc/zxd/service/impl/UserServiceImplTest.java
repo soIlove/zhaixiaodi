@@ -2,12 +2,15 @@ package com.yc.zxd.service.impl;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,6 +34,14 @@ public class UserServiceImplTest {
 	public void TestGetMail() {
 		String str = userService.getMail("13237343452");
 		assertNotNull(str);
+		System.out.println(str);
+		
+	}
+	
+	@Test
+	public void TestsearchUserByTel() {
+		List<User> str = userService.searchUser(null);
+//		assertNotNull(str);
 		System.out.println(str);
 		
 	}

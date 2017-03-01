@@ -1,8 +1,8 @@
 package com.yc.zxd.web.handler;
 
-
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -31,15 +31,13 @@ import com.yc.zxd.service.impl.UserServiceImpl;
 import com.yc.zxd.util.PhoneCode;
 import com.yc.zxd.util.ServletUtil;
 
-
 @Controller
 @RequestMapping("/zxd")
-@SessionAttributes({"loginUser"})
+@SessionAttributes({ "loginUser" })
 public class UserHandler {
 
 	@Autowired
 	private UserService userService;
-	
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -58,7 +56,6 @@ public class UserHandler {
 		result = userService.isExistUN(tel);// 检查用户是否存在
 		return result;
 	}
-	
 
 	@RequestMapping("/verifyCode") // 检查用户是否存在
 	@ResponseBody
@@ -94,7 +91,7 @@ public class UserHandler {
 
 	@RequestMapping("/getMail") // 得到邮箱
 	@ResponseBody
-	public String getUser(String tel) {
+	public String getMail(String tel) {
 		String email = "";
 		LogManager.getLogger().debug("进入UserHandler 处理getMail,根据电话得到邮箱,tel:" + tel);
 		if (tel != null) {
@@ -102,6 +99,16 @@ public class UserHandler {
 		}
 
 		return new Gson().toJson(email);
+	}
+
+	@RequestMapping("/search") // 根据用户电话查询或者查询全部
+	@ResponseBody
+	public List<User> searchUser(String tel) {
+		List<User> user = new ArrayList<User>();
+		LogManager.getLogger().debug("进入UserHandler 处理searchUserByTel,通过电话查找用户,tel:" + tel);
+		user = userService.searchUser(tel);
+
+		return user;
 	}
 
 	@RequestMapping("/sendMail") // 发送邮件
@@ -123,7 +130,7 @@ public class UserHandler {
 			code = new ImageCodeServelt().verifyCode(request);
 			helper.setText("宅小递的验证码:" + code, true);
 			System.out.println("真的验证码:" + code);
-			 mailSender.send(message);
+			mailSender.send(message);
 
 		} catch (MessagingException e) {
 			e.printStackTrace();
@@ -144,80 +151,82 @@ public class UserHandler {
 		map.put("errorMsg", "用户名或密码错误");// 存在request中
 		return "forward:/page/Login.jsp";
 	}
-	
+
 	@Autowired
 	PhoneCode phonecode;
+
 	@RequestMapping("/captcha")
 	@ResponseBody
-	public  String  RegisterUser(String uphone){
+	public String RegisterUser(String uphone) {
 		LogManager.getLogger().debug("注册用户请求获取短信验证码操作");
-		String  IfGetCo=phonecode.getPhonemsg(uphone);
-		
-		if(IfGetCo!=""&IfGetCo!=null){			
-			LogManager.getLogger().debug("恭喜你,验证码发送成功,您的验证码为："+IfGetCo);		
+		String IfGetCo = phonecode.getPhonemsg(uphone);
+
+		if (IfGetCo != "" & IfGetCo != null) {
+			LogManager.getLogger().debug("恭喜你,验证码发送成功,您的验证码为：" + IfGetCo);
 			return IfGetCo;
-		}else{
+		} else {
 			LogManager.getLogger().debug("验证码发送失败,请重新获取");
-		}	
+		}
 		return null;
 	}
-	
+
 	@RequestMapping("/Register")
 	@ResponseBody
-	public boolean RegisterUser(@RequestParam(name="upicdata",required=false)MultipartFile upicture,User user ){
+	public boolean RegisterUser(@RequestParam(name = "upicdata", required = false) MultipartFile upicture, User user) {
 		LogManager.getLogger().debug("用户申请注册");
 
-		System.out.println(upicture+"upicture****************");
-		if(upicture!=null && !upicture.isEmpty()){
+		System.out.println(upicture + "upicture****************");
+		if (upicture != null && !upicture.isEmpty()) {
 			try {
-				File file=new File(ServletUtil.UPLOAD_DIR,upicture.getOriginalFilename());
+				File file = new File(ServletUtil.UPLOAD_DIR, upicture.getOriginalFilename());
 				upicture.transferTo(file);
-				user.setUpicture("/"+ServletUtil.UPLOAD_DIR_NAME+"/"+upicture.getOriginalFilename());
-				LogManager.getLogger().debug("头像上传成功，上传地址为:"+file);
+				user.setUpicture("/" + ServletUtil.UPLOAD_DIR_NAME + "/" + upicture.getOriginalFilename());
+				LogManager.getLogger().debug("头像上传成功，上传地址为:" + file);
 			} catch (IllegalStateException | IOException e) {
-				LogManager.getLogger().debug("头像上传失败：",e);	
+				LogManager.getLogger().debug("头像上传失败：", e);
 			}
 		}
 		return userService.RegisterUser(user);
 	}
-	
+
 	@RequestMapping("/getusermsg")
 	@ResponseBody
-	public User getUserMsg(String phonenum){
-		return userService.getUserMsg(phonenum);		
+	public User getUserMsg(String phonenum) {
+		return userService.getUserMsg(phonenum);
 	}
-	
+
 	@RequestMapping("/updatemsg")
 	@ResponseBody
-	public boolean updatemsg(@RequestParam(name="upicdata",required=false)MultipartFile upicture, User user){
+	public boolean updatemsg(@RequestParam(name = "upicdata", required = false) MultipartFile upicture, User user) {
 		LogManager.getLogger().debug("用户申请修改个人资料");
-		if(upicture!=null && !upicture.isEmpty()){
+		if (upicture != null && !upicture.isEmpty()) {
 			try {
-				File file=new File(ServletUtil.UPLOAD_DIR,upicture.getOriginalFilename());
-				upicture.transferTo(file);//上传文件
-				user.setUpicture("/"+ServletUtil.UPLOAD_DIR_NAME+"/"+upicture.getOriginalFilename());
-				LogManager.getLogger().debug("头像上传成功，上传地址为:"+file);
+				File file = new File(ServletUtil.UPLOAD_DIR, upicture.getOriginalFilename());
+				upicture.transferTo(file);// 上传文件
+				user.setUpicture("/" + ServletUtil.UPLOAD_DIR_NAME + "/" + upicture.getOriginalFilename());
+				LogManager.getLogger().debug("头像上传成功，上传地址为:" + file);
 			} catch (IllegalStateException | IOException e) {
-				LogManager.getLogger().debug("头像上传失败：",e);	
+				LogManager.getLogger().debug("头像上传失败：", e);
 			}
 		}
 		return userService.updatemsg(user);
 	}
-	
+
 	@RequestMapping("/getaddr")
 	@ResponseBody
-		public List<Address> getAddr(int uuid){
+	public List<Address> getAddr(int uuid) {
 		return userService.getAddr(uuid);
 	}
-	
+
 	@RequestMapping("/deladdr")
 	@ResponseBody
-		public boolean deladdr(int zid){
+	public boolean deladdr(int zid) {
 		return userService.deladdr(zid);
 	}
+
 	@RequestMapping("/addaddr")
 	@ResponseBody
-		public boolean addaddr(Address address){
+	public boolean addaddr(Address address) {
 		return userService.addaddr(address);
 	}
 

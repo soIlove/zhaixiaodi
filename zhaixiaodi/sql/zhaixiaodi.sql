@@ -1,6 +1,6 @@
 --普通用户表
 create table zusers(
-    uuid number(30) primary key,--用户编号
+    uuid int primary key,--用户编号
 	upwd varchar2(40) not null,--密码
     uname varchar2(30) not null,--昵称
     uphone varchar2(40) unique not null,--电话
@@ -12,20 +12,26 @@ create table zusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+
+select * from zusers where uphone ='13237343452'
 drop table zusers;
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
 
-insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
 
-
-insert into zusers  values(seq_zusers.nextval,'11','1133333','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','蒋小掉','110','110@qq.com','女','6.jpg' ,'gongxeuyua',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','xkj','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
 
 select * from zusers;
 update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
 
-select * from zusers where uphone=15115115151 and  upwd = 'aa';
-delete from ZUSERS where uphone='18188970546'
+select * from(
+select ad.*,rownum rn from
+(select * from ZUSERS) ad
+where  4> rownum
+)where rn >1
+
 --管理员表
 create table admin(
 	adid int primary key,--管理员编号
@@ -37,6 +43,14 @@ create table admin(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+create sequence seq_adminId
+select * from admin
+insert into admin values(seq_adminId.nextval,'a','zhangsan','男','13237343452','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','lisi','女','110','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','wangwu','女','110','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','zhaoliu','女','110','普通管理员',null,null);
+
+
 
 --被删除的用户表
 create table delusers(
@@ -49,7 +63,7 @@ create table delusers(
 
 --代递员表
 create table dusers(
-    did varchar2(20) primary key,--代递员编号
+    did int primary key,--代递员编号
 	uuid int references zusers(uuid) on delete cascade,--普通用户编号
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
@@ -106,7 +120,7 @@ create table zorders(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-
+select * from zorders
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
 
 drop table zorders;

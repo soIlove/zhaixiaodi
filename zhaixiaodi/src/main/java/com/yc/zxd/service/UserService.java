@@ -26,6 +26,10 @@ public interface UserService {
 
 	boolean addaddr(Address address);
 
+	List<User> searchUser(String tel);
+
+
+
 
 
 }

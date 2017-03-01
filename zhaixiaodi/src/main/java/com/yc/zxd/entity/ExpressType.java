@@ -5,7 +5,6 @@ public class ExpressType {
 	private String num;
 	
 	public ExpressType() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ExpressType(String otype, String num) {

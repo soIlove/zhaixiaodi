@@ -15,7 +15,6 @@ public class Express {
 	private String otype;
 	
 	public Express() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Express(Integer oid, String uname, Date otime, String orelname, String ocode, String osize, String odesc,

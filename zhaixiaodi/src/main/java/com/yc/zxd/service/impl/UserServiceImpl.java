@@ -90,6 +90,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public List<User> searchUser(String tel) {
+		return userMapper.searchUser(tel);
+	}
+
+
+
 	
 
 }
