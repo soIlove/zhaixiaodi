@@ -19,6 +19,7 @@ public interface ExpressMapper {
 	Express findDU(int did);
 
 	PaginationBean<Express> getWOrderPagination(PaginationBean<Express> orderBean);
+	PaginationBean<Express> searchOrder( PaginationBean<Express> expressBean  );
 
 	
 }

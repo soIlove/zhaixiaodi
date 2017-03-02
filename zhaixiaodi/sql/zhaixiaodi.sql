@@ -12,20 +12,26 @@ create table zusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+update zusers set utype=0   where uuid=1
+select * from zusers where uphone ='13237343452'
 drop table zusers;
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
 
-insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
 
-
-insert into zusers  values(seq_zusers.nextval,'11','1133333','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','蒋小掉','110','110@qq.com','女','6.jpg' ,'gongxeuyua',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','xkj','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
 
 select * from zusers;
 update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
 
-select * from zusers where uphone=15115115151 and  upwd = 'aa';
-delete from ZUSERS where uphone='18188970546'
+select * from(
+select ad.*,rownum rn from
+(select * from ZUSERS) ad
+where  4> rownum
+)where rn >1
+
 --管理员表
 create table admin(
 	adid int primary key,--管理员编号
@@ -37,6 +43,14 @@ create table admin(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+create sequence seq_adminId
+select * from admin
+insert into admin values(seq_adminId.nextval,'a','zhangsan','男','13237343452','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','lisi','女','110','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','wangwu','女','110','普通管理员',null,null);
+insert into admin values(seq_adminId.nextval,'a','zhaoliu','女','110','普通管理员',null,null);
+
+
 
 --被删除的用户表
 create table delusers(
@@ -49,17 +63,25 @@ create table delusers(
 
 --代递员表
 create table dusers(
+<<<<<<< HEAD
     did int primary key,--代递员编号201
 	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号1001
+=======
+    did int primary key,--代递员编号
+	uuid int references zusers(uuid) on delete cascade,--普通用户编号
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
 	dscore  varchar2(30) not null, --信誉度评分累计
 	dnum  varchar2(30) not null,--接单次数
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
-	 
 )
+<<<<<<< HEAD
 
+=======
+select * from dusers
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 drop table dusers;
 drop sequence seq_dusers;
 create sequence seq_dusers start with 200;
@@ -110,10 +132,14 @@ create table zorders(
 	zid int references zaddr(zid) on delete cascade,--投单人地址编号
     oprice varchar2(30) not null,--代递金额
 	otype varchar2(30) not null,--快递类型
-	uremain1 varchar2(50),
-	uremain2 varchar2(50)
+	uremain1 varchar2(50),--接单状态
+	uremain2 varchar2(50)--接单数目
 )
+<<<<<<< HEAD
 select * from zorders;
+=======
+select * from zorders
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
 
 drop table zorders;
@@ -129,6 +155,7 @@ insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','�
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','圆通快递',null,null);
 
+<<<<<<< HEAD
 insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','6789','小包裹','尽量中午',101,'5','申通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1001,sysdate,'小花花','679','小包裹','尽量中午',101,'5','汇通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','小包裹','尽量中午',102,'5','韵达快递',null,null);
@@ -140,6 +167,11 @@ insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789',
 
 
 
+=======
+ 
+delete from zorders;
+select * from zorders;
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 
 select * from
 (select zd.* ,rownum rn from 
@@ -149,9 +181,14 @@ from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype=
 
 --接单表(多人抢单)
 create table zaccept(
+<<<<<<< HEAD
 	aid int primary key,--接单编号20001
 	oid int references zorders(oid) on delete cascade,--投单编号10011
 	did int references dusers(did) on delete cascade,--接单人编号201--》即1001
+=======
+	aid int primary key,--接单编号
+	oid int references zorders(oid) on delete cascade,--投单编号
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
@@ -169,19 +206,40 @@ create table orders(
 	aid int references zaccept(aid) on delete cascade,--接单编号20001
 	oscore varchar2(20) , --评分
 	ostatus varchar2(40) check (ostatus in('等待评价','订单完成','订单取消','等待收货')),
+	ostatus varchar2(40) check (ostatus in('等待评价','订单完成','订单取消','已确认收货')),--0待评价，1已评价，2取消订单,3确认收货 
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
 drop table orders;
 drop sequence seq_orders;
 create sequence seq_orders start with 100000; 
+<<<<<<< HEAD
 insert into orders values(seq_orders.nextval,20001,null,'等待评价',null,null);--1002,1001 投单号10011
 insert into orders values(seq_orders.nextval,20020,null,'订单取消',null,null);--1003投,1002接
 insert into orders values(seq_orders.nextval,20021,null,'订单完成',null,null);--1004,1003
 insert into orders values(seq_orders.nextval,20022,null,'等待收货',null,null);--1002,1020  10014
-
+=======
+insert into orders values(seq_orders.nextval,20001,null,'确认收货',null,null);
 select * from orders;
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 
+<<<<<<< HEAD
+select * from orders;
+=======
+--创建投单和地址的视图
+create OR REPLACE  view zorders_addr
+as
+select 
+zorders.oid,zorders.uuid,zorders.otime,zorders.orelname,zorders.ocode,zorders.osize,zorders.odesc,zorders.oprice,zorders.otype,zaddr.zaddr
+from zorders
+join zaddr
+on zorders.zid=zaddr.zid;
+ 
+select * from zorders_addr
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
+
+<<<<<<< HEAD
 select distinct du.did,os.ooid,otime,osize,odesc,zaddr,oprice,otype,upicture,ostatus
 from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu  where os.aid=za.aid and 
 za.oid=zo.oid and za.did=du.did  and  zo.zid=ad.zid and zo.uuid=1002 ;
@@ -195,3 +253,6 @@ za.oid=zo.oid and za.did=du.did  and  zo.zid=ad.zid and zo.uuid=1002 )a right jo
 (select distinct du.did,otime,os.ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus
 from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu  where za.aid=os.aid and 
 za.oid=zo.oid and za.did=du.did and zo.zid=ad.zid and zo.uuid=1002 and ostatus='等待评价' )b on a.did=b.did order by otime;
+=======
+--订单id,投单人姓名,接单人昵称       
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git

@@ -33,6 +33,8 @@ public class User {
 		this.uaddr = uaddr;
 	}
 
+	
+	
 	public Integer getUuid() {
 		return uuid;
 	}

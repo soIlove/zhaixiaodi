@@ -24,7 +24,6 @@ public class Express {
 	private String ostatus;
 	
 	public Express() {
-		// TODO Auto-generated constructor stub
 	}
 		
 	

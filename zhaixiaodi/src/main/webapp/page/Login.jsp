@@ -98,16 +98,11 @@
 		</div>
 	</div>
 	<div class="shop-banner">
-		<a href="javascript:;" class="log-in">立即登录</a>
 		<div class="com-w">
-			<div class="shop-word">
-				<h3>宅小递联盟</h3>
-				<p>
-					<span>电商导流，首选宅小递</span><br> 你想每天坐等更多的客人上门消费吗？<br>
-					你想帮亲们代收快递包裹赚钱吗？ <br> 加入宅小递联盟，月赚3000更轻松！
-				</p>
-				<a
-					href="http://www.shouhuobao.com/merchant/merchant/disp-merchant-add.html">加入我们</a>
+			<div class=" " style="width: 50%px;margin-top:4rem; display: inline-block;" >
+				<h3></h3>
+				 
+				<a	href="page/RegisterDai.jsp">我要申请成为待递员</a>
 			</div>
 			<div class="login-form">
 				<div class="login-bg"></div>
@@ -116,7 +111,7 @@
 					<h3>登录商户中心</h3>
 					<p><label style="color:red;" >${errorMsg }&nbsp;</label></p><c:remove var="errorMsg" scope="session"/>
 					<div class="bh-item">
-						<input id="j_username" name="uphone" placeholder="用户名/手机号/邮箱"
+						<input id="j_username" name="uphone" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"
 							type="text">
 					</div>
 					<div class="bh-item">

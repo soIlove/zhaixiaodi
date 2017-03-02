@@ -21,7 +21,6 @@ public class PaginationBean<T> {
 	private String uuid;
 	
 	public PaginationBean() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public PaginationBean(Integer pageSize, Integer currPage) {

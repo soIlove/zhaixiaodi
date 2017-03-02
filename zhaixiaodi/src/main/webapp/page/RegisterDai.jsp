@@ -6,7 +6,7 @@
 <base href="/zhaixiaodi/">
 
 <meta  charset="UTF-8">
-<title>信息填写</title>
+<title>待递员注册</title>
 
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -39,8 +39,8 @@
     <script src="js/layer.js" type="text/javascript"></script><link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss" style="">
     <script src="js/uploadPreview.js" type="text/javascript"></script>
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
-      
-     <script src="js_1/order.js" type="text/javascript"></script>
+    <script src="js/api" type="text/javascript"></script><script type="text/javascript" src="js/getscript"></script>
+     <script src="js_1/Register.js" type="text/javascript"></script>
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
 <script type="text/javascript" src="js_1/jquery-1.12.4.js" ></script>
@@ -168,8 +168,8 @@
                     <li> <a href="index.jsp">首页</a> </li>
 			        <li> <a href="page/about">关于我们</a> </li>
 			        <li class="on"> <a href="page/Login.jsp">商户中心</a> </li>
-			        <li> <a href="page/order.jsp">我要投单</a> </li>
-			        <li> <a href="page/profile.jsp">个人中心</a> </li>
+			        <li> <a href="#">帮助中心</a> </li>
+			        <li> <a href="#">裹儿</a> </li>
                 </ul>
             </ul>
         </div>
@@ -182,57 +182,37 @@
     <div class="zln-w970">
         <div class="zln-join">
             <div class="zln-join_in">
-                <h4>请填写快递相关信息</h4>
+                <h4>请填写注册信息</h4>
              
-                <form class="form-horizontal" action="" method="post" id="iform" >
-                	  <input id="uid"  name="uid"  type="hidden"  value=${sessionScope.loginUser }>  
-                    <div class="f14 mt20">请您认真填写下列信息，有助于更快为您领取快递，谢谢您的认真填写</div>
-						
+                <form class="form-horizontal"   method="post" id="iform" enctype="multipart/form-data">
+                    <div class="f14 mt20">请您认真填写下列信息，有助于提供审核通过几率，谢谢您的认真填写</div>
+						<input name="uuid" value="${loginUser.uuid}"  type="hidden"/>
+                  
                     <!-- 详细信息 -->
                     <div class="zln-join_box zln-c">
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
-                            <li class="zln-li1"><span>真实名字</span>
-                                <input id="orelname" value="" required="required" name="orelname" autofocus="autofocus" class="zln-text1" type="text" placeholder="" > <font></font>
+                            <li class="zln-li1"><span>认证学号</span>
+                                <input id="dsid" name="dsid" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
-                            
-                             <li class="zln-li1"><span>取货码</span>
-                              <input id="ocode" name="ocode" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text" placeholder="" > <font></font>
-                              &nbsp;  <span style="color: red;width: 10rem;">注:取货码为正整数</span>
+                              
+                            <li class="zln-li1"> <span>学生证图片<br>
+                          <b class="need">(点我)</b></span>
+                                <div class="zw">
+                                    <input name="dspic" id="dspic"  multiple="multiple" type="file" style="display:none"onchange="addpic(this)">
+                                    <a href="" onclick="document.getElementById('dspic').click();return false;">
+                                    <div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
+                                </div>
+                                
                             </li>
-                            
-                             <li class="zln-li1"><span>包裹大小</span>
-                              &nbsp;<input type="radio" name="osize" value="小包裹" checked="checked"> &nbsp;小包裹&nbsp;&nbsp;
-                              <input type="radio" name="osize" value="大包裹"/>  &nbsp; 大包裹
+                            <li class="zln-li1" style="padding-left:153px;color:#000;font-size:14px">
+                                <input id="isnot" name="isnot" type="checkbox" required="required"> 同意协议 <a href="javascript:void(null)" onclick="joinUs();" style="color:#00f">点击查看协议条款&gt;&gt;</a>
                             </li>
-                           
-                               <li class="zln-li1"><span>投单描述</span>
-                               <!--  <input id="uemail" name="uemail" class="zln-text1" type="text">  -->
-                               <textarea rows="5" cols="25"  name="odesc" id="odesc"  > 请尽快送达!谢谢!</textarea>
-                            </li>
-                             
-                               <li class="zln-li1"><span>地址</span>
-                                <input id="oaddr" name="oaddr" readonly="readonly" class="zln-text1" type="text" value="湖南工学院D6-318">
-                                &nbsp;&nbsp;<input type="button" value="更改地址"  id="modify" name="modify"/> 
-                            </li>
-                            
-                               <li class="zln-li1"><span>代递金额</span>
-                                <input id="oprice" name="oprice" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text"> 
-                               &nbsp;  <span style="color: red">注:金额为正整数</span>
-                            </li>
-                               <li class="zln-li1"><span>快递类型</span>
-                                <input id="otype" name="otype" value="" required="required"  class="zln-text1" type="text"> 
-                            </li>
-                            
-                            
                             <li class="zln-dtest zln-li1"><span>&nbsp;</span>
                                 <div class="zln-libt_a">
-                                    <input id="submitOk" value="我要投单" class="zln-button" type="button" onclick="order()">
-									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
+                                    <input id="submitOk" value="完成注册" class="zln-button" type="submit" >
                                     <!-- 等待 -->
                          
-                                    <!-- 完成 -->
-                                    
                                 </div>
                             </li>
                         </ul>
@@ -355,6 +335,7 @@
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/appbuilder.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/subTabSwitch.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/WdatePicker.js"></script>
@@ -385,7 +366,10 @@ function joinUs(){
 });	
 }
 </script>
-<script src="js_1/order.js" type="text/javascript"></script>
+<script src="easyui/jquery.min.js" type="text/javascript"></script>
+<script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
+<script src="js_1/RegisterDai.js" type="text/javascript"></script>
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
  <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" ></iframe></div>
 </body></html> 

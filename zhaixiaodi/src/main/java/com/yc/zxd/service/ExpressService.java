@@ -19,5 +19,7 @@ public interface ExpressService {
 	Express findDU(int did);
 
 	PaginationBean<Express> worderlist(String page, String rows, String uuid);
+	
+	PaginationBean<Express> searchOrder( String page, String rows,String name );
 
 }
