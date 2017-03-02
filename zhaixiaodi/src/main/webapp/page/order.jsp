@@ -265,6 +265,7 @@
 														</li>	  -->
 						</ul>
 						
+
 						<div class="profile_div_addr_2">
 								<input type="text" name="addr_2_inp" id="addr_2_inp"/>
 							<a href="javaScript:addaddr()"><span>+添加新地址</span></a><br />
@@ -275,6 +276,59 @@
 			</div>
 		</div>
 	</div>
+
+                    <!-- 详细信息 -->
+                    <div class="zln-join_box zln-c">
+                        <div class="zln-join_title"><span>详细信息</span><font></font></div>
+                        <ul>
+                            <li class="zln-li1"><span>真实名字</span>
+                                <input id="orelname" value="" required="required" name="orelname" autofocus="autofocus" class="zln-text1" type="text" placeholder="" > <font></font>
+                            </li>
+                            
+                             <li class="zln-li1"><span>取货码</span>
+                              <input id="ocode" name="ocode" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text" placeholder="" > <font></font>
+                              &nbsp;  <span style="color: red;width: 10rem;">注:取货码为正整数</span>
+                            </li>
+                            
+                             <li class="zln-li1"><span>包裹大小</span>
+                              &nbsp;<input type="radio" name="osize" value="小包裹" checked="checked"> &nbsp;小包裹&nbsp;&nbsp;
+                              <input type="radio" name="osize" value="大包裹"/>  &nbsp; 大包裹
+                            </li>
+                           
+                               <li class="zln-li1"><span>投单描述</span>
+                               <!--  <input id="uemail" name="uemail" class="zln-text1" type="text">  -->
+                               <textarea rows="5" cols="25"  name="odesc" id="odesc"  > 请尽快送达!谢谢!</textarea>
+                            </li>
+                             
+                               <li class="zln-li1"><span>地址</span>
+                                <input id="oaddr" name="oaddr" readonly="readonly" class="zln-text1" type="text" value="湖南工学院D6-318">
+                                &nbsp;&nbsp;<input type="button" value="更改地址"  id="modify" name="modify"/> 
+                            </li>
+                            
+                               <li class="zln-li1"><span>代递金额</span>
+                                <input id="oprice" name="oprice" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text"> 
+                               &nbsp;  <span style="color: red">注:金额为正整数</span>
+                            </li>
+                               <li class="zln-li1"><span>快递类型</span>
+                                <input id="otype" name="otype" value="" required="required"  class="zln-text1" type="text"> 
+                            </li>
+                            
+                            
+                            <li class="zln-dtest zln-li1"><span>&nbsp;</span>
+                                <div class="zln-libt_a">
+                                    <input id="submitOk" value="我要投单" class="zln-button" type="button" onclick="order()">
+									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
+                                    <!-- 等待 -->
+                         
+                                    <!-- 完成 -->
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
 
 	<div class="back" style="display: none;">
 		<a href="#logo"></a>

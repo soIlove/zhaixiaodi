@@ -1,6 +1,5 @@
 package com.yc.zxd.util;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.Random;
 

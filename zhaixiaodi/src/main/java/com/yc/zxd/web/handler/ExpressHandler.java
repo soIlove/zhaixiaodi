@@ -1,4 +1,5 @@
 package com.yc.zxd.web.handler;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,33 +15,44 @@ import com.yc.zxd.service.ExpressService;
 
 @Controller
 @RequestMapping("/zxd")
-//@SessionAttributes("loginUser")
+// @SessionAttributes("loginUser")
 public class ExpressHandler {
-	
+
 	@Autowired
 	private ExpressService expressService;
-	
-	@RequestMapping("/list")//处理分页
-	@ResponseBody//@ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
-	public PaginationBean<Express> pageList(String page,String rows){
+
+	@RequestMapping("/list") // 处理分页
+	@ResponseBody // @ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
+	public PaginationBean<Express> pageList(String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行pageList的操作....");
-		return expressService.pageList(page,rows);
+		PaginationBean<Express> list = expressService.pageList(page, rows);
+		System.out.println(list.toString());
+		return list;
 	}
 	
-	@RequestMapping("/type")//生成快递菜单
+	@RequestMapping("/searchOrder") // 处理分页  根据投单姓名查询订单
+	@ResponseBody // @ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
+	public PaginationBean<Express> searchOrder(String name, String page, String rows) {
+		LogManager.getLogger().debug("请求ExpressHandler进行searchOrder的操作....name:"+name+"\t page:"+page+"\t rows:"+rows);
+		PaginationBean<Express> list = expressService.searchOrder(page, rows,name);
+		System.out.println(list.toString());
+		return list;
+	}
+
+	@RequestMapping("/type") // 生成快递菜单
 	@ResponseBody
-	public List<ExpressType> typeList(){
+	public List<ExpressType> typeList() {
 		LogManager.getLogger().debug("请求ExpressHandler进行typeList的操作....");
 		return expressService.typeList();
 	}
-	
-	@RequestMapping("/findType")//按快递分类显示
+
+	@RequestMapping("/findType") // 按快递分类显示
 	@ResponseBody
-	public PaginationBean<Express> findType(String otype,String page,String rows){
+	public PaginationBean<Express> findType(String otype, String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行findType的操作....");
-		System.out.println(page);
-		System.out.println(otype);
-		return expressService.findType(page,rows,otype);
+//		System.out.println(page);
+//		System.out.println(otype);
+		return expressService.findType(page, rows, otype);
 	}
-	
+
 }

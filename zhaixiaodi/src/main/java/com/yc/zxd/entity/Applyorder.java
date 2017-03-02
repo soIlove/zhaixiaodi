@@ -1,6 +1,7 @@
 package com.yc.zxd.entity;
 
 
+
 public class Applyorder {
 	private int aid;
 	  private int oid;
@@ -50,6 +51,5 @@ public class Applyorder {
 	  
 	  
 	  
-	  
-	  
+	
 }
