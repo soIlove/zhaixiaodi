@@ -33,6 +33,8 @@ public interface UserMapper {
 
 	List<User> searchUser(@Param("uphone") String uphone);
 
+	Integer delUserById(String uuid);
+
 
 
 }

@@ -18,8 +18,8 @@ $('#userList').datagrid({
 							return "待递员";
 						} else {
 							return "普通用户";
+						}
 					}
-		}
 				},
 				{field : 'upicture',title : '照片',width : 130,align : 'center',
 					formatter : function(value, row, index) {
@@ -27,15 +27,14 @@ $('#userList').datagrid({
 										return "<img width='100' src='image/1.jpg'/>"
 									} else {
 										return "<img width='100' src='"	+ row.upicture + "'/>"
-								}
+									}
 					}
 				},
 				{field : 'opr',title : '操作',width : 100,align : 'center',
 					formatter : function(value, row, index) {
-								var oprStr =  '<a class="modifyBtn" href="javascript:void(0)" onclick="openUpdate('
-											+ index
-											+ ')">删除</a>  '
-											+ '<script>$(".modifyBtn").linkbutton({iconCls: "icon-edit"});  </script>';
+								var oprStr =  '<a class="delBtn" href="javascript:void(0)" '
+											+'onclick="dele('+ row.uuid	 +')">删除</a>  '
+											+ '<script>$(".delBtn").linkbutton({iconCls: "icon-edit"});  </script>';
 									return oprStr;
 								}
 
@@ -78,11 +77,10 @@ function searchSignInInfo() {
 									},
 									
 									opr : function(value, row, index) { 
-										var oprStr =  '<a class="modifyBtn" href="javascript:void(0)" onclick="openUpdate('
-											+ index
-											+ ')">删除</a>  '
-											+ '<script>$(".modifyBtn").linkbutton({iconCls: "icon-edit"});  </script>';
-									return oprStr;
+										var oprStr =  '<a class="delBtn" href="javascript:void(0)" '
+										+'onclick="dele('+ row.uuid	+ ')">删除</a>  '
+										+ '<script>$(".delBtn").linkbutton({iconCls: "icon-edit"});  </script>';
+										return oprStr;
 									}
 									
 								});
@@ -92,76 +90,24 @@ function searchSignInInfo() {
 	$("#tel").val("");//清空搜索框
 }
 
-
-$("#modifyDiv").dialog({
-	title : "用户修改",
-	closable : false,
-});
-
-$(".closeBtn").linkbutton({
-	iconCls : "icon-cancel",
-	onClick : function() {
-		$("#modifyDiv").dialog("close");
-
-	}
-});
-$(".updateBtn").linkbutton({
-	iconCls : "icon-ok",
-	onClick : function() {
-		$("#modifyForm").submit();
-	}
-});
-
-$("#modifyDiv").dialog("close");
-
-$("#modifyForm").form(
-		{
-			url : "user/modify",
-			success : function(data) {
-				if (data == null || data == "") {
-					$.messager.alert("用户修改", "没有权限", "warning");
-					$("#modifyDiv").dialog("close");
-					return;
+ 
+ function dele(uuid ){
+	  $.get("zxd/del?uuid="+uuid,function(data){
+		if(!data){
+			$.messager.show({
+				title : '删除信息',
+				msg : '删除失败!!',
+				showType : 'show',
+				style : {
+					top : document.body.scrollTop
+							+ document.documentElement.scrollTop,
+					bottom : ''
 				}
-				if (data.trim() == "true") {
-					$("#modifyDiv").dialog("close");
-					$('#userList').datagrid("reload");
-
-				} else {
-					$.messager.show({
-						title : '修改信息',
-						msg : '修改失败!!',
-						showType : 'show',
-						style : {
-							top : document.body.scrollTop
-									+ document.documentElement.scrollTop,
-							bottom : ''
-						}
-					});
-
-				}
-			}
-
-		});
-
-function openUpdate(index) {
-	$("#modifyDiv").dialog("open");
-	var row = $("#userList").datagrid("getRows")[index];
-	// alert(JSON.stringify(row));
-	$("#uid").val(row.id);
-	$("#uname").val(row.name);
-	$("#ubirthday").val(row.birthday);
-	$("#ugender").val(row.gender);
-	$("#ucareer").val(row.career);
-	$("#uaddress").val(row.address);
-	$("#umobile").val(row.mobile);
-	if (row.picPath != "\\upload\\") {
-		$("#pic").attr("src", row.picPath);
-	} else {
-		$("#pic").attr("src", "image/1.jpg");
-	}
-}
-
-function changePic(obj) {
-	$("#pic").attr("src", window.URL.createObjectURL(obj.files[0]));
-}
+			});
+		
+		}else{
+			$("#tel").val("");//清空搜索框
+			searchSignInInfo();
+		}
+	},"json");
+  }

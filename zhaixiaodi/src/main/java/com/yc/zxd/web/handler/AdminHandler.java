@@ -48,6 +48,15 @@ public class AdminHandler {
 		return result;
 	}
 	
+	@RequestMapping("/modifyPwd") // 检查用户是否存在
+	@ResponseBody
+	public String modifyPwd(String newPwd,String comfirPwd, ServletRequest request, String adid) {
+		boolean result = false;
+		LogManager.getLogger().debug("进入UserHandler 处理verifyCode,检查验证码是否正确,newPwd:" + newPwd  );
+		result=adminService.modifyPwd(newPwd,adid);
+		return result+"";
+	}
+	
 	@RequestMapping("/list")//处理分页,得到所有的用户
 	@ResponseBody//@ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
 	public PaginationBean<User> getAllUser(String page,String rows){

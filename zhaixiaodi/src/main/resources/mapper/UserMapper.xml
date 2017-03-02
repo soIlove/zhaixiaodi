@@ -63,6 +63,11 @@
 		delete from zaddr where
 		zid=#{zid}
 	</delete>
+	
+	<delete id="delUserById" parameterType="string">
+		delete from zusers where
+		uuid=#{uuid}
+	</delete>
 
 	<insert id="addaddr" parameterType="Address">
 		insert into zaddr

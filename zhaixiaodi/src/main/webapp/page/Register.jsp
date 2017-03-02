@@ -191,19 +191,21 @@
                         <div class="zln-join_title"><span>验证信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>手机号</span>
-                                <input id="uphone" name="uphone" class="zln-text1" maxlength="11" type="text">
+                                <input id="uphone" name="uphone" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" class="zln-text1" maxlength="11" type="text">
                                 <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码"  type="button" onclick="getCaptcha()">
                             </li>
                             <li class="zln-li1"><span>手机验证码</span>
-                                <input class="zln-text1" id="vaildNum" name="vaildNum" maxlength="6" type="text">
+                                <input class="zln-text1" id="vaildNum" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="vaildNum" maxlength="6" type="text">
                                 <input id="vaild" name="vaild" type="hidden"></li>
-                      
+                      			<span id="codeMsg" style="color: red"></span>
                               <li class="zln-li1"><span>登录密码</span>
                                 <input class="zln-text1" id="upwd" name="upwd" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
+                                <span id="PwdMsg" style="color: red;width: 20rem;"></span>
                               </li>
                                 
                                  <li class="zln-li1"><span>确认密码</span>
                                 <input class="zln-text1" id="password02" name="password02" maxlength="12" type="password" placeholder="请再次确认密码">
+                                <span id="comfirPwdMsg" style="color: red;width: 10rem;"></span>
                                </li>
                              
                         </ul>
@@ -222,7 +224,7 @@
                             </li>
                            
                                <li class="zln-li1"><span>用户邮箱</span>
-                                <input id="uemail" name="uemail" class="zln-text1" type="text"> 
+                                <input id="uemail" name="uemail" class="zln-text1" type="email"> 
                             </li>
                              
                                <li class="zln-li1"><span>所在学校</span>

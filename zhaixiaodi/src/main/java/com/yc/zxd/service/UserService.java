@@ -28,6 +28,8 @@ public interface UserService {
 
 	List<User> searchUser(String tel);
 
+	boolean delUserById(String uuid);
+
 
 
 

@@ -41,30 +41,25 @@
 	</div>
 	<div data-options="region:'west',title:'导航栏', collapsible:false" style="width: 130px;">
 		<div id="sideNav">
-			<div title="用户管理" data-options="iconCls:'icon-mini-add'">
+			<div  title="用户管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>用户管理</span></li>
 				</ul>
 			</div>
-			<div title="投单管理" data-options="iconCls:'icon-mini-add'">
+			<div title="订单管理" data-options="iconCls:'icon-mini-add' ,selected:true  ">
 				<ul class="treeNav">
 					<li><span>投单查询</span></li>
-					<li><span>新闻编辑</span></li>
-					<li><span>新闻添加</span></li>
+					<li><span>订单查询</span></li>
 				</ul>
 			</div>
-			<div title="接单管理" data-options="iconCls:'icon-mini-add'">
+			<div title="待递员申请管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
-					<li><span>接单查询</span></li>
-					<li><span>File 12</span></li>
-					<li><span>File 13</span></li>
+					<li><span>待递员申请管理</span></li>
 				</ul>
 			</div>
-			<div title="管理员自我管理" data-options="iconCls:'icon-mini-add'">
+			<div title="管理员自我管理"    data-options="iconCls:'icon-mini-add'  ">
 				<ul class="treeNav">
 					<li><span>修改密码</span></li>
-					<li><span>File 12</span></li>
-					<li><span>File 13</span></li>
 				</ul>
 			</div>
 		</div>

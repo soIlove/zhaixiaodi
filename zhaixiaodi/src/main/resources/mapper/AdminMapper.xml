@@ -16,51 +16,21 @@
 		where uphone=#{tel}
 	</select>
 
+ 
 
-	<insert id="RegisterUser" parameterType="User">
-		insert into zusers
-		values(seq_zusers.nextval,#{upwd},#{uname},#{uphone},#{uemail},#{usex},#{upicture},#{uaddr},0,null,null)
-	</insert>
-
-	<select id="getMail" parameterType="String" resultType="String">
-		select
-		uemail from ZUSERS where uphone=#{tel}
-	</select>
-
-	<update id="editPwdByTel" parameterType="User">
-		update ZUSERS set
-		upwd=#{password} where uphone=#{tel}
+	<update id="modifyPwd" parameterType="string">
+		update admin set
+		adpwd=#{newPwd} where adid=#{adid}
 	</update>
+
 
 	<select id="getAdmin" parameterType="Admin" resultType="Admin">
 		select *
 		from Admin where adpwd=#{adpwd} and adname = #{adname}
 	</select>
 
-	<select id="getUserMsg" parameterType="String" resultType="User">
-		select * from zusers where uphone=#{phonenum}
-	</select>
 
-	<update id="updatemsg" parameterType="User">
-		update zusers set
-		uname=#{uname} , upicture=#{upicture}
-		,uaddr=#{uaddr},uemail=#{uemail},usex=#{usex} where uphone=#{uphone}
-	</update>
 
-	<select id="getAddr" parameterType="int" resultType="Address">
-		select *
-		from zaddr where uuid =#{uuid}
-	</select>
-
-	<delete id="deladdr" parameterType="Integer">
-		delete from zaddr where
-		zid=#{zid}
-	</delete>
-
-	<insert id="addaddr" parameterType="Address">
-		insert into zaddr
-		values(seq_zid.nextval,#{uuid},#{zaddr},null,null)
-	</insert>
 
 	<!-- +++++++++++++++++++ 分页开始 ++++++++++++++++++++++++++++++++++++ -->
 	<select id="getUserPagination" parameterType="PaginationBean"

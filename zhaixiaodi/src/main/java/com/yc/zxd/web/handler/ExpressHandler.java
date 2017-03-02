@@ -29,6 +29,15 @@ public class ExpressHandler {
 		System.out.println(list.toString());
 		return list;
 	}
+	
+	@RequestMapping("/searchOrder") // 处理分页  根据投单姓名查询订单
+	@ResponseBody // @ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
+	public PaginationBean<Express> searchOrder(String name, String page, String rows) {
+		LogManager.getLogger().debug("请求ExpressHandler进行searchOrder的操作....name:"+name+"\t page:"+page+"\t rows:"+rows);
+		PaginationBean<Express> list = expressService.searchOrder(page, rows,name);
+		System.out.println(list.toString());
+		return list;
+	}
 
 	@RequestMapping("/type") // 生成快递菜单
 	@ResponseBody
@@ -41,8 +50,8 @@ public class ExpressHandler {
 	@ResponseBody
 	public PaginationBean<Express> findType(String otype, String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行findType的操作....");
-		System.out.println(page);
-		System.out.println(otype);
+//		System.out.println(page);
+//		System.out.println(otype);
 		return expressService.findType(page, rows, otype);
 	}
 

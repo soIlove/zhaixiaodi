@@ -10,7 +10,7 @@
 <body>
 
 	<div id="toolSignIn">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请输入用户电话" name ="tel" id="tel">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="请输入接单人昵称" name ="name" id="tel">
 		&nbsp;&nbsp;&nbsp;<a href="javascript:searchSignInInfo()" class="easyui-linkbutton"	data-options="iconCls:'icon-search',plain:true">搜索</a>  
 	</div>
 	

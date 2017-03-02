@@ -49,4 +49,18 @@ public class ExpressServiceImpl implements ExpressService {
 		return expressBean;
 	}
 
+	@Override
+	public PaginationBean<Express> searchOrder(String currPage,String pageSize,String orelname) {
+		PaginationBean<Express> expressBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			expressBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			expressBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		expressBean.setOtype(orelname);
+		expressBean=expressMapper.searchOrder(expressBean);
+		return expressBean;
+	}
+
 }

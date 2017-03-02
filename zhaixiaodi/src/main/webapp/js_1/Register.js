@@ -45,27 +45,39 @@ $("#vaildNum").blur(function(){
      var inputvaild = $('#vaildNum').val();
      var vaild = $('#vaild').val();
      if (inputvaild != "" && inputvaild == vaild) {
-    	 alert("验证码正确,")
-        
         // $('#proposerPhone').val($('#vphone').val());
      } else {
-    	 alert("验证码输入不正确,")
+    	$("#codeMsg").val("验证码错误");
      }
 
 })
 
+
 $("#password02").blur(function(){
 		var password1=$("#upwd").val();
 		var password2=$("#password02").val();
-		if(password2!=password1){
-			alert("两次密码不统一,请重新输入");
+		if($.trim(password2) != $.trim(password1)){
+			$("#comfirPwdMsg").text("两次密码不一样");
+		}else {
+			$("#comfirPwdMsg").text("");
 		}
+		
+})
+
+ 
+$("#upwd").blur(function(){
+	var password=$("#upwd").val();
+	var reg = /^\w{3,16}$/ig;
+	if (!reg.test(password)) {
+		$("#PwdMsg").text("密码必须由3-16位的数字字母下划线组成");
+	} else {
+		$("#PwdMsg").text("");
+	}
 	
 })
 
 
 $('#iform').form({    
-	
     url:"zxd/Register",    
     success:function(data){    
     	if(data){

@@ -6,13 +6,6 @@
 <mapper namespace="com.yc.zxd.mapper.OrderMapper">
 
 
-	<!-- 定义sql语句 变量 -->
-	<sql id="selectProfile">
-		select * from zorders
-	</sql>
-
-
-
 	<insert id="order" parameterType="Order">
 		<selectKey keyProperty="zid" keyColumn="zid"
 			resultType="int" order="BEFORE">

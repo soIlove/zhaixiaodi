@@ -10,4 +10,6 @@ public interface AdminService {
 
 	PaginationBean<User> getAllUser(String page, String rows);
 
+	boolean modifyPwd(String newPwd, String adid);
+
 }

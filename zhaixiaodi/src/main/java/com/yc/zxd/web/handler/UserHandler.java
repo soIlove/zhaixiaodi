@@ -72,6 +72,15 @@ public class UserHandler {
 		return result;
 	}
 
+	@RequestMapping("/del") // 根据id删除用户
+	@ResponseBody
+	public boolean delUserById(String uuid) {
+		boolean result = false;
+		LogManager.getLogger().debug("进入UserHandler 处理delUserById,检查验证码是否正确,uuid:" + uuid);
+		result = userService.delUserById(uuid);
+		return result;
+	}
+
 	@RequestMapping("/editPwd") // 修改密码
 	public String editPwdByTel(String tel, String password, ServletRequest request) {
 		boolean result = false;

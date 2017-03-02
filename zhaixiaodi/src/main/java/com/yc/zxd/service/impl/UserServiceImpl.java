@@ -96,6 +96,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public boolean delUserById(String uuid) {
+		
+		return userMapper.delUserById(uuid)!=null;
+	}
+
+
 
 	
 

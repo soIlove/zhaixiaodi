@@ -39,4 +39,12 @@ public class AdminServiceImpl implements AdminService {
 		return userBean;
 	}
 
+
+
+	@Override
+	public boolean modifyPwd(String newPwd, String adid) {
+		
+		return AdminMapper.modifyPwd(newPwd,adid) >0;	
+	}
+
 }

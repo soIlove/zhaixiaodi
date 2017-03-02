@@ -8,7 +8,9 @@ $("#sideNav").accordion({
 	border:false,	
 });
 
-var urlJson={"用户管理":"userManage.jsp","投单查询":"addUser.jsp",};
+var urlJson={"用户管理":"userManage.jsp","投单查询":"orderSearch.jsp","修改密码":"modifyPwd.jsp",
+		"接单查询":"acceptSearch.jsp",
+};
 
 $(".treeNav").tree({
 	onClick: function(node){  // node是指树节点， node.text是节点文本内容

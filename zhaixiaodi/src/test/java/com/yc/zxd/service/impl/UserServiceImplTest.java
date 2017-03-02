@@ -31,6 +31,13 @@ public class UserServiceImplTest {
 	}
 	
 	@Test
+	public void TestDelUser() {
+		boolean str = userService.delUserById("1000");
+		System.out.println(str);
+		
+	}
+	
+	@Test
 	public void TestGetMail() {
 		String str = userService.getMail("13237343452");
 		assertNotNull(str);

@@ -14,4 +14,6 @@ public interface ExpressService {
 
 	PaginationBean<Express> findType(String page, String rows, String otype);
 
+	PaginationBean<Express> searchOrder( String page, String rows,String name );
+
 }

@@ -193,11 +193,12 @@
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
                             <li class="zln-li1"><span>真实名字</span>
-                                <input id="orelname" value="肖坤" required="required" name="orelname" autofocus="autofocus" class="zln-text1" type="text" placeholder="" > <font></font>
+                                <input id="orelname" value="" required="required" name="orelname" autofocus="autofocus" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
                             
                              <li class="zln-li1"><span>取货码</span>
-                              <input id="ocode" name="ocode" value="0909" required="required"  class="zln-text1" type="text" placeholder="" > <font></font>
+                              <input id="ocode" name="ocode" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text" placeholder="" > <font></font>
+                              &nbsp;  <span style="color: red;width: 10rem;">注:取货码为正整数</span>
                             </li>
                             
                              <li class="zln-li1"><span>包裹大小</span>
@@ -211,14 +212,16 @@
                             </li>
                              
                                <li class="zln-li1"><span>地址</span>
-                                <input id="oaddr" name="oaddr" readonly="readonly" class="zln-text1" type="text" value="湖南工学院D6-318">&nbsp;&nbsp;<input type="button" value="更改地址"  id="modify" name="modify"/> 
+                                <input id="oaddr" name="oaddr" readonly="readonly" class="zln-text1" type="text" value="湖南工学院D6-318">
+                                &nbsp;&nbsp;<input type="button" value="更改地址"  id="modify" name="modify"/> 
                             </li>
                             
                                <li class="zln-li1"><span>代递金额</span>
-                                <input id="oprice" name="oprice" value="10" required="required"  class="zln-text1" type="text"> 
+                                <input id="oprice" name="oprice" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"  class="zln-text1" type="text"> 
+                               &nbsp;  <span style="color: red">注:金额为正整数</span>
                             </li>
                                <li class="zln-li1"><span>快递类型</span>
-                                <input id="otype" name="otype" value="中通" required="required"  class="zln-text1" type="text"> 
+                                <input id="otype" name="otype" value="" required="required"  class="zln-text1" type="text"> 
                             </li>
                             
                             

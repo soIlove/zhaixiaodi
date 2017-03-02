@@ -37,5 +37,12 @@ public class AdminServiceImplTest {
 		admin=adminService.login(admin);
 		System.out.println(admin.toString());
 	}
+	
+	@Test
+	public void testEditPwd() {
+		boolean result = adminService.modifyPwd("1010", "10");
+		System.out.println(result);
+		return ;
+	}
 
 }
