@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.yc.zxd.entity.Address;
+import com.yc.zxd.entity.Duser;
 import com.yc.zxd.entity.User;
 
 
@@ -34,6 +35,10 @@ public interface UserMapper {
 	List<User> searchUser(@Param("uphone") String uphone);
 
 	Integer delUserById(String uuid);
+
+	Integer RegisterDai(Duser duser);
+
+	Integer setUserToDai(Duser duser);
 
 
 

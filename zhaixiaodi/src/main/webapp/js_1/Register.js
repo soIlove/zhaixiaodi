@@ -79,7 +79,8 @@ $("#upwd").blur(function(){
 
 $('#iform').form({    
     url:"zxd/Register",    
-    success:function(data){    
+    success:function(data){  
+    	alert(data);
     	if(data){
     		alert("恭喜你注册成功")
     	}

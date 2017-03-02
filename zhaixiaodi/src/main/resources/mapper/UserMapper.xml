@@ -19,10 +19,19 @@
 
 
 
+	<insert id="setUserToDai" parameterType="Duser">
+		update zusers set utype=1   where uuid=#{uuid}
+	</insert>
+	<insert id="RegisterDai" parameterType="Duser">
+		insert into dusers
+		values(seq_dusers.nextval,#{uuid},#{dsid},#{dspic},#{dscore},#{dnum},null,null)
+	</insert>
+	
 	<insert id="RegisterUser" parameterType="User">
 		insert into zusers
 		values(seq_zusers.nextval,#{upwd},#{uname},#{uphone},#{uemail},#{usex},#{upicture},#{uaddr},0,null,null)
 	</insert>
+	
 
 	<select id="getMail" parameterType="String" resultType="String">
 		select

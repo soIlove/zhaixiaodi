@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 import com.yc.zxd.entity.Address;
+import com.yc.zxd.entity.Duser;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 import com.yc.zxd.service.impl.UserServiceImpl;
@@ -196,6 +197,30 @@ public class UserHandler {
 			}
 		}
 		return userService.RegisterUser(user);
+	}
+	
+	@RequestMapping("/RegisterDai")
+	@ResponseBody
+	public boolean RegisterDai(@RequestParam(name = "uuid", required = false) Integer uuid,@RequestParam(name = "dspic", required = false) MultipartFile dspic, String dsid) {
+		LogManager.getLogger().debug("待递员申请注册...uuid:"+uuid+"\t dsid:"+dsid);
+		boolean result =false;
+		Duser duser=new Duser();
+		if (dspic != null && !dspic.isEmpty()) {
+			try {
+				File file = new File(ServletUtil.UPLOAD_DIR, dspic.getOriginalFilename());
+				dspic.transferTo(file);
+				duser.setDspic("/" + ServletUtil.UPLOAD_DIR_NAME + "/" + dspic.getOriginalFilename());
+				LogManager.getLogger().debug("学生证图片上传成功，上传地址为:" + file);
+			} catch (IllegalStateException | IOException e) {
+				LogManager.getLogger().debug("学生证图片上传失败：", e);
+			}
+		}
+		duser.setDsid(dsid);
+		duser.setUuid(uuid);
+		duser.setDscore("100");
+		duser.setDnum("0");
+		result=userService.RegisterDai(duser);
+		return result;
 	}
 
 	@RequestMapping("/getusermsg")

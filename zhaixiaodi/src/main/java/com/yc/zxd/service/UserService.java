@@ -3,6 +3,7 @@ package com.yc.zxd.service;
 import java.util.List;
 
 import com.yc.zxd.entity.Address;
+import com.yc.zxd.entity.Duser;
 import com.yc.zxd.entity.User;
 public interface UserService {
 
@@ -29,6 +30,8 @@ public interface UserService {
 	List<User> searchUser(String tel);
 
 	boolean delUserById(String uuid);
+
+	boolean RegisterDai(Duser duser);
 
 
 

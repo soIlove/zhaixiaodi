@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yc.zxd.entity.Duser;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 
@@ -25,6 +26,17 @@ public class UserServiceImplTest {
 	@Test
 	public void TestisExistUN() {
 		boolean str = userService.isExistUN("xkj");
+		assertNotNull(str);
+		System.out.println(str);
+		
+	}
+	
+	@Test
+	public void TestReDai() {
+		Duser duser = new Duser();
+		duser.setUuid(1);
+		duser.setDspic("123456789");
+		boolean str = userService.RegisterDai(duser);
 		assertNotNull(str);
 		System.out.println(str);
 		

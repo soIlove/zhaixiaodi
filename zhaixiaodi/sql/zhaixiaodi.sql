@@ -12,7 +12,7 @@ create table zusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-
+update zusers set utype=0   where uuid=1
 select * from zusers where uphone ='13237343452'
 drop table zusers;
 drop sequence seq_zusers;
@@ -71,8 +71,8 @@ create table dusers(
 	dnum  varchar2(30) not null,--接单次数
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
-	 
 )
+select * from dusers
 drop table dusers;
 drop sequence seq_dusers;
 create sequence seq_dusers start with 200;
@@ -149,7 +149,7 @@ from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype=
 --接单表(多人抢单)
 create table zaccept(
 	aid int primary key,--接单编号
-	oid int references zorder(oid) on delete cascade,--投单编号
+	oid int references zorders(oid) on delete cascade,--投单编号
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
@@ -160,7 +160,7 @@ create table orders(
 	ooid int primary key,--订单编号
 	aid int references zaccept(aid) on delete cascade,--接单编号20001
 	oscore varchar2(20) , --评分
-	ostatus varchar2(40) check (ostatus in('待评价','已评价','取消订单','确认收货')),--0待评价，1已评价，2取消订单,3确认收货 
+	ostatus varchar2(40) check (ostatus in('等待评价','订单完成','订单取消','已确认收货')),--0待评价，1已评价，2取消订单,3确认收货 
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
@@ -179,4 +179,6 @@ from zorders
 join zaddr
 on zorders.zid=zaddr.zid;
  
-select zaddr from zorders_addr
+select * from zorders_addr
+
+--订单id,投单人姓名,接单人昵称       

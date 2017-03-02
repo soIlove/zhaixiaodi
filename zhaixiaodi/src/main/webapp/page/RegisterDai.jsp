@@ -6,7 +6,7 @@
 <base href="/zhaixiaodi/">
 
 <meta  charset="UTF-8">
-<title>普通用户注册</title>
+<title>待递员注册</title>
 
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -184,100 +184,35 @@
             <div class="zln-join_in">
                 <h4>请填写注册信息</h4>
              
-                <form class="form-horizontal" action="" method="post" id="iform" enctype="multipart/form-data">
+                <form class="form-horizontal"   method="post" id="iform" enctype="multipart/form-data">
                     <div class="f14 mt20">请您认真填写下列信息，有助于提供审核通过几率，谢谢您的认真填写</div>
-						
-                    <div class="zln-join_box zln-c">
-                        <div class="zln-join_title"><span>验证信息</span><font></font></div>
-                        <ul>
-                            <li class="zln-li1"><span>手机号</span>
-                                <input id="uphone" name="uphone" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" class="zln-text1" maxlength="11" type="text">
-                                <input style="width: 99px" class="yzm-btn disabled" id="getMsgBtn" value="获取验证码"  type="button" onclick="getCaptcha()">
-                            </li>
-                            <li class="zln-li1"><span>手机验证码</span>
-                                <input class="zln-text1" id="vaildNum" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="vaildNum" maxlength="6" type="text">
-                                <input id="vaild" name="vaild" type="hidden"></li>
-                      			<span id="codeMsg" style="color: red"></span>
-                              <li class="zln-li1"><span>登录密码</span>
-                                <input class="zln-text1" id="upwd" name="upwd" maxlength="12" type="password" placeholder="请输入3-12位字母或数字">
-                                <span id="PwdMsg" style="color: red;width: 20rem;"></span>
-                              </li>
-                                
-                                 <li class="zln-li1"><span>确认密码</span>
-                                <input class="zln-text1" id="password02" name="password02" maxlength="12" type="password" placeholder="请再次确认密码">
-                                <span id="comfirPwdMsg" style="color: red;width: 10rem;"></span>
-                               </li>
-                             
-                        </ul>
-                    </div>
+						<input name="uuid" value="${loginUser.uuid}"  type="hidden"/>
                   
                     <!-- 详细信息 -->
                     <div class="zln-join_box zln-c">
                         <div class="zln-join_title"><span>详细信息</span><font></font></div>
                         <ul>
-                            <li class="zln-li1"><span>用户昵称</span>
-                                <input id="uname" name="uname" class="zln-text1" type="text" placeholder="" > <font></font>
+                            <li class="zln-li1"><span>认证学号</span>
+                                <input id="dsid" name="dsid" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" class="zln-text1" type="text" placeholder="" > <font></font>
                             </li>
-                             <li class="zln-li1"><span>用户性别</span>
-                              &nbsp;<input type="radio" name="usex" value="男" checked="checked"> &nbsp;男&nbsp;&nbsp;<input type="radio" name="usex" value="女"/>  &nbsp; 女
-                               
-                            </li>
-                           
-                               <li class="zln-li1"><span>用户邮箱</span>
-                                <input id="uemail" name="uemail" class="zln-text1" type="email"> 
-                            </li>
-                             
-                               <li class="zln-li1"><span>所在学校</span>
-                                <input id="uaddr" name="uaddr" class="zln-text1" type="text"> 
-                            </li>
-                            
-                           <!--  <li class="zln-li1"><span>证件类型</span>
-                                <input name="receivePointJoin.card_type" id="card_type" type="hidden">
-
-                                <div class="zln-select zln-selectb">
-                                    <div class="zln-select_box">请选择</div>
-                                    <div class="zln-select_fola" style="display: none;">
-                                        <p>
-                                            <a onclick="javascript:$('#card_type').attr('value','身份证');">身份证</a>
-                                        </p>
-
-                                        <p>
-                                            <a onclick="javascript:$('#card_type').attr('value','护照');">护照</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <span class="last">证件号码</span>
-                                <input id="proposer_card_id" name="receivePointJoin.proposerCardId" class="zln-text1" type="text"> <font></font>
-                            </li> -->
-                            <li class="zln-li1"> <span>用户头像<br>
+                              
+                            <li class="zln-li1"> <span>学生证图片<br>
                           <b class="need">(点我)</b></span>
-
                                 <div class="zw">
-                                    <input name="upicdata" id="upicture"  multiple="multiple" type="file" style="display:none"onchange="addpic(this)">
-                                    <a href="" onclick="document.getElementById('upicture').click();return false;"><div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
+                                    <input name="dspic" id="dspic"  multiple="multiple" type="file" style="display:none"onchange="addpic(this)">
+                                    <a href="" onclick="document.getElementById('dspic').click();return false;">
+                                    <div id="divdcardf"><img id="upicimage" src="image/zw.jpg"></div></a>
                                 </div>
-                          <!--   <span class="last">证件照片<br>
-                                <b class="need">（背面）</b></span>
-
-                                <div class="zw">
-                                    <input name="idcardb1" id="idcardb" style="display:none" onclick="" multiple="" type="file">
-                                    <a href="" onclick="document.getElementById('idcardb').click();return false;"><div id="dividcardb"><img id="imgidcardb" src="%E5%95%86%E6%88%B7%E4%B8%AD%E5%BF%83%20_%20%E6%94%B6%E8%B4%A7%E5%AE%9D_files/zw.jpg"></div></a>
-                                </div>
-                                <div class="zln-c hint1">*像素要求必须为640*340像素，支持.jpg .jpeg .bmp .png格式，大小不超过5M</div> -->
+                                
                             </li>
                             <li class="zln-li1" style="padding-left:153px;color:#000;font-size:14px">
                                 <input id="isnot" name="isnot" type="checkbox" required="required"> 同意协议 <a href="javascript:void(null)" onclick="joinUs();" style="color:#00f">点击查看协议条款&gt;&gt;</a>
                             </li>
                             <li class="zln-dtest zln-li1"><span>&nbsp;</span>
-
                                 <div class="zln-libt_a">
-                                	
                                     <input id="submitOk" value="完成注册" class="zln-button" type="submit" >
-									<!--  <button id="submitOk" value="完成注册" class="zln-button"  onclick="Register()">完成注册</button> -->
                                     <!-- 等待 -->
                          
-                                    <!-- 完成 -->
-                                    
                                 </div>
                             </li>
                         </ul>
@@ -434,7 +369,7 @@ function joinUs(){
 <script src="easyui/jquery.min.js" type="text/javascript"></script>
 <script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
 <script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
-<script src="js_1/Register.js" type="text/javascript"></script>
+<script src="js_1/RegisterDai.js" type="text/javascript"></script>
  <div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;">
  <iframe style="width: 186px; height: 198px;" src="htm/My97DatePicker.htm" border="0" scrolling="no" ></iframe></div>
 </body></html> 
