@@ -14,4 +14,10 @@ public interface ExpressService {
 
 	PaginationBean<Express> findType(String page, String rows, String otype);
 
+	PaginationBean<Express> orderlist(String page, String rows, String uuid);
+
+	Express findDU(int did);
+
+	PaginationBean<Express> worderlist(String page, String rows, String uuid);
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PaginationBean<T> {
 	//分页的请求数据
-	private Integer pageSize=2;//每页的记录数据
+	private Integer pageSize=3;//每页的记录数据
 	private Integer currPage=1;//当前页
 	
 	private Integer totalPage;//总页数
@@ -18,7 +18,7 @@ public class PaginationBean<T> {
 	private List<T> rows;//当前页的数据
 	
 	private String otype;
-	
+	private String uuid;
 	
 	public PaginationBean() {
 		// TODO Auto-generated constructor stub
@@ -31,6 +31,14 @@ public class PaginationBean<T> {
 	}
 
 	
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	public String getOtype() {
 		return otype;
 	}
@@ -82,12 +90,7 @@ public class PaginationBean<T> {
 	@Override
 	public String toString() {
 		return "PaginationBean [pageSize=" + pageSize + ", currPage=" + currPage + ", totalPage=" + totalPage
-				+ ", total=" + total + ", rows=" + rows + ", otype=" + otype + "]";
+				+ ", total=" + total + ", rows=" + rows + ", otype=" + otype + ", uuid=" + uuid + "]";
 	}
 
-	
-	
-	
-	
-	
 }
