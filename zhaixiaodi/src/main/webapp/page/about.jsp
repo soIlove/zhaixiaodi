@@ -54,6 +54,7 @@
 						<span
 							style="color: #E76D26; font-size: 14px; font-weight: bold; font-style: italic;">${loginUser.uname}</span>,&nbsp;欢迎你来到宅小递!
 					</p>
+					<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 				</c:otherwise>
 			</c:choose>
 			<div class="h-r">
@@ -117,19 +118,13 @@
 						src="image/Logo.jpg"></a>
 				</p>
 			</div>
-			<div class="menu_1">
+				<div class="menu_1">
 				<ul>
-					<li><a href="#">首页</a></li>
-					<li class="on"><a
-						href="page/about.jsp">关于我们</a>
-					</li>
-					<li><a href="page/Login.jsp">商户中心</a>
-					</li>
-					<li><a
-						href="#">帮助中心</a></li>
-					<li><a
-						href="#"
-						target="_blank">裹儿</a></li>
+					<li class="on"><a href="#">首页</a></li>
+					<li><a href="page/about.jsp" style="color: #e76d26;border-bottom: 2px solid #e76d26;">关于我们</a></li>
+					<li><a href="page/Login.jsp">商户中心</a></li>
+					<li><a href="page/order.jsp">我要投单</a></li>
+					<li><a href="page/profile.jsp" target="_blank">个人中心</a></li>
 				</ul>
 			</div>
 			<div class="navShow"></div>

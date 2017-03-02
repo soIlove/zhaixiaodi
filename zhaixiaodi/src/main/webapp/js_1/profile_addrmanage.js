@@ -1,5 +1,17 @@
 var uphone='18188970546';
-var uuid=1004;
+var uuid=$('#uuidhidden').val();
+
+$('#addDIV').window({    
+    width:400,    
+    height:250,    
+    modal:true,   
+    minimizable:false,
+    maximizable:false,
+    collapsible:false,
+    title:'添加新地址',
+    closed:true
+});
+
 $.post("zxd/getaddr",{'uuid':uuid},function(data){
 		
 		for(var i=0;i<data.length;i++){
@@ -17,15 +29,7 @@ function deladdr(zid,liId){
 
 }
 function addaddr(){	
-	$('#addDIV').window({    
-	    width:400,    
-	    height:250,    
-	    modal:true,   
-	    minimizable:false,
-	    maximizable:false,
-	    collapsible:false,
-	    title:'添加新地址'
-	}); 		
+	$('#addDIV').window('open')		
 }
 
 function addaddr_3(){

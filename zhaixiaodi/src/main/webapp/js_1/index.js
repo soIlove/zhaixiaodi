@@ -1,4 +1,8 @@
-function getExpress(pageNum){
+
+var param=$("#uuidhidden").val();
+
+
+/*function getExpress(pageNum){
 	$.get("zxd/list?page="+pageNum,function(data){
 		//alert(data.rows);
 		$("#expressList").empty();
@@ -107,7 +111,7 @@ function getExpress(pageNum){
 
 	},"json");
 }
-getExpress(1);	
+getExpress(1);*/	
 
 function getType(){
 	$.get("zxd/type",function(data){
@@ -125,31 +129,50 @@ function getType(){
 		
 	},"json");
 }
+
 getType();
 
 
 
-
+$('#getordmsg').window({    
+	  width:400,    
+	    height:250,    
+	    modal:true,   
+	    minimizable:false,
+	    maximizable:false,
+	    collapsible:false,
+	    title:'填写抢单信息',
+	    closed:true
+	    	
+});  
 
 function Graborder(oid){
 	$("#hiddoid").val(oid);
-
+	if(param==null||param==""){
+		alert("温馨提示:请先登录!")
+		window.location.href="page/Login.jsp";
+	}else{
+		getdidbyuuid();
+		
+	}
 	
+}
+function getdidbyuuid(){
+	$.post("zxd/getdidbyuuid",{"uuid":param},function(data){
+		if(data!=null){
+			$("#hidddid").val(data);
+			$('#getordmsg').window('open');
+			
+		}else{			
+			alert("对不起，您还不是小递员哦，赶紧加入我们吧.")
+		}
+	},"json")
 	
-	$('#getordmsg').window({    
-		  width:400,    
-		    height:250,    
-		    modal:true,   
-		    minimizable:false,
-		    maximizable:false,
-		    collapsible:false,
-		    title:'填写抢单信息'
-	});  
 }
 function applyorder(){
 	var oid=$("#hiddoid").val();
 	var adesc=$("#ordoramsg").val();
-	var did=201
+	var did=$("#hidddid").val();
 	$.post("order/addzaccept",{"oid":oid,"adesc":adesc,"did":did},function(data){
 			if(data){
 				alert("抢单申请已为你提交，请等待对方确认");
@@ -181,7 +204,7 @@ function  listExpress(url){
 			for(var i=0;i<expresses.length;i++){
 				$("#expressList").append("<li class='topic'><div class='u_photo'>"+
 					"<img src='image/85_avatar_m.jpg'height='48' width='48'>"+
-					"</div><div class='u_post'><div class='btn_order'></div>"+
+					"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'>抢单</div></a>"+
 					"<div class='li_1' style='line-height: 21px;'>"+
 					"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
 					"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+

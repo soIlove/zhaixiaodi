@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -30,7 +31,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" type="text/css" href="css/join.css">
+    <link rel="stylesheet" type="text/css" href="css/order.css">
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/jquery-1_002.js"></script>
     <script src="js/jquery-validate.js"></script>
@@ -82,11 +83,7 @@
           </div>
 <div id="header-top">
 	<div id="header-top-content" class="clearfix">
-		<div class="fll lh20">
-
-					<div class="headerInfoBeforeLogin">宝，欢迎来到宅小递！</div>
-	
-		</div>
+		
 		<div class="flr">
 			<ul>
 				<li style="border-left: none"><a href="http://www.shouhuobao.com/" target="_blank">宅小递首页</a></li>
@@ -123,7 +120,21 @@
 -->
 	<div class="header-top">
     <div class="com-w">
-        <p class="h-wel"> 宅小递，社区物流与生活服务平台 </p>
+			<c:choose>
+				<c:when test="${loginUser eq null }">
+					<p class="h-wel">
+						<a href="page/Login.jsp">[请登录]</a>宅小递
+					</p>
+				</c:when>
+				<c:otherwise>
+					<p class="h-wel">
+						<span
+							style="color: #E76D26; font-size: 14px; font-weight: bold; font-style: italic;">${loginUser.uname}</span>,&nbsp;欢迎你来到宅小递!
+					</p>
+					
+					<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
+				</c:otherwise>
+			</c:choose>
 
         <div class="h-r">
             <ul>
@@ -162,17 +173,15 @@
         <div class="logo" id="logo">
             <p><a href="http://www.shouhuobao.com/index.html"><img src="image/Logo.jpg"></a></p>
         </div>
-        <div class="menu_1">
-            <ul>
-                <ul>
-                    <li> <a href="index.jsp">首页</a> </li>
-			        <li> <a href="page/about">关于我们</a> </li>
-			        <li class="on"> <a href="page/Login.jsp">商户中心</a> </li>
-			        <li> <a href="#">帮助中心</a> </li>
-			        <li> <a href="#">裹儿</a> </li>
-                </ul>
-            </ul>
-        </div>
+        	<div class="menu_1">
+				<ul>
+					<li class="on"><a href="#">首页</a></li>
+					<li><a href="page/about.jsp">关于我们</a></li>
+					<li><a href="page/Login.jsp" style="color: #e76d26;border-bottom: 2px solid #e76d26;">商户中心</a></li>
+					<li><a href="page/order.jsp">我要投单</a></li>
+					<li><a href="page/profile.jsp" target="_blank">个人中心</a></li>
+				</ul>
+			</div>
         <div class="navShow"></div>
         <div class="clearfix"></div>
     </div>

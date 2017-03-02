@@ -31,5 +31,7 @@ public interface UserMapper {
 
 	boolean addaddr(Address address);
 
+	Integer getdidbyuuid(int uuid);
+
 
 }

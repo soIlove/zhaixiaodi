@@ -26,6 +26,8 @@ public interface UserService {
 
 	boolean addaddr(Address address);
 
+	Integer getdidbyuuid(int uuid);
+
 
 
 }

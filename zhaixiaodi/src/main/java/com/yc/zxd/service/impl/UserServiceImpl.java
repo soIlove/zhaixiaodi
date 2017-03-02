@@ -90,6 +90,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public Integer getdidbyuuid(int uuid) {
+		// TODO Auto-generated method stub
+		return userMapper.getdidbyuuid(uuid);
+	}
+
+
 	
 
 }

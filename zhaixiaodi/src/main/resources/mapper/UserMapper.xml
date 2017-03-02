@@ -52,6 +52,10 @@
 		<insert id="addaddr" parameterType="Address">
 					insert into zaddr values(seq_zid.nextval,#{uuid},#{zaddr},null,null)
 		</insert>
+		
+		<select id="getdidbyuuid" parameterType="int" resultType="Integer">
+						select did from dusers  where uuid=#{uuid}	
+		</select>
 
 </mapper>
 

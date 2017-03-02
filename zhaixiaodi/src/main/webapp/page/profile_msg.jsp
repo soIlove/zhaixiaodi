@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -26,6 +27,7 @@
 	ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
 	style="position: relative;" lim:visitorcapacity="1">
 
+	<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 	<div ng-switch="state.type" state="layoutState"
 		class="ng-isolate-scope">
 		<!-- ngSwitchWhen: checkout -->
@@ -89,6 +91,16 @@
 						class="profile-sidebar-sectiontitle"
 						ng-class="{ active: pageName === 'profile' }">
 						<i class="icon-line-home"></i><a href="https://www.ele.me/profile">个人中心</a>
+					</h2></li>
+					
+					<li class="profile-sidebar-section"><h2
+						class="profile-sidebar-sectiontitle">
+						<i class="iconfont">&#xe649;</i><a href="page/message_1.jsp">小本经营</a>
+					</h2></li>
+					
+				  <li class="profile-sidebar-section"><h2
+						class="profile-sidebar-sectiontitle">
+						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">接单通知</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">

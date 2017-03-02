@@ -373,7 +373,7 @@ body {
 	line-height: 30px;
 }
 
-.menu_1 li.on a, .menu_1 li a:hover {
+ .menu_1 li a:hover {
 	color: #e76d26;
 	border-bottom: 2px solid #e76d26;
 	float: left;
@@ -3205,7 +3205,24 @@ body {
 	background-color: green;
 	margin-left: 490px;
 	margin-top: 5px;
+	border: 0 none;
+	display: block;
+	background-color: #ed6f00;
+	text-shadow: 1px -1px 1px #ed6f00;
+	border-radius: 6px;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+	font-family: '微软雅黑';
+	text-align:center;
+	line-height:35px
 }
+
+.topic .btn_order:hover {
+	background-color: #f29405;
+}
+	
+	
 
 /* 订单奖励金额，送货地点等 */ /* //////////// */
 .active_readNum, .readNum {
@@ -3759,7 +3776,7 @@ body {
 	line-height: 30px;
 }
 
-.menu_1 li.on a, .menu_1 li a:hover {
+ .menu_1 li a:hover {
 	color: #e76d26;
 	border-bottom: 2px solid #e76d26;
 	float: left;
