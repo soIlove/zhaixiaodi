@@ -50,6 +50,39 @@ public class ExpressServiceImpl implements ExpressService {
 	}
 
 	@Override
+	public PaginationBean<Express> orderlist(String currPage, String pageSize, String uuid) {
+		PaginationBean<Express> orderBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			orderBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			orderBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		orderBean.setUuid(uuid);
+		orderBean=expressMapper.getOrderPagination(orderBean);
+		return orderBean;
+	}
+
+	@Override
+	public Express findDU(int did) {
+		return expressMapper.findDU(did);
+	}
+
+	@Override
+	public PaginationBean<Express> worderlist(String currPage, String pageSize, String uuid) {
+		PaginationBean<Express> orderBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			orderBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			orderBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		orderBean.setUuid(uuid);
+		orderBean=expressMapper.getWOrderPagination(orderBean);
+		return orderBean;
+	}
+
+	
 	public PaginationBean<Express> searchOrder(String currPage,String pageSize,String orelname) {
 		PaginationBean<Express> expressBean=new PaginationBean<Express>();
 		if(currPage!=null){

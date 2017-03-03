@@ -50,9 +50,28 @@ public class ExpressHandler {
 	@ResponseBody
 	public PaginationBean<Express> findType(String otype, String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行findType的操作....");
-//		System.out.println(page);
-//		System.out.println(otype);
-		return expressService.findType(page, rows, otype);
+		return expressService.findType(page,rows,otype);
+	}
+	
+	@RequestMapping("/orderlist")
+	@ResponseBody
+	public PaginationBean<Express> orderlist(String page,String rows,String uuid){
+		LogManager.getLogger().debug("请求ExpressHandler进行orderlist的操作....");
+		return expressService.orderlist(page,rows,uuid);
+	}
+	
+	@RequestMapping("/findDU")
+	@ResponseBody
+	public Express findDU(int did){
+		LogManager.getLogger().debug("请求ExpressHandler进行findDU的操作....");
+		return expressService.findDU(did);
+	}
+	
+	@RequestMapping("/worderlist")
+	@ResponseBody
+	public PaginationBean<Express> worderlist(String page,String rows,String uuid){
+		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
+		return expressService.worderlist(page,rows,uuid);
 	}
 
 }

@@ -14,6 +14,11 @@ public interface ExpressMapper {
 
 	PaginationBean<Express> getExpressTypePagination(PaginationBean<Express> expressBean);
 
+	PaginationBean<Express> getOrderPagination(PaginationBean<Express> orderBean);
+
+	Express findDU(int did);
+
+	PaginationBean<Express> getWOrderPagination(PaginationBean<Express> orderBean);
 	PaginationBean<Express> searchOrder( PaginationBean<Express> expressBean  );
 
 	

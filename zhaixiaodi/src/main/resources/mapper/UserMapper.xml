@@ -7,12 +7,10 @@
 
 
 	<!-- 定义sql语句 变量 -->
-	<sql id="selectProfile">
-		select * from ZUSERS
-	</sql>
+	 
 
 	<select id="findUser" parameterType="String" resultType="String">
-		<include refid="selectProfile" />
+			select * from ZUSERS
 		where uphone=#{tel}
 	</select>
 
@@ -63,7 +61,7 @@
 		from zaddr where uuid =#{uuid}
 	</select>
 		
-		<delete id="deladdr" parameterType="Integer">
+		<delete id="deladdr" parameterType="int">
 			delete from zaddr where zid=#{zid}
 		</delete>
 		
@@ -81,10 +79,7 @@
 		<if test="uphone != null and uphone != '' "> where uphone =#{uphone}	</if>
 	</select>
 
-	<delete id="deladdr" parameterType="Integer">
-		delete from zaddr where
-		zid=#{zid}
-	</delete>
+	
 	
 	<delete id="delUserById" parameterType="string">
 		delete from zusers where

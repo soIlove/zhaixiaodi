@@ -24,11 +24,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from
 		(select zd.* ,rownum rn from
 		(select
+		oid,uname,upicture,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype
+		from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid
+		)zd
 		oid,uname,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype
 		from
 		ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid )zd
+
 		where ${pageSize} * ${currPage}>=rownum)
 		where rn>( ${currPage}-1 ) * ${pageSize} 
+
 
 	</select>
 
@@ -39,13 +44,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		otype,count(otype) num from zorders group by otype order by
 		count(otype) desc
 	</select>
+	<select id="findDU" parameterType="int" resultType="Express">
+		select
+		d.uuid,uname,usex,uphone,uemail,uaddr from zusers z,dusers d where
+		z.uuid=d.uuid and d.did=#{did}
+	</select>
 
 	<!-- **************************************************************************************** -->
 
 	<select id="getExpressTypePagination" parameterType="PaginationBean"
 		resultMap="PaginationBeanMap02">
+
 		select count(1) total, ceil(count(1)/${pageSize}) totalPage,
 		${pageSize} pageSize,${currPage} currPage ,#{otype} otype from zorders where otype=#{otype} 
+
 
 	</select>
 
@@ -73,7 +85,90 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	
+	<!-- **************************************************************************************** -->
+	<select id="getOrderPagination" parameterType="PaginationBean"
+		resultMap="PaginationBeanMap03">
+		select count(1) total, ceil(count(1)/${pageSize}) totalPage,
+		${pageSize} pageSize,${currPage} currPage,${uuid} uuid from orders
+	</select>
+
+	<resultMap type="PaginationBean" id="PaginationBeanMap03">
+		<result column="pageSize" property="pageSize" />
+		<result column="currPage" property="currPage" />
+		<result column="uuid" property="uuid" />
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage,uuid=uuid}" ofType="Express"
+			select="getOrdersPagination" />
+	</resultMap>
+
+	<select id="getOrdersPagination" resultType="Express">
+		select * from
+		(select od.* ,rownum rn from
+		(select
+		a.did,otime,ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus from
+		(select distinct du.did
+		from zorders zo,zaccept za,orders os, dusers
+		du,zaddr ad, zusers zu where
+		os.aid=za.aid and
+		za.oid=zo.oid and
+		za.did=du.did and zo.zid=ad.zid and zo.uuid=#{uuid} )a left join
+		(select distinct
+		du.did,otime,os.ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus
+		from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu
+		where za.aid=os.aid and
+		za.oid=zo.oid and za.did=du.did and
+		zo.zid=ad.zid and zo.uuid=#{uuid} )b on
+		a.did=b.did order by otime)od
+		where ${pageSize} *${currPage}>=rownum)
+		where rn>(
+		${currPage}-1 )
+		*${pageSize}
+
+	</select>
+
+	<!-- **************************************************************************************** -->
+
+	<select id="getWOrderPagination" parameterType="PaginationBean"
+		resultMap="PaginationBeanMap04">
+		select count(1) total, ceil(count(1)/${pageSize}) totalPage,
+		${pageSize} pageSize,${currPage} currPage,${uuid} uuid from orders
+	</select>
+
+	<resultMap type="PaginationBean" id="PaginationBeanMap04">
+		<result column="pageSize" property="pageSize" />
+		<result column="currPage" property="currPage" />
+		<result column="uuid" property="uuid" />
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage,uuid=uuid}" ofType="Express"
+			select="getWOrdersPagination" />
+	</resultMap>
+
+	<select id="getWOrdersPagination" resultType="Express">
+		select * from
+		(select od.* ,rownum rn from
+		(select
+		a.did,otime,ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus from
+		(select distinct du.did
+		from zorders zo,zaccept za,orders os, dusers
+		du,zaddr ad, zusers zu where
+		os.aid=za.aid and
+		za.oid=zo.oid and
+		za.did=du.did and zo.zid=ad.zid and zo.uuid=#{uuid} )a right join
+		(select distinct
+		du.did,otime,os.ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus
+		from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu
+		where za.aid=os.aid and
+		za.oid=zo.oid and za.did=du.did and
+		zo.zid=ad.zid and zo.uuid=#{uuid} and ostatus='等待评价')b on
+		a.did=b.did
+		order by otime)od
+		where ${pageSize} *${currPage}>=rownum)
+		where rn>(
+		${currPage}-1 ) *${pageSize}
+
+	</select>
+
+
 	<!-- **************************************************************************************** -->
 
 	<select id="searchOrder" parameterType="PaginationBean"

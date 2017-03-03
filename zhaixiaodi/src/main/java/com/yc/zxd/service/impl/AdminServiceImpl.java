@@ -14,14 +14,14 @@ public class AdminServiceImpl implements AdminService {
 	
 
 	@Autowired
-	private AdminMapper AdminMapper;
+	private AdminMapper adminMapper;
 
 	 
 	
 	@Override
 	public Admin login(Admin admin) {
 		
-		return AdminMapper.getAdmin(admin);	
+		return adminMapper.getAdmin(admin);	
 	}
 
 
@@ -35,7 +35,7 @@ public class AdminServiceImpl implements AdminService {
 		if(pageSize!=null){
 			userBean.setPageSize(Integer.parseInt(pageSize));
 		}
-		userBean=AdminMapper.getUserPagination(userBean);
+		userBean=adminMapper.getUserPagination(userBean);
 		return userBean;
 	}
 
@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public boolean modifyPwd(String newPwd, String adid) {
 		
-		return AdminMapper.modifyPwd(newPwd,adid) >0;	
+		return adminMapper.modifyPwd(newPwd,adid) >0;	
 	}
 
 }

@@ -4,7 +4,15 @@ import java.sql.Date;
 
 public class Express {
 	private Integer oid;
+	private Integer ooid;
+	private Integer did;
+	private Integer uuid;
 	private String uname;
+	private String  usex;
+	private String uphone;
+	private String uemail;
+	private String uaddr;
+	private String upicture;
 	private Date otime;
 	private String orelname;
 	private String ocode;
@@ -13,15 +21,27 @@ public class Express {
 	private String zaddr;
 	private String oprice;
 	private String otype;
+	private String ostatus;
 	
 	public Express() {
 	}
+		
+	
 
-	public Express(Integer oid, String uname, Date otime, String orelname, String ocode, String osize, String odesc,
-			String zaddr, String oprice, String otype) {
+	public Express(Integer oid, Integer ooid, Integer did, Integer uuid, String uname, String usex, String uphone,
+			String uemail, String uaddr, String upicture, Date otime, String orelname, String ocode, String osize,
+			String odesc, String zaddr, String oprice, String otype, String ostatus) {
 		super();
 		this.oid = oid;
+		this.ooid = ooid;
+		this.did = did;
+		this.uuid = uuid;
 		this.uname = uname;
+		this.usex = usex;
+		this.uphone = uphone;
+		this.uemail = uemail;
+		this.uaddr = uaddr;
+		this.upicture = upicture;
 		this.otime = otime;
 		this.orelname = orelname;
 		this.ocode = ocode;
@@ -30,7 +50,127 @@ public class Express {
 		this.zaddr = zaddr;
 		this.oprice = oprice;
 		this.otype = otype;
+		this.ostatus = ostatus;
 	}
+
+	
+
+	public String getUsex() {
+		return usex;
+	}
+
+
+
+	public void setUsex(String usex) {
+		this.usex = usex;
+	}
+
+
+
+	public String getUphone() {
+		return uphone;
+	}
+
+
+
+
+
+	public void setUphone(String uphone) {
+		this.uphone = uphone;
+	}
+
+
+
+
+
+	public String getUemail() {
+		return uemail;
+	}
+
+
+
+
+
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
+	}
+
+
+
+
+
+	public String getUaddr() {
+		return uaddr;
+	}
+
+
+
+
+
+	public void setUaddr(String uaddr) {
+		this.uaddr = uaddr;
+	}
+
+
+
+
+
+	public Integer getUuid() {
+		return uuid;
+	}
+
+
+	public void setUuid(Integer uuid) {
+		this.uuid = uuid;
+	}
+
+
+	public Integer getDid() {
+		return did;
+	}
+
+	public void setDid(Integer did) {
+		this.did = did;
+	}
+
+
+
+
+	public Integer getOoid() {
+		return ooid;
+	}
+
+
+
+	public void setOoid(Integer ooid) {
+		this.ooid = ooid;
+	}
+
+
+
+	public String getOstatus() {
+		return ostatus;
+	}
+
+
+
+	public void setOstatus(String ostatus) {
+		this.ostatus = ostatus;
+	}
+
+
+
+	public String getUpicture() {
+		return upicture;
+	}
+
+
+
+	public void setUpicture(String upicture) {
+		this.upicture = upicture;
+	}
+
+
 
 	public Integer getOid() {
 		return oid;
@@ -112,13 +252,15 @@ public class Express {
 		this.otype = otype;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Express [oid=" + oid + ", uname=" + uname + ", otime=" + otime + ", orelname=" + orelname + ", ocode="
-				+ ocode + ", osize=" + osize + ", odesc=" + odesc + ", zaddr=" + zaddr + ", oprice=" + oprice
-				+ ", otype=" + otype + "]";
+		return "Express [oid=" + oid + ", ooid=" + ooid + ", did=" + did + ", uuid=" + uuid + ", uname=" + uname
+				+ ", usex=" + usex + ", uphone=" + uphone + ", uemail=" + uemail + ", uaddr=" + uaddr + ", upicture="
+				+ upicture + ", otime=" + otime + ", orelname=" + orelname + ", ocode=" + ocode + ", osize=" + osize
+				+ ", odesc=" + odesc + ", zaddr=" + zaddr + ", oprice=" + oprice + ", otype=" + otype + ", ostatus="
+				+ ostatus + "]";
 	}
-
-	
 	
 }

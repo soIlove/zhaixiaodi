@@ -3,10 +3,6 @@ package com.yc.zxd.mapper;
 
 import java.util.List;
 
-
-import com.yc.zxd.entity.Address;
-import com.yc.zxd.entity.User;
-
 import org.apache.ibatis.annotations.Param;
 
 import com.yc.zxd.entity.Address;
