@@ -81,6 +81,14 @@ public class UserServiceImpl implements UserService {
 		return userMapper.addaddr(address);
 	}
 
+
+
+	@Override
+	public Integer getdidbyuuid(int uuid) {
+		// TODO Auto-generated method stub
+		return userMapper.getdidbyuuid(uuid);
+	}
+
 	@Override
 	public List<User> searchUser(String tel) {
 		return userMapper.searchUser(tel);
@@ -97,5 +105,6 @@ public class UserServiceImpl implements UserService {
 		boolean result = userMapper.setUserToDai(duser) != null && userMapper.RegisterDai(duser) != null;
 		return result;
 	}
+
 
 }

@@ -263,5 +263,12 @@ public class UserHandler {
 	public boolean addaddr(Address address) {
 		return userService.addaddr(address);
 	}
-
+	
+	
+	@RequestMapping("/getdidbyuuid")
+	@ResponseBody
+		public Integer getdidbyuuid(int uuid){
+		LogManager.getLogger().debug("判断用户是否为代递员身份");
+		return userService.getdidbyuuid(uuid);
+	}
 }

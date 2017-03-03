@@ -1,5 +1,5 @@
 //4.异步登录操作
-/*function loginSub(){
+function loginSub(){
 	var params=$("#loginForm").serialize();//取到表单要提交的请求数据
 	$.post("user/login",params,function(data){
 		if(data){
@@ -14,13 +14,13 @@
 	},"json");
 	alert(params);
 	return false;
-}*/
+}
 
 
 
 
 
-/*
+
 $("#loginForm").form({
 	url:"user/login",    
     success:function(data){ 
@@ -55,4 +55,4 @@ function loginSub(){
 	}
 	
 	
-}*/
+}

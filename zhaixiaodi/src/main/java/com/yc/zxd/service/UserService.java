@@ -27,11 +27,15 @@ public interface UserService {
 
 	boolean addaddr(Address address);
 
+
+	Integer getdidbyuuid(int uuid);
+
 	List<User> searchUser(String tel);
 
 	boolean delUserById(String uuid);
 
 	boolean RegisterDai(Duser duser);
+
 
 
 

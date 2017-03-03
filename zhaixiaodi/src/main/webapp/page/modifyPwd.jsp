@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -24,7 +25,8 @@
 <body cute-title=""
 	ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
 	style="position: relative;" lim:visitorcapacity="1">
-
+    
+    <input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 	<div ng-switch="state.type" state="layoutState"
 		class="ng-isolate-scope">
 		<!-- ngSwitchWhen: checkout -->
@@ -78,38 +80,7 @@
 	<div class="importantnotification container" role="banner">
 		<!-- ngIf: enable -->
 	</div>
-	<div class="sidebar" role="complementary">
-		<div class="sidebar-tabs">
-			<div class="toolbar-tabs-middle">
-				<a class="toolbar-btn icon-order toolbar-close"
-					href="https://www.ele.me/profile/order" hardjump="" tooltip="我的订单"
-					tooltip-placement="left" ubt-click="toolbar_order"> </a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-cartbtn icon-cart toolbar-open" href="javascript:"
-					template="cart"
-					ng-class="{'focus': (activeTemplate === 'cart' &amp;&amp; isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
-					ubt-click="390">购物车<!-- ngIf: foodCount.count --></a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-btn icon-notice toolbar-open modal-hide"
-					href="javascript:" template="message"
-					ng-class="{'focus': (activeTemplate === 'message' &amp;&amp; isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
-					tooltip="我的信息" tooltip-placement="left" ubt-click="392"> <!-- ngIf: messageCount.count -->
-				</a>
-			</div>
-			<div class="toolbar-tabs-bottom">
-				<div class="toolbar-btn icon-QR-code">
-					<div class="dropbox toolbar-tabs-dropbox"></div>
-				</div>
-				<a class="toolbar-btn icon-service" online-service="" tooltip="在线客服"
-					title="在线客服" tooltip-placement="left" id="live800iconlink"
-					target="_blank" href="javascript:" style="visibility: visible;"></a>
-				<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部"
-					title="回到顶部" href="javascript:" tooltip-placement="left"
-					style="visibility: hidden;"></a>
-			</div>
-		</div>
-		<div class="sidebar-content"></div>
-	</div>
+	
 	<!-- ngView:  -->
 	<div ng-view="" role="main" class="ng-scope">
 		<div class="profile-container container" profile-container=""
@@ -146,7 +117,12 @@
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
-						<i class="iconfont">&#xe649;</i><a href="zxd/message">消息</a>
+						<i class="iconfont">&#xe649;</i><a href="page/message_1.jsp">小本经营</a>
+					</h2></li>
+					
+				  <li class="profile-sidebar-section"><h2
+						class="profile-sidebar-sectiontitle">
+						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">接单通知</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">

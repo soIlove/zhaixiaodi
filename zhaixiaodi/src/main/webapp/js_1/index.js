@@ -1,14 +1,23 @@
-function getExpress(pageNum){
+
+var param=$("#uuidhidden").val();
+
+
+/*function getExpress(pageNum){
 	$.get("zxd/list?page="+pageNum,function(data){
 		//alert(data.rows);
 		$("#expressList").empty();
 		var expresses= data.rows;
 		for(var i=0;i<expresses.length;i++){
 			$("#expressList").append("<li class='topic'><div class='u_photo'>"+
+<<<<<<< HEAD
+				"<img src='image/85_avatar_m.jpg'height='48' width='48'>"+
+				"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'></div></a>"+
+=======
 				"<img src='image/85_avatar_m.jpg'height='48' width='48'>" +
 				"<div style='width:48px;height:20px;line-height:20px;font-size:13px;" +
 				"font-family:'微软雅黑';text-align:center;color:#E76D26;' >"+expresses[i].uname+"</div>"+
 				"</div><div class='u_post'><div class='btn_order'></div>"+
+>>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 				"<div class='li_1' style='line-height: 21px;'>"+
 				"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
 				"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
@@ -113,11 +122,11 @@ function getExpress(pageNum){
 
 	},"json");
 }
-getExpress(1);	
+getExpress(1);*/	
 
 function getType(){
 	$.get("zxd/type",function(data){
-		//alert(data.length);
+
 		$("#typelist").empty();
 		var sum=0;
 		for(var i=0;i<data.length;i++){
@@ -134,7 +143,72 @@ function getType(){
 		
 	},"json");
 }
+
 getType();
+
+
+
+$('#getordmsg').window({    
+	  width:400,    
+	    height:250,    
+	    modal:true,   
+	    minimizable:false,
+	    maximizable:false,
+	    collapsible:false,
+	    title:'填写抢单信息',
+	    closed:true
+	    	
+});  
+
+function Graborder(oid){
+	$("#hiddoid").val(oid);
+	if(param==null||param==""){
+		alert("温馨提示:请先登录!")
+		window.location.href="page/Login.jsp";
+	}else{
+		getdidbyuuid();
+		
+	}
+	
+}
+function getdidbyuuid(){
+	$.post("zxd/getdidbyuuid",{"uuid":param},function(data){
+		if(data!=null){
+			$("#hidddid").val(data);
+			$('#getordmsg').window('open');
+			
+		}else{			
+			alert("对不起，您还不是小递员哦，赶紧加入我们吧.")
+		}
+	},"json")
+	
+}
+function applyorder(){
+	var oid=$("#hiddoid").val();
+	var adesc=$("#ordoramsg").val();
+	var did=$("#hidddid").val();
+	$.post("order/addzaccept",{"oid":oid,"adesc":adesc,"did":did},function(data){
+			if(data){
+				alert("抢单申请已为你提交，请等待对方确认");
+				$('#getordmsg').window('close')
+			}			
+},"json")
+/*	var socket=new WebSocket('ws://'+window.location.host+'/zhaixiaodi/pushmsg');
+	//连接与服务器的连接
+	socket.onopen = function () {
+		alert("连接")
+			socket.send("hello,my name is 黄福州");
+	};
+	//与服务之间的通信
+	socket.onmessage = function (message) {
+			alert("你有一个新消息"+message.data)
+	};
+	//断开与服务器的连接
+	socket.onclose = function () {
+
+	};*/
+}
+
 
 function  listExpress(url){
 	function getExpress02(pageNum){
@@ -144,9 +218,13 @@ function  listExpress(url){
 			for(var i=0;i<expresses.length;i++){
 				$("#expressList").append("<li class='topic'><div class='u_photo'>"+
 					"<img src='image/85_avatar_m.jpg'height='48' width='48'>"+
+
+					"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'>抢单</div></a>"+
+
 					"<div style='width:48px;height:20px;line-height:20px;font-size:13px;" +
 					"font-family:'微软雅黑';text-align:center;color:#E76D26;' >"+expresses[i].uname+"</div>"+
 					"</div><div class='u_post'><div class='btn_order'></div>"+
+
 					"<div class='li_1' style='line-height: 21px;'>"+
 					"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
 					"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
@@ -250,3 +328,4 @@ function  listExpress(url){
 	getExpress02(1);
 	
 }
+
