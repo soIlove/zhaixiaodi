@@ -59,7 +59,7 @@ public class PhoneCode  {
 		req.setSmsType("normal");
 
 		// 签名名称
-		req.setSmsFreeSignName("肖坤跻制作");
+		req.setSmsFreeSignName("宅小递注册");
 
 		// 短信模板的内容
 		// String json = "{\"测试\":\"" + code + "\"}";
@@ -72,7 +72,7 @@ public class PhoneCode  {
 		req.setRecNum(mobile);
 
 		// 短信模板ID (验证码)模版
-		req.setSmsTemplateCode("SMS_21815016");
+		req.setSmsTemplateCode("SMS_52260103");
 		AlibabaAliqinFcSmsNumSendResponse rsp = null;
 		try {
 			rsp = client.execute(req);

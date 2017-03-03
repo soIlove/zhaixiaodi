@@ -29,12 +29,13 @@ public class ExpressHandler {
 		System.out.println(list.toString());
 		return list;
 	}
-	
-	@RequestMapping("/searchOrder") // 处理分页  根据投单姓名查询订单
+
+	@RequestMapping("/searchOrder") // 处理分页 根据投单姓名查询订单
 	@ResponseBody // @ResponseBody做json异步响应处理注解，响应的数据对象，springMVC会把此对象转换成json字符串响应
 	public PaginationBean<Express> searchOrder(String name, String page, String rows) {
-		LogManager.getLogger().debug("请求ExpressHandler进行searchOrder的操作....name:"+name+"\t page:"+page+"\t rows:"+rows);
-		PaginationBean<Express> list = expressService.searchOrder(page, rows,name);
+		LogManager.getLogger()
+				.debug("请求ExpressHandler进行searchOrder的操作....name:" + name + "\t page:" + page + "\t rows:" + rows);
+		PaginationBean<Express> list = expressService.searchOrder(page, rows, name);
 		System.out.println(list.toString());
 		return list;
 	}
@@ -50,28 +51,42 @@ public class ExpressHandler {
 	@ResponseBody
 	public PaginationBean<Express> findType(String otype, String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行findType的操作....");
-		return expressService.findType(page,rows,otype);
+		return expressService.findType(page, rows, otype);
 	}
-	
+
 	@RequestMapping("/orderlist")
 	@ResponseBody
-	public PaginationBean<Express> orderlist(String page,String rows,String uuid){
+	public PaginationBean<Express> orderlist(String page, String rows, String uuid) {
 		LogManager.getLogger().debug("请求ExpressHandler进行orderlist的操作....");
-		return expressService.orderlist(page,rows,uuid);
+		return expressService.orderlist(page, rows, uuid);
 	}
-	
+
 	@RequestMapping("/findDU")
 	@ResponseBody
-	public Express findDU(int did){
+	public Express findDU(int did) {
 		LogManager.getLogger().debug("请求ExpressHandler进行findDU的操作....");
 		return expressService.findDU(did);
 	}
-	
+
 	@RequestMapping("/worderlist")
 	@ResponseBody
-	public PaginationBean<Express> worderlist(String page,String rows,String uuid){
+	public PaginationBean<Express> worderlist(String page, String rows, String uuid) {
 		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
-		return expressService.worderlist(page,rows,uuid);
+		return expressService.worderlist(page, rows, uuid);
+	}
+
+	@RequestMapping("/cancleorderlist")
+	@ResponseBody
+	public PaginationBean<Express> cancleorderlist(String page, String rows, String uuid) {
+		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
+		return expressService.cancleorderlist(page, rows, uuid);
+	}
+
+	@RequestMapping("/corderlist")
+	@ResponseBody
+	public PaginationBean<Express> comingorderlist(String page, String rows, String uuid) {
+		LogManager.getLogger().debug("请求ExpressHandler进行comingorderlist的操作....");
+		return expressService.comingorderlist(page, rows, uuid);
 	}
 
 }

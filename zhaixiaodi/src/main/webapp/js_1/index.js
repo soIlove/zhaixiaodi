@@ -2,7 +2,7 @@
 var param=$("#uuidhidden").val();
 
 
-/*function getExpress(pageNum){
+function getExpress(pageNum){
 	$.get("zxd/list?page="+pageNum,function(data){
 		//alert(data.rows);
 		$("#expressList").empty();
@@ -122,7 +122,7 @@ var param=$("#uuidhidden").val();
 
 	},"json");
 }
-getExpress(1);*/	
+getExpress(1);	
 
 function getType(){
 	$.get("zxd/type",function(data){
