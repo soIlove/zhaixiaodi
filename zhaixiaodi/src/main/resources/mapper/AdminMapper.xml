@@ -11,7 +11,7 @@
 		select * from admin
 	</sql>
 
-	<select id="findUser" parameterType="String" resultType="String">
+	<select id="findUser" parameterType="String" resultType="Admin">
 		<include refid="selectProfile" />
 		where uphone=#{tel}
 	</select>
