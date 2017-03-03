@@ -2,22 +2,19 @@
 var param=$("#uuidhidden").val();
 
 
-/*function getExpress(pageNum){
+function getExpress(pageNum){
 	$.get("zxd/list?page="+pageNum,function(data){
 		//alert(data.rows);
 		$("#expressList").empty();
 		var expresses= data.rows;
 		for(var i=0;i<expresses.length;i++){
 			$("#expressList").append("<li class='topic'><div class='u_photo'>"+
-<<<<<<< HEAD
-				"<img src='image/85_avatar_m.jpg'height='48' width='48'>"+
+				"<img src='"+expresses[i].upicture+"'height='48' width='48'>"+
 				"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'></div></a>"+
-=======
 				"<img src='image/85_avatar_m.jpg'height='48' width='48'>" +
 				"<div style='width:48px;height:20px;line-height:20px;font-size:13px;" +
 				"font-family:'微软雅黑';text-align:center;color:#E76D26;' >"+expresses[i].uname+"</div>"+
 				"</div><div class='u_post'><div class='btn_order'></div>"+
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 				"<div class='li_1' style='line-height: 21px;'>"+
 				"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
 				"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
@@ -122,7 +119,7 @@ var param=$("#uuidhidden").val();
 
 	},"json");
 }
-getExpress(1);*/	
+getExpress(1);	
 
 function getType(){
 	$.get("zxd/type",function(data){
