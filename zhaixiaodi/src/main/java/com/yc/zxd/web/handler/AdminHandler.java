@@ -28,11 +28,6 @@ public class AdminHandler {
 	@Autowired
 	private AdminService adminService;
 	
-
-	public AdminHandler() {
-		adminService = new AdminServiceImpl();
-	}
-
 	@RequestMapping("/verifyCode") // 检查用户是否存在
 	@ResponseBody
 	public boolean verifyCode(String code, ServletRequest request) {

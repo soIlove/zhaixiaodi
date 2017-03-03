@@ -96,4 +96,32 @@ public class ExpressServiceImpl implements ExpressService {
 		return expressBean;
 	}
 
+	@Override
+	public PaginationBean<Express> cancleorderlist(String currPage, String pageSize, String uuid) {
+		PaginationBean<Express> expressBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			expressBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			expressBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		expressBean.setUuid(uuid);
+		expressBean=expressMapper.cancleOrder(expressBean);
+		return expressBean;
+	}
+
+	@Override
+	public PaginationBean<Express> comingorderlist(String currPage, String pageSize, String uuid) {
+		PaginationBean<Express> expressBean=new PaginationBean<Express>();
+		if(currPage!=null){
+			expressBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			expressBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		expressBean.setUuid(uuid);
+		expressBean=expressMapper.comingorderlist(expressBean);
+		return expressBean;
+	}
+
 }
