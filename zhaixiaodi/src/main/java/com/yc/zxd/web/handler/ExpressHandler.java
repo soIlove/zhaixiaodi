@@ -88,5 +88,18 @@ public class ExpressHandler {
 		LogManager.getLogger().debug("请求ExpressHandler进行comingorderlist的操作....");
 		return expressService.comingorderlist(page, rows, uuid);
 	}
+	
+	@RequestMapping("/cancleorderlist")
+	@ResponseBody
+	public PaginationBean<Express> cancleorderlist(String page,String rows,String uuid){
+		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
+		return expressService.cancleorderlist(page,rows,uuid);
+	}
 
+	@RequestMapping("/corderlist")
+	@ResponseBody
+	public PaginationBean<Express> comingorderlist(String page,String rows,String uuid){
+		LogManager.getLogger().debug("请求ExpressHandler进行comingorderlist的操作....");
+		return expressService.comingorderlist(page,rows,uuid);
+	}
 }

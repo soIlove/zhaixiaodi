@@ -140,7 +140,7 @@
 									class="icon-location"></span></a></li>
 						</ul></span> <span ng-transclude=""><i
 						class="icon-arrow-right ng-scope"></i><span
-						class="ng-binding ng-scope">近三个月订单</span></span>
+						class="ng-binding ng-scope"></span></span>
 				</div>
 				<div search-input=""></div>
 			</div>
@@ -159,17 +159,17 @@
 						<i class="icon-line-order"></i>我的订单
 					</h2>
 					<ul>
-						<%-- <input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" /> --%>
 						<li ng-class="{ active: pageName === 'order' }" class="active"><a
-							href="javascript:void(0)"
+						href="javascript:void(0)"
 							onclick="getOrders(1,${loginUser.uuid})">订单记录</a></li>
 						<li ng-class="{ active: pageName === 'order-unrated' }"><a
-							href="javascript:void(0)"
-							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单<!-- ngIf: unratedNumber -->
-								<span class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
-								ng-bind="unratedNumber">6</span> <!-- end ngIf: unratedNumber --></a></li>
+						href="javascript:void(0)"
+							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单</a></li>
+						<li ng-class="{ active: pageName === 'order-unrated' }"><a 
+						href="javascript:void(0)" onclick="getComingOrders(1,${loginUser.uuid})">待收货订单</a></li>
 						<li ng-class="{ active: pageName === 'order-refunding' }"><a
-							href="https://www.ele.me/profile/order/refund">退单记录</a></li>
+						href="javascript:void(0)"
+							onclick="getCancleOrders(1,${loginUser.uuid})">退单记录</a></li>
 					</ul></li>
 
 				<li class="profile-sidebar-section"><h2
@@ -205,23 +205,7 @@
 							href="https://static11.elemecdn.com/eleme/desktop/mobile/index.html"
 							target="_blank">随时关注订单状态</a>
 					</div>
-					<!-- <div class="loading ng-binding ng-isolate-scope ng-hide" loading=""
-						ng-show="!orderList">
-						ngIf: type==='profile'
-						<img ng-if="type==='profile'" src="image/profile-loading.gif"
-							alt="正在加载" class="ng-scope">
-						end ngIf: type==='profile'
-						ngIf: type==='normal'
-						正在载入数据...
-					</div> -->
-					<!-- 	<div class="order-nocontent nodata ng-isolate-scope ng-hide"
-						ng-show="orderList &amp;&amp; !orderList.length" nodatatip=""
-						content="暂无记录，现在就去&lt;a href='/place'&gt;订餐&lt;/a&gt;吧!">
-						<p class="nodata-container ng-binding"
-							ng-bind-html="content | toTrusted">
-							暂无记录，现在就去<a href="https://www.ele.me/place">订餐</a>吧!
-						</p>
-					</div> -->
+
 					<table class="order-list ng-scope" ng-show="orderList.length">
 						<thead>
 							<tr>
@@ -234,12 +218,30 @@
 							</tr>
 						</thead>
 						<div id="win">
-							<p>用户名：<div  id="uuid" style="margin-top:10px;"></div></p><br>
-							<p>昵称：<div id="uname"></div></p><br>
-							<p>性别：<div id="usex"></div></p><br>
-							<p>电话：<div id="uphone"></div></p><br>
-							<p>邮箱：<div id="uemail"></div></p><br>
-							<p>地理位置：<div id="uaddr" ></div></p><br>
+							<p>用户名：
+							<div id="uuid" style="margin-top: 10px;"></div>
+							</p>
+							<br>
+							<p>昵称：
+							<div id="uname"></div>
+							</p>
+							<br>
+							<p>性别：
+							<div id="usex"></div>
+							</p>
+							<br>
+							<p>电话：
+							<div id="uphone"></div>
+							</p>
+							<br>
+							<p>邮箱：
+							<div id="uemail"></div>
+							</p>
+							<br>
+							<p>地理位置：
+							<div id="uaddr"></div>
+							</p>
+							<br>
 						</div>
 						<tbody id="orderlist">
 							<tr></tr>
