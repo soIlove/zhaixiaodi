@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -11,7 +12,10 @@
 <link href="css/profile.css" rel="stylesheet">
 <!-- 引入矢量图标 -->
 <link href="css/icon/iconfont.css" type="text/css" rel="stylesheet">
-
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css" />
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css" />
+<link type="text/css" rel="stylesheet" href="css/message.css">
 <script src="js_1/perf.js" type="text/javascript"
 	crossorigin="anonymous"></script>
 <script src="js_1/vendor.js" type="text/javascript"
@@ -24,7 +28,7 @@
 <body cute-title=""
 	ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
 	style="position: relative;" lim:visitorcapacity="1">
-
+		<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 	<div ng-switch="state.type" state="layoutState"
 		class="ng-isolate-scope">
 		<!-- ngSwitchWhen: checkout -->
@@ -36,7 +40,7 @@
 				<div class="container clearfix">
 					<h1>
 						<a href="https://www.ele.me/" hardjump=""
-							class="topbar-logo icon-logo"><span>宅小遞</span></a>
+							class="topbar-logo icon-logo"><span>宅小递</span></a>
 					</h1>
 					<a href="https://www.ele.me/" hardjump=""
 						class="topbar-item topbar-homepage"
@@ -78,38 +82,7 @@
 	<div class="importantnotification container" role="banner">
 		<!-- ngIf: enable -->
 	</div>
-	<div class="sidebar" role="complementary">
-		<div class="sidebar-tabs">
-			<div class="toolbar-tabs-middle">
-				<a class="toolbar-btn icon-order toolbar-close"
-					href="https://www.ele.me/profile/order" hardjump="" tooltip="我的订单"
-					tooltip-placement="left" ubt-click="toolbar_order"> </a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-cartbtn icon-cart toolbar-open" href="javascript:"
-					template="cart"
-					ng-class="{'focus': (activeTemplate === 'cart' &amp;&amp; isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
-					ubt-click="390">购物车<!-- ngIf: foodCount.count --></a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-btn icon-notice toolbar-open modal-hide"
-					href="javascript:" template="message"
-					ng-class="{'focus': (activeTemplate === 'message' &amp;&amp; isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
-					tooltip="我的信息" tooltip-placement="left" ubt-click="392"> <!-- ngIf: messageCount.count -->
-				</a>
-			</div>
-			<div class="toolbar-tabs-bottom">
-				<div class="toolbar-btn icon-QR-code">
-					<div class="dropbox toolbar-tabs-dropbox"></div>
-				</div>
-				<a class="toolbar-btn icon-service" online-service="" tooltip="在线客服"
-					title="在线客服" tooltip-placement="left" id="live800iconlink"
-					target="_blank" href="javascript:" style="visibility: visible;"></a>
-				<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部"
-					title="回到顶部" href="javascript:" tooltip-placement="left"
-					style="visibility: hidden;"></a>
-			</div>
-		</div>
-		<div class="sidebar-content"></div>
-	</div>
+
 	<!-- ngView:  -->
 	<div ng-view="" role="main" class="ng-scope">
 		<div class="profile-container container" profile-container=""
@@ -144,9 +117,14 @@
 						ng-class="{ active: pageName === 'profile' }">
 						<i class="icon-line-home"></i><a href="https://www.ele.me/profile">个人中心</a>
 					</h2></li>
-				<li class="profile-sidebar-section"><h2
+			   <li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
-						<i class="iconfont">&#xe649;</i><a href="zxd/message">消息</a>
+						<i class="iconfont">&#xe649;</i><a href="page/message_1.jsp">小本经营</a>
+					</h2></li>
+					
+				  <li class="profile-sidebar-section"><h2
+						class="profile-sidebar-sectiontitle">
+						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">接单通知</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
@@ -207,27 +185,24 @@
 					<table class="order-list ng-scope" ng-show="orderList.length">
 						<thead>
 							<tr>
-								<th>下单时间</th>
+								<th>同意时间</th>
 								<th>快递类型</th>
 								<th>取货码</th>
 								<th>包裹大小</th>
 								<th>地址</th>
 								<th>费用</th>
-								<th class="order-list-infoth">备注</th>
+								<th class="order-list-infoth">接单状态</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr></tr>
-							<!-- ngRepeat: item in orderList -->
-							<tr onclick="show(this)" style="cursor: pointer;"
-								class="timeline" order-timeline="" ng-repeat="item in orderList">
+						<tbody id="message_order_tr_list">
+							
+
+							<!-- <tr onclick="show(this)" style="cursor: pointer;"
+								class="timeline">
 								<td class="ordertimeline-time">
-									<p ng-bind="item.created_at | date:'HH:mm'" class="ng-binding">17:35</p>
-									<!-- ngIf: item.realStatus !== 5 --> <i
-									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"
-									ng-if="item.realStatus !== 5"
-									ng-class="{'unfinish': item.realStatus !== 4, 'unreview': item.realStatus === 4}"></i>
-									<!-- end ngIf: item.realStatus !== 5 --> <!-- ngIf: item.realStatus === 5 -->
+									<p class="ng-binding">17:35</p> 
+									<i
+									class="ordertimeline-time-icon icon-uniE65D ng-scope unreview"></i>								
 								</td>
 								<td class="ordertimeline-handle"><label>正在查询快递类型</label></td>
 
@@ -239,15 +214,51 @@
 								<td class="ordertimeline-handle"><label>正在查询费用</label></td>
 								<td class="ordertimeline-handle"><label>正在查询备注矿务局诶我就付款李文静覅看矿务局额if
 										文件附件为 窝IE</label></td>
-							</tr>
-							<!-- end ngRepeat: item in orderList -->
+							</tr> -->
+
+
+
 						</tbody>
 					</table>
+					<div id="zxdmsg_mess" style="display: none">
+						<div class="l_box_list" id="topic_list">
+							<ul id="expressList">
+								<!-- <li class="topic">
+									<div class="u_photo">
+										<img src="image/85_avatar_m.jpg" height="48" width="48">
+									</div>
+									<div class="u_post">
+										<input type="button" id="btn-order_agr" class="btn_order" name="btn-order_agr" value="同意领取">
+										<div class="li_1" style="line-height: 12px;">
+											<a style="font-size: 13px; font-family: '微软雅黑';"
+												class="i_title" href="javascript:void(0)">'黄小小州'</a>
+										</div>
+										<div class="li_2" style="margin-top: 15px;">
+											<em class="li_s">信誉度：9.9</em>
+											<em class="readNum li_s">抢单时间：10:00</em>
+										</div>
+										<div class="li_3"
+											style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">小递捎话：大概会在12点帮你送达</div>
+
+									</div>
+								</li>	 -->	
+								
+							</ul>
+				             <input type="button" class="zln-button" id="delAllApp" value="取消全部">
+																
+						</div>
+					</div>
+					
+					
 				</div>
 			</div>
 		</div>
-	</div>
-	<script type="text/javascript" src="js_1/textStatic.js"></script>
-	<script type="text/javascript" src="js_1/message.js"></script>
+		<script src="js_1/jquery-1.12.4.js" type="text/javascript"></script>
+		<script src="easyui/jquery.min.js" type="text/javascript"></script>
+		<script src="easyui/locale/easyui-lang-zh_CN.js"
+			type="text/javascript"></script>
+		<script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js_1/textStatic.js"></script>
+		<script type="text/javascript" src="js_1/message.js"></script>
 </body>
 </html>

@@ -632,9 +632,9 @@ textarea {
 	box-sizing: border-box;
 }
 
-a {
+/* a {
 	color: #666666;
-}
+} */
 
 a:hover {
 	color: #007FD7;

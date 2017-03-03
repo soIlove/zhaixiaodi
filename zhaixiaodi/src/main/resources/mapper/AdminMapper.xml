@@ -7,12 +7,9 @@
 
 
 	<!-- 定义sql语句 变量 -->
-	<sql id="selectProfile">
+ 
+	<select id="findUser" parameterType="String" resultType="Admin">
 		select * from admin
-	</sql>
-
-	<select id="findUser" parameterType="String" resultType="String">
-		<include refid="selectProfile" />
 		where uphone=#{tel}
 	</select>
 

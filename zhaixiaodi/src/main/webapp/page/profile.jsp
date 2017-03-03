@@ -31,6 +31,7 @@
 	ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
 	style="position: relative;" lim:visitorcapacity="1">
 
+	<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 	<div ng-switch="state.type" state="layoutState"
 		class="ng-isolate-scope">
 		<!-- ngSwitchWhen: checkout -->

@@ -8,6 +8,7 @@
 <title>宅小递</title>
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
@@ -17,15 +18,19 @@
 	content="宅小递 – 国内首家代收货服务提供者, 通过遍布城市各大角落的社区店，为您提供最便捷的收货服务体验。让您不用再担心家中没有人不能收快递；不用担心大件物品送到公司，但不方便挤公交车带回家；不用担心快递不准时，只能在家干等。还有手机App能够更快地为您找到附近的代收点哦！">
 <meta property="qc:admins" content="2550506277630750572176375">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <script src="js/jquery-1.js" type="text/javascript"></script>
 <script src="js/swiper.js" type="text/javascript"></script>
 <script src="js/base.js" type="text/javascript"></script>
 <script src="js/page.js" type="text/javascript"></script>
-<script src="js_1/index.js" type="text/javascript"></script>
+
 <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 <script charset="UTF-8" src="js/bundle.js"></script>
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
+<link type="text/css" rel="stylesheet" href="css/index.css" />
+ <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css" />
+<link type="text/css" rel="stylesheet" href="easyui/themes/default/easyui.css" /> 
 </head>
 <body>
 	<iframe style="display: none;" id="sina_anywhere_iframe"></iframe>
@@ -42,8 +47,11 @@
 						<span
 							style="color: #E76D26; font-size: 14px; font-weight: bold; font-style: italic;">${loginUser.uname}</span>,&nbsp;欢迎你来到宅小递!
 					</p>
+					
+					<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
 				</c:otherwise>
 			</c:choose>
+			
 			<div class="h-r">
 				<ul>
 					<li class="h-qq"><em></em>
@@ -98,9 +106,9 @@
 						src="image/Logo.jpg"></a>
 				</p>
 			</div>
-			<div class="menu">
+			<div class="menu_1">
 				<ul>
-					<li class="on"><a href="#">首页</a></li>
+					<li class="on"><a href="#" style="color: #e76d26;border-bottom: 2px solid #e76d26;">首页</a></li>
 					<li><a href="page/about.jsp">关于我们</a></li>
 					<li><a href="page/Login.jsp">商户中心</a></li>
 					<li><a href="page/order.jsp">我要投单</a></li>
@@ -148,7 +156,7 @@
 							<em>分类</em>
 						</dt>
 						<dd id="typelist">
-							<span><a href="zxd/findType?" onclick="findType(this)">顺丰快递<em>(5440)</em></a></span>
+							<!-- <span><a href="zxd/findType?" onclick="findType(this)">顺丰快递<em>(5440)</em></a></span>
 							<span><a href="javascript:void(0)">圆通快递<em>(2292)</em></a></span>
 							<span><a href="javascript:void(0)">申通快递<em>(1054)</em></a></span>
 							<span><a href="javascript:void(0)">韵达快递<em>(870)</em></a></span>
@@ -157,7 +165,7 @@
 							<span><a href="javascript:void(0)">天天快递<em>(167)</em></a></span>
 							<span><a href="javascript:void(0)">中通快递<em>(148)</em></a></span>
 							<span><a href="javascript:void(0)">全峰快递<em>(80)</em></a></span> <span><a
-								href="javascript:void(0)">全部(15494)</a></span>
+								href="javascript:void(0)">全部(15494)</a></span> -->
 						</dd>
 					</dl>
 					<div class="clear"></div>
@@ -165,181 +173,37 @@
 			</div>
 			<div class="l_box_list" id="topic_list">
 				<ul id="expressList">
-					 <li class="topic">
+					<!--  <li class="topic">
 						<div class="u_photo">
-							<img src="image/85_avatar_m.jpg" height="48" width="48">
+							<img
+								src="image/85_avatar_m.jpg"
+								height="48" width="48">
 						</div>
 						<div class="u_post">
 							<div class="btn_order"></div>
 							<div class="li_1" style="line-height: 21px;">
 								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">圆通快递</a>
+									href="javascript:void(0)"
+									>圆通快递</a>
 							</div>
 							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D4-110</a> <em class="li_s">3小时前</em>
-								<em class="readNum li_s">小包裹</em><em class="collectNum li_s"><span
-									class="money">￥5</span></em>
+								<a href="javascript:void(0)">D4-110</a> <em
+									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
+									class="collectNum li_s"><span class="money">￥5</span></em>
 							</div>
 							<div class="li_3"
 								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
 
 						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/120-10.png" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">顺丰快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D6-333</a> <em class="li_s">8小时前</em>
-								<em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s"><span class="money">￥10</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/76_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">顺丰快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D6-330</a> <em class="li_s">9小时前</em>
-								<em class="readNum li_s">小包裹</em><em class="collectNum li_s"><span
-									class="money">￥7</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/27_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">申通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D2-333</a> <em class="li_s">9小时前</em>
-								<em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥7</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/91_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">韵达快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D1-223</a> <em class="li_s">9小时前</em>
-								<em class="active_readNum li_s">大包裹</em><em
-									class="collectNum li_s"><span class="money">￥12</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/120-3.png" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">C5-103</a> <em class="li_s">10小时前</em>
-								<em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥5</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/83_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D5-203</a> <em class="li_s">10小时前</em>
-								<em class="active_readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥6</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">云喇叭圆通速递，尽量中午，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/03_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">韵达快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D4-401</a> <em class="li_s">9小时前</em>
-								<em class="active_readNum li_s">大包裹</em><em
-									class="active_collectNum li_s"><span class="money">￥13</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午，如果我不在寝室我室友会帮我代领一下，谢谢</div>
-						</div>
-					</li>
-					<li class="topic ">
-						<div class="u_photo">
-							<img src="image/29_avatar_m.jpg" height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)">圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D1-401</a> <em class="li_s">7小时前</em>
-								<em class="active_readNum li_s">小包裹</em><em
-									class="active_collectNum li_s"><span class="money">￥5</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量晚上送过来，谢谢</div>
-						</div>
-					</li> 
+					</li>	 -->	
 				</ul>
 
+			</div>
+			<div id="getordmsg"  style="display:none">
+					<input type="text" name="ordoramsg" id="ordoramsg" class="ordoramsg" placeholder="请输入预计到达时间" required="required">
+					<input type="button" onclick="applyorder()" value="提交" class="submitorder">
+					<input type="hidden" id="hiddoid" name="hiddoid">
+					<input type="hidden" id="hidddid" name="hidddid" >
 			</div>
 			<div class="page-sep-wrap">
 				<div class="page-sep" id="pagation">
@@ -425,7 +289,12 @@
 		<a href="#logo"></a>
 	</div>
 
-
+			<script src="js_1/jquery-1.12.4.js" type="text/javascript"></script>
+			<script src="easyui/jquery.min.js" type="text/javascript"></script>
+			<script src="easyui/locale/easyui-lang-zh_CN.js"
+				type="text/javascript"></script>
+			<script src="easyui/jquery.easyui.min.js" type="text/javascript"></script>
+			<script src="js_1/index.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		/**
 		 百度统计* 

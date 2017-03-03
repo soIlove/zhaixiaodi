@@ -17,7 +17,6 @@ import com.yc.zxd.entity.Admin;
 import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.AdminService;
-import com.yc.zxd.service.impl.AdminServiceImpl;
 
 
 @Controller
@@ -28,6 +27,7 @@ public class AdminHandler {
 	@Autowired
 	private AdminService adminService;
 	
+
 	@RequestMapping("/verifyCode") // 检查用户是否存在
 	@ResponseBody
 	public boolean verifyCode(String code, ServletRequest request) {

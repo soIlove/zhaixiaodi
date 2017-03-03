@@ -27,9 +27,9 @@ public class OrderServiceImplTest {
 	
 	@Test
 	public void testOrder() {
-		Date date = null;
+/*		Date date = null;
 		Order ord=new Order(null, 1,1, date, "肖坤跻", "3698", "大包裹", "快点", "湖南工学院D6-318", "10", "邮政");
-		System.out.println(orderService.order(ord));
+		System.out.println(orderService.order(ord));*/
 	}
 	
 	@Test
