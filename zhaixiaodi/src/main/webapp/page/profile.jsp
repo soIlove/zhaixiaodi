@@ -41,14 +41,10 @@
 			<header class="topbar" role="navigation"
 				ng-class="{shoptopbar: state.type === 'shop'}">
 				<div class="container clearfix">
-					<h1>
-						<a href="https://www.ele.me/" hardjump=""
-							class="topbar-logo icon-logo"><span>宅小遞</span></a>
-					</h1>
-					<a href="https://www.ele.me/" hardjump=""
+						<a href="index.jsp" hardjump=""
 						class="topbar-item topbar-homepage"
 						ng-class="{'focus': $root.locationpath[0] === 'place'}">首页</a> <a
-						href="https://www.ele.me/profile/order" hardjump=""
+						href="page/profile_order.jsp" hardjump=""
 						class="topbar-item"
 						ng-class="{'focus': $root.locationpath[1] === 'order'}">我的订单</a>
 					<nav class="topbar-nav">
@@ -84,38 +80,7 @@
 	<div class="importantnotification container" role="banner">
 		<!-- ngIf: enable -->
 	</div>
-	<div class="sidebar" role="complementary">
-		<div class="sidebar-tabs">
-			<div class="toolbar-tabs-middle">
-				<a class="toolbar-btn icon-order toolbar-close"
-					href="https://www.ele.me/profile/order" hardjump="" tooltip="我的订单"
-					tooltip-placement="left" ubt-click="toolbar_order"> </a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-cartbtn icon-cart toolbar-open" href="javascript:"
-					template="cart"
-					ng-class="{'focus': (activeTemplate === 'cart' &amp;&amp; isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
-					ubt-click="390">购物车<!-- ngIf: foodCount.count --></a>
-				<div class="toolbar-separator"></div>
-				<a class="toolbar-btn icon-notice toolbar-open modal-hide"
-					href="javascript:" template="message"
-					ng-class="{'focus': (activeTemplate === 'message' &amp;&amp; isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
-					tooltip="我的信息" tooltip-placement="left" ubt-click="392"> <!-- ngIf: messageCount.count -->
-				</a>
-			</div>
-			<div class="toolbar-tabs-bottom">
-				<div class="toolbar-btn icon-QR-code">
-					<div class="dropbox toolbar-tabs-dropbox"></div>
-				</div>
-				<a class="toolbar-btn icon-service" online-service="" tooltip="在线客服"
-					title="在线客服" tooltip-placement="left" id="live800iconlink"
-					target="_blank" href="javascript:" style="visibility: visible;"></a>
-				<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部"
-					title="回到顶部" href="javascript:" tooltip-placement="left"
-					style="visibility: hidden;"></a>
-			</div>
-		</div>
-		<div class="sidebar-content"></div>
-	</div>
+
 	<!-- ngView:  -->
 	<div ng-view="" role="main" class="ng-scope">
 		<div class="profile-container container" profile-container=""
@@ -148,11 +113,16 @@
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle"
 						ng-class="{ active: pageName === 'profile' }">
-						<i class="icon-line-home"></i><a href="https://www.ele.me/profile">个人中心</a>
+						<i class="icon-line-home"></i><a href="page/profile.jsp">个人中心</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
-						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">消息</a>
+						<i class="iconfont">&#xe649;</i><a href="page/message_1.jsp">小本经营</a>
+					</h2></li>
+					
+				  <li class="profile-sidebar-section"><h2
+						class="profile-sidebar-sectiontitle">
+						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">接单通知</a>
 					</h2></li>
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
@@ -162,14 +132,14 @@
 						<%-- <input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" /> --%>
 						<li ng-class="{ active: pageName === 'order' }" class="active"><a
 							href="javascript:void(0)"
-							onclick="getOrders(1,${loginUser.uuid})">订单记录</a></li>
+							onclick="getOrders(1,${loginUser.uuid})" style="color:#666">订单记录</a></li>
 						<li ng-class="{ active: pageName === 'order-unrated' }"><a
 							href="javascript:void(0)"
 							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单<!-- ngIf: unratedNumber -->
 								<span class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
 								ng-bind="unratedNumber">6</span> <!-- end ngIf: unratedNumber --></a></li>
 						<li ng-class="{ active: pageName === 'order-refunding' }"><a
-							href="https://www.ele.me/profile/order/refund">退单记录</a></li>
+							href="page/profile.jsp">退单记录</a></li>
 					</ul></li>
 
 				<li class="profile-sidebar-section"><h2
@@ -177,8 +147,8 @@
 						<i class="icon-line-profile"></i>我的资料
 					</h2>
 					<ul>
-						<li><a href="https://www.ele.me/profile/info">个人资料</a></li>
-						<li><a href="https://www.ele.me/profile/address">地址管理</a></li>
+						<li><a href="page/profile_msg.jsp">个人资料</a></li>
+						<li><a href="page/profile_addrmanage.jsp">地址管理</a></li>
 						<li><a href="page/modifyPwd.jsp">修改密码</a></li>
 					</ul></li>
 

@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getExpressPagination" parameterType="PaginationBean"
 		resultMap="PaginationBeanMap">
 		select count(1) total, ceil(count(1)/${pageSize}) totalPage,
-		${pageSize} pageSize,${currPage} currPage from zorders 
+		${pageSize} pageSize,${currPage} currPage from zorders  where uremain1='未接单'
 	</select>
 
 	<!-- 使用嵌套查询的方式，处理分页 -->
@@ -25,12 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select zd.* ,rownum rn from
 		(select
 		oid,uname,upicture,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype
-		from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid
+		from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.uremain1='未接单'
 		)zd
-		oid,uname,otime,orelname,ocode,osize,odesc,zaddr,oprice,otype
-		from
-		ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid )zd
-
 		where ${pageSize} * ${currPage}>=rownum)
 		where rn>( ${currPage}-1 ) * ${pageSize} 
 

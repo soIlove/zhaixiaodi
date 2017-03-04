@@ -12,9 +12,12 @@ create table zusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+
+select * from zusers
 update zusers set utype=0   where uuid=1
 select * from zusers where uphone ='13237343452'
 drop table zusers;
+delete zusers
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
 <<<<<<< HEAD
@@ -68,30 +71,17 @@ create table delusers(
 
 --代递员表
 create table dusers(
-<<<<<<< HEAD
     did int primary key,--代递员编号201
 	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号1001
-=======
-    did int primary key,--代递员编号
-<<<<<<< HEAD
-	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号  修改成唯一值
-=======
-	uuid int references zusers(uuid) on delete cascade,--普通用户编号
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
 	dscore  varchar2(30) not null, --信誉度评分累计
 	dnum  varchar2(30) not null,--接单次数
 	uremain1 varchar2(50),
-<<<<<<< HEAD
 	uremain2 varchar2(50)	 
-=======
-	uremain2 varchar2(50)
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 )
-<<<<<<< HEAD
+delete dusers
 
-<<<<<<< HEAD
 
 
 select did from dusers where uuid=1000
@@ -154,16 +144,13 @@ create table zorders(
 	uremain1 varchar2(50),--接单状态
 	uremain2 varchar2(50)--接单数目
 )
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 select zo.*,zaddr oaddr from zorders zo,zaddr za where oid in(select oid from zaccept where did=(select did from dusers where uuid=1000) ) and zo.zid=za.zid and zo.uremain1='已接单';
 =======
 select * from zorders;
 =======
 select * from zorders
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 
 delete *  from zorders;
 update zorders set uremain1='未接单',uremain2='0'
@@ -220,14 +207,8 @@ from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype=
 
 --接单表(多人抢单)
 create table zaccept(
-<<<<<<< HEAD
 	aid int primary key,--接单编号20001
 	oid int references zorders(oid) on delete cascade,--投单编号10011
-	did int references dusers(did) on delete cascade,--接单人编号201--》即1001
-=======
-	aid int primary key,--接单编号
-	oid int references zorders(oid) on delete cascade,--投单编号
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
 	did int references dusers(did) on delete cascade,--接单人编号  （修改成唯一值）
 	ztime date not null,
@@ -240,7 +221,7 @@ insert into zaccept values(seq_zaccept.nextval,10013,221,'保证晚上5点之前
 insert into zaccept values(seq_zaccept.nextval,10014,222,'保证晚上5点之前送达',null,null);
 select * from zaccept;
 
-<<<<<<< HEAD
+
 
 update zaccept set uremain2='1' where aid=30003;
 drop table zaccept;
@@ -257,18 +238,11 @@ create table orders(
 	ooid int primary key,--订单编号
 	aid int references zaccept(aid) on delete cascade,--接单编号20001
 	oscore varchar2(20) , --评分
-<<<<<<< HEAD
-<<<<<<< HEAD
-	ostatus varchar2(40) check (ostatus in('待评价','已评价','取消订单','确认收货','待收货')),--0待评价，1已评价，2取消订单,3确认收货 
-=======
-=======
 	ostatus varchar2(40) check (ostatus in('等待评价','订单完成','订单取消','等待收货')),
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
-	ostatus varchar2(40) check (ostatus in('等待评价','订单完成','订单取消','已确认收货')),--0待评价，1已评价，2取消订单,3确认收货 
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+update orders set ostatus='等待收货' where ooid in(100000,100001,100002);
 drop table orders;
 drop sequence seq_orders;
 create sequence seq_orders start with 100000; 

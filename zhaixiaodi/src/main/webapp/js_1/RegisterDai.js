@@ -3,7 +3,8 @@
 		url:"zxd/RegisterDai",   
 		success:function(data){  
 			if(data){
-				alert("恭喜你注册成功");
+				alert("恭喜你成为小递，加油哦！");
+				window.location.href("index.jsp")
 			}else{
 				alert(" 注册失败");
 			}

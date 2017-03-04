@@ -125,16 +125,16 @@
 		<ul style="margin-left: -4047px; transition: NaNpx 0s ease 0s;">
 			<li
 				style="background: rgb(205, 43, 58) none repeat scroll 0% 0%; padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21collectingss.html"
+				href="#"
 				target="_blank"><img src="image/banner-1.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/merchant/index.html" target="_blank"><img
+				href="#" target="_blank"><img
 					src="image/banner-2.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21bihi.html"
+				href="#"
 				target="_blank"><img src="image/banner-3.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21introduction.html"
+				href="#"
 				target="_blank"><img src="image/banner-2.jpg"></a></li>
 		</ul>
 		<div class="slidetabs">

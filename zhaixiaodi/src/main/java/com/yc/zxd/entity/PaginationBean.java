@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PaginationBean<T> {
 	//分页的请求数据
-	private Integer pageSize=3;//每页的记录数据
+	private Integer pageSize=4;//每页的记录数据
 	private Integer currPage=1;//当前页
 	
 	private Integer totalPage;//总页数

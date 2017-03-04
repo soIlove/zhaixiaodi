@@ -1,3 +1,6 @@
+var parameuuid=$("#uuidhidden").val();
+getOrders(1,parameuuid)
+
 function getOrders(pageNum,uuid){
 	//alert(pageNum+","+uuid);
 	$.post("zxd/orderlist?page="+pageNum+"&uuid="+uuid,function(data){
@@ -43,7 +46,7 @@ function getOrders(pageNum,uuid){
 
 function showDU(did){
 	$.post("zxd/findDU?did="+did,function(data){
-		alert(data.uuid+data.uname+data.usex+data.uphone+data.uemail+data.uaddr);
+		//alert(data.uuid+data.uname+data.usex+data.uphone+data.uemail+data.uaddr);
 		//$.messager.show(data.uuid,data.uname);
 		$('#win').window('open');
 		$("#uuid").html(data.uuid);
