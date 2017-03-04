@@ -41,13 +41,14 @@ function ensure() {
 	checkPwd();// 检查验证
 	confirmPwd();// 检查两次密码
 	var params=$("#modifyPwdForm").serialize();
-	$.post("zxd/modify",params,function(data){
+	$.post("zxd/modifyPwd",params,function(data){
 		if(data){
 			alert("密码修改成功");
 		}else{
 			alert("密码修改失败!!");
 		}
 	},"json");
-
+	$("#confirm").val("");
+	$("#newPwd").val("");
 	return result;
 }

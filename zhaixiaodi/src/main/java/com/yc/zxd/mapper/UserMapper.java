@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.Duser;
+import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 
 
@@ -41,6 +42,12 @@ public interface UserMapper {
 	Integer RegisterDai(Duser duser);
 
 	Integer setUserToDai(Duser duser);
+
+	PaginationBean<Duser> getDuserPagination(PaginationBean<Duser> duser);
+
+	Integer agreeDai(String uuid);
+
+	Integer refuseDai(String uuid);
 
 
 

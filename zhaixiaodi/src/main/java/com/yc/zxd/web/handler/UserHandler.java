@@ -26,6 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.google.gson.Gson;
 import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.Duser;
+import com.yc.zxd.entity.Express;
+import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 import com.yc.zxd.service.impl.UserServiceImpl;
@@ -39,6 +41,9 @@ public class UserHandler {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	PhoneCode phonecode;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -82,11 +87,12 @@ public class UserHandler {
 		return result;
 	}
 
-	@RequestMapping("/editPwd") // 修改密码
+	@RequestMapping("/editPwd") // 忘记密码中的修改密码
 	public String editPwdByTel(String tel, String password, ServletRequest request) {
 		boolean result = false;
 		LogManager.getLogger().debug("进入UserHandler 处理editPwd,检查验证码是否正确,tel:" + tel + "\t密码:" + password);
-		if (tel.length() > 0 && password.length() > 0) {
+		
+		if (password != null && tel.length() > 0 && password.length() > 0) {
 			result = userService.editPwdByTel(tel, password);
 		} else {
 			result = false;
@@ -150,7 +156,7 @@ public class UserHandler {
 		return new Gson().toJson("true");
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping("/login")//用户登录
 	public String login(User user, ModelMap map) {
 		LogManager.getLogger().debug("请求UserHandler进行login的操作....");
 		user = userService.login(user);
@@ -162,10 +168,7 @@ public class UserHandler {
 		return "forward:/page/Login.jsp";
 	}
 
-	@Autowired
-	PhoneCode phonecode;
-
-	@RequestMapping("/captcha")
+	@RequestMapping("/captcha")//校验验证码
 	@ResponseBody
 	public String RegisterUser(String uphone) {
 		LogManager.getLogger().debug("注册用户请求获取短信验证码操作");
@@ -180,7 +183,7 @@ public class UserHandler {
 		return null;
 	}
 
-	@RequestMapping("/Register")
+	@RequestMapping("/Register")//用户注册
 	@ResponseBody
 	public boolean RegisterUser(@RequestParam(name = "upicdata", required = false) MultipartFile upicture, User user) {
 		LogManager.getLogger().debug("用户申请注册");
@@ -198,38 +201,16 @@ public class UserHandler {
 		}
 		return userService.RegisterUser(user);
 	}
-	
-	@RequestMapping("/RegisterDai")
-	@ResponseBody
-	public boolean RegisterDai(@RequestParam(name = "uuid", required = false) Integer uuid,@RequestParam(name = "dspic", required = false) MultipartFile dspic, String dsid) {
-		LogManager.getLogger().debug("待递员申请注册...uuid:"+uuid+"\t dsid:"+dsid);
-		boolean result =false;
-		Duser duser=new Duser();
-		if (dspic != null && !dspic.isEmpty()) {
-			try {
-				File file = new File(ServletUtil.UPLOAD_DIR, dspic.getOriginalFilename());
-				dspic.transferTo(file);
-				duser.setDspic("/" + ServletUtil.UPLOAD_DIR_NAME + "/" + dspic.getOriginalFilename());
-				LogManager.getLogger().debug("学生证图片上传成功，上传地址为:" + file);
-			} catch (IllegalStateException | IOException e) {
-				LogManager.getLogger().debug("学生证图片上传失败：", e);
-			}
-		}
-		duser.setDsid(dsid);
-		duser.setUuid(uuid);
-		duser.setDscore("100");
-		duser.setDnum("0");
-		result=userService.RegisterDai(duser);
-		return result;
-	}
 
-	@RequestMapping("/getusermsg")
+	//待递员注册方法   已经转移到  UserOfDaiHandler  类中
+
+	@RequestMapping("/getusermsg")//得到用户的信息
 	@ResponseBody
 	public User getUserMsg(String phonenum) {
 		return userService.getUserMsg(phonenum);
 	}
 
-	@RequestMapping("/updatemsg")
+	@RequestMapping("/updatemsg")//用户申请修改个人资料
 	@ResponseBody
 	public boolean updatemsg(@RequestParam(name = "upicdata", required = false) MultipartFile upicture, User user) {
 		LogManager.getLogger().debug("用户申请修改个人资料");
@@ -246,29 +227,42 @@ public class UserHandler {
 		return userService.updatemsg(user);
 	}
 
-	@RequestMapping("/getaddr")
+	@RequestMapping("/getaddr")//获得地址
 	@ResponseBody
 	public List<Address> getAddr(int uuid) {
 		return userService.getAddr(uuid);
 	}
 
-	@RequestMapping("/deladdr")
+	@RequestMapping("/deladdr")//根据地址编号删除用户地址
 	@ResponseBody
 	public boolean deladdr(int zid) {
 		return userService.deladdr(zid);
 	}
 
-	@RequestMapping("/addaddr")
+	@RequestMapping("/addaddr")//添加地址
 	@ResponseBody
 	public boolean addaddr(Address address) {
 		return userService.addaddr(address);
 	}
-	
-	
-	@RequestMapping("/getdidbyuuid")
+
+	@RequestMapping("/getdidbyuuid")//判断用户是否为代递员身份
 	@ResponseBody
-		public Integer getdidbyuuid(int uuid){
+	public Integer getdidbyuuid(int uuid) {
 		LogManager.getLogger().debug("判断用户是否为代递员身份");
 		return userService.getdidbyuuid(uuid);
 	}
+	
+	@RequestMapping("/modifyPwd") // 用户修改密码
+	@ResponseBody
+	public boolean modifyPwdByTel(String tel, String password, ServletRequest request) {
+		boolean result = false;
+		LogManager.getLogger().debug("进入UserHandler 处理editPwd,检查验证码是否正确,tel:" + tel + "\t密码:" + password);
+		
+		if (password != null && tel.length() > 0 && password.length() > 0) {
+			result = userService.editPwdByTel(tel, password);
+		} 
+		return result;
+
+	}
+	
 }

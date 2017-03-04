@@ -15,6 +15,7 @@
 <script src="js/swiper.js" type="text/javascript"></script>
 <script src="js/base_002.js" type="text/javascript"></script>
 <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
+<link href="css/registerDai/iconfont.css" type="text/css" rel="stylesheet">
 
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/bundle.js"></script>
@@ -101,9 +102,10 @@
 	<div class="shop-banner">
 		<div class="com-w">
 			<div class=" " style="width: 50%px;margin-top:4rem; display: inline-block;" >
-				<h3></h3>
-				 
-				<a	href="page/RegisterDai.jsp">我要申请成为待递员</a>
+				<h1>成为待递员吧!</h1>
+				<br><span>成为待递员吧!你可以以此赚取小费,认识朋友</span><br>
+				<span>说不定还能遇见另一半</span><br><br><br>
+				<a   	href="page/RegisterDai.jsp"><i class="iconfont">&#xe606;</i></a>
 			</div>
 			<div class="login-form">
 				<div class="login-bg"></div>

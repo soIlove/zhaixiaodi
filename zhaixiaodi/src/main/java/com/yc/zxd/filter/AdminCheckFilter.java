@@ -35,7 +35,7 @@ public class AdminCheckFilter extends AbstractFilter {
 		String requri = request.getRequestURI();
 
 		if (request.getSession().getAttribute("loginAdmin") == null) {//当没有登录时,为空.当其他用户登录时,这里会被清空
-			if (requri.endsWith("manage.jsp") || requri.endsWith("order.jsp")  || requri.endsWith("RegisterDai.jsp") ) {
+			if (requri.endsWith("manage.jsp")  ) {
 				// 2.满足过滤的过滤条件就终止继续请求,
 				if(request.getSession().getAttribute("errorMsg") == null){//登录成功后errorMsg本身就为空
 					request.setAttribute("errorMsg", "请登录后,再操作....");

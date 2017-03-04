@@ -46,12 +46,12 @@
 					<li><span>用户管理</span></li>
 				</ul>
 			</div>
-			<div title="订单管理" data-options="iconCls:'icon-mini-add' ,selected:true  ">
+			<div title="订单管理" data-options="iconCls:'icon-mini-add'  ">
 				<ul class="treeNav">
 					<li><span>订单查询</span></li>
 				</ul>
 			</div>
-			<div title="待递员申请管理" data-options="iconCls:'icon-mini-add'">
+			<div title="待递员申请管理" data-options="iconCls:'icon-mini-add' ,selected:true  ">
 				<ul class="treeNav">
 					<li><span>待递员申请管理</span></li>
 				</ul>

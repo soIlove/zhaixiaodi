@@ -39,7 +39,6 @@
     <script src="js/layer.js" type="text/javascript"></script><link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss" style="">
     <script src="js/uploadPreview.js" type="text/javascript"></script>
     <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/api" type="text/javascript"></script><script type="text/javascript" src="js/getscript"></script>
      <script src="js_1/Register.js" type="text/javascript"></script>
 <link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
 <script charset="UTF-8" src="js/iframeWidget.js"></script>
@@ -166,7 +165,7 @@
             <ul>
                 <ul>
                     <li> <a href="index.jsp">首页</a> </li>
-			        <li> <a href="page/about">关于我们</a> </li>
+			        <li> <a href="page/about.jsp">关于我们</a> </li>
 			        <li class="on"> <a href="page/Login.jsp">商户中心</a> </li>
 			        <li> <a href="#">帮助中心</a> </li>
 			        <li> <a href="#">裹儿</a> </li>
@@ -335,7 +334,6 @@
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/appbuilder.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/subTabSwitch.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/WdatePicker.js"></script>

@@ -451,7 +451,7 @@
 			</div>
 		</div>
 
-	</footer>
+	</footer>	
 
 	<script src="js_1/jquery-1.12.4.js" type="text/javascript"></script>
 	<script type="text/javascript" src="easyui/jquery.min.js"></script>

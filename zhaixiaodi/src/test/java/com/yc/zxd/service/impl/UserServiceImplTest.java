@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.zxd.entity.Duser;
+import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 
@@ -24,8 +25,31 @@ public class UserServiceImplTest {
 
 	
 	@Test
+	public void TestRefusefDai() {
+		boolean str = userService.refuseDai("1020");
+		assertNotNull(str);
+		System.out.println(str);
+		
+	}
+	
+	@Test
+	public void TestAgreeDai() {
+		boolean str = userService.agreeDai("1020");
+		assertNotNull(str);
+		System.out.println(str);
+		
+	}
+	@Test
 	public void TestisExistUN() {
 		boolean str = userService.isExistUN("xkj");
+		assertNotNull(str);
+		System.out.println(str);
+		
+	}
+	
+	@Test
+	public void TestListDai() {
+		PaginationBean<Duser> str = userService.listDai("1", "3");
 		assertNotNull(str);
 		System.out.println(str);
 		
