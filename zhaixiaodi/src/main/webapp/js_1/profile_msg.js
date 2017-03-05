@@ -1,4 +1,4 @@
-var phonenum="13328282722";
+var phonenum="18188970546";
 $.post("zxd/getusermsg",{"phonenum":phonenum},function(data){
 	
 	    $("#upicture").val(data.upicture);

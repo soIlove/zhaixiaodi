@@ -125,16 +125,16 @@
 		<ul style="margin-left: -4047px; transition: NaNpx 0s ease 0s;">
 			<li
 				style="background: rgb(205, 43, 58) none repeat scroll 0% 0%; padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21collectingss.html"
+				href="#"
 				target="_blank"><img src="image/banner-1.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/merchant/index.html" target="_blank"><img
+				href="#" target="_blank"><img
 					src="image/banner-2.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21bihi.html"
+				href="#"
 				target="_blank"><img src="image/banner-3.jpg"></a></li>
 			<li style="padding-left: 44.5px; padding-right: 44.5px;"><a
-				href="http://www.shouhuobao.com/shooter/index%21introduction.html"
+				href="#"
 				target="_blank"><img src="image/banner-2.jpg"></a></li>
 		</ul>
 		<div class="slidetabs">
@@ -156,16 +156,6 @@
 							<em>分类</em>
 						</dt>
 						<dd id="typelist">
-							<!-- <span><a href="zxd/findType?" onclick="findType(this)">顺丰快递<em>(5440)</em></a></span>
-							<span><a href="javascript:void(0)">圆通快递<em>(2292)</em></a></span>
-							<span><a href="javascript:void(0)">申通快递<em>(1054)</em></a></span>
-							<span><a href="javascript:void(0)">韵达快递<em>(870)</em></a></span>
-							<span><a href="javascript:void(0)">汇通快递<em>(812)</em></a></span>
-							<span><a href="javascript:void(0)">国通快递<em>(584)</em></a></span>
-							<span><a href="javascript:void(0)">天天快递<em>(167)</em></a></span>
-							<span><a href="javascript:void(0)">中通快递<em>(148)</em></a></span>
-							<span><a href="javascript:void(0)">全峰快递<em>(80)</em></a></span> <span><a
-								href="javascript:void(0)">全部(15494)</a></span> -->
 						</dd>
 					</dl>
 					<div class="clear"></div>
@@ -173,29 +163,6 @@
 			</div>
 			<div class="l_box_list" id="topic_list">
 				<ul id="expressList">
-					<!--  <li class="topic">
-						<div class="u_photo">
-							<img
-								src="image/85_avatar_m.jpg"
-								height="48" width="48">
-						</div>
-						<div class="u_post">
-							<div class="btn_order"></div>
-							<div class="li_1" style="line-height: 21px;">
-								<a style="font-size: 18px; font-family: '微软雅黑';" class="i_title"
-									href="javascript:void(0)"
-									>圆通快递</a>
-							</div>
-							<div class="li_2" style="margin-top: 15px;">
-								<a href="javascript:void(0)">D4-110</a> <em
-									class="li_s">3小时前</em> <em class="readNum li_s">小包裹</em><em
-									class="collectNum li_s"><span class="money">￥5</span></em>
-							</div>
-							<div class="li_3"
-								style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">尽量中午；云喇叭圆通速递，请尽量在下午5点之前送过来，谢谢！</div>
-
-						</div>
-					</li>	 -->	
 				</ul>
 
 			</div>
@@ -222,10 +189,7 @@
 			<h3 class="com-title">关注我们</h3>
 			<ul class="bh-overf guanzhul">
 				<li>
-					<!-- <div class="guanzhuwms">
-						<img src="image/shbwx.jpg"><span class="shbwx1">我要代收货
-						</span><i>关注宅小递微信</i>
-					</div> -->
+					 
 					<div class="guanzhuTan guanzhu1">
 						<p>
 							<img src="image/shbwxda.jpg" class="daimgs"><img
@@ -246,10 +210,7 @@
 					</div>
 				</li>
 				<li class="mobileShow">
-					<!-- <div class="guanzhuwms">
-						<img src="image/newsbd.jpg"><span><a
-							href="http://www.shouhuobao.com/shooter/news.html">媒体最新报道</a></span><i>双11物流进入高峰</i>
-					</div> -->
+					 
 
 				</li>
 			</ul>

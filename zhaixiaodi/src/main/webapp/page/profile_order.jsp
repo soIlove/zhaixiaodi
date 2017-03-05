@@ -35,14 +35,11 @@
 			<header class="topbar" role="navigation"
 				ng-class="{shoptopbar: state.type === 'shop'}">
 				<div class="container clearfix">
-					<h1>
-						<a href="https://www.ele.me/" hardjump=""
-							class="topbar-logo icon-logo"><span>宅小遞</span></a>
-					</h1>
-					<a href="https://www.ele.me/" hardjump=""
+					
+					<a href="index.jsp" hardjump=""
 						class="topbar-item topbar-homepage"
 						ng-class="{'focus': $root.locationpath[0] === 'place'}">首页</a> <a
-						href="https://www.ele.me/profile/order" hardjump=""
+						href="page/profile_order.jsp" hardjump=""
 						class="topbar-item"
 						ng-class="{'focus': $root.locationpath[1] === 'order'}">我的订单</a>
 					<nav class="topbar-nav">
