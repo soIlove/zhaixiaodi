@@ -110,7 +110,7 @@
 				<form method="post" id="loginForm"
 					action="zxd/login" >
 					<h3>登录商户中心</h3>
-					<p><label style="color:red;" >${errorMsg }&nbsp;</label></p><c:remove var="errorMsg" scope="session"/>
+					<p><label style="color:red;" >${errorMsg}&nbsp;</label></p><c:remove var="errorMsg" scope="session"/>
 					<div class="bh-item">
 						<input id="j_username" name="uphone" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"
 							type="text">

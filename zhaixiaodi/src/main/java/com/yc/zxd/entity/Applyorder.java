@@ -16,7 +16,6 @@ public class Applyorder {
 
 	public Applyorder() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getAid() {
@@ -53,8 +52,7 @@ public class Applyorder {
 
 	@Override
 	public String toString() {
-		return "Applyorder [aid=" + aid + ", oid=" + oid + ", adesc=" + adesc
-				+ ", did=" + did + "]";
+		return "Applyorder [aid=" + aid + ", oid=" + oid + ", adesc=" + adesc + ", did=" + did + "]";
 	}
 
 }

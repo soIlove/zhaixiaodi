@@ -48,7 +48,6 @@
 			</div>
 			<div title="订单管理" data-options="iconCls:'icon-mini-add' ,selected:true  ">
 				<ul class="treeNav">
-					<li><span>投单查询</span></li>
 					<li><span>订单查询</span></li>
 				</ul>
 			</div>

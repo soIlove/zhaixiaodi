@@ -1,6 +1,9 @@
 
 var param=$("#uuidhidden").val();
+
 getExpress(1);
+
+
 function getExpress(pageNum){
 	$.get("zxd/list?page="+pageNum,function(data){
 		//alert(data.rows);

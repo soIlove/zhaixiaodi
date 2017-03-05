@@ -32,5 +32,19 @@ public class OrderPageTest {
 		assertNotNull(dusers);
 	}
 	
+	@Test
+	public void testCancleOrder() {
+		PaginationBean<Express> orders=expressService.cancleorderlist("1", "2", "1002");
+		System.out.println(orders);
+		assertNotNull(orders);
+	}
+	
 
+	@Test
+	public void testComingorderlist() {
+		PaginationBean<Express> orders=expressService.comingorderlist("1", "2", "1002");
+		System.out.println(orders);
+		assertNotNull(orders);
+	}
+	
 }

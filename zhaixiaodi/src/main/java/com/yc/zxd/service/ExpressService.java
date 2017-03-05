@@ -22,4 +22,8 @@ public interface ExpressService {
 	
 	PaginationBean<Express> searchOrder( String page, String rows,String name );
 
+	PaginationBean<Express> cancleorderlist(String page, String rows, String uuid);
+
+	PaginationBean<Express> comingorderlist(String page, String rows, String uuid);
+
 }
