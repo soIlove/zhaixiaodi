@@ -79,7 +79,6 @@
 		<if test="uphone != null and uphone != '' "> where uphone =#{uphone}	</if>
 	</select>
 
-
 	<delete id="delUserById" parameterType="string">
 		delete from zusers where
 		uuid=#{uuid}

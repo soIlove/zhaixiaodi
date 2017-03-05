@@ -80,9 +80,10 @@ $("#upwd").blur(function(){
 $('#iform').form({    
     url:"zxd/Register",    
     success:function(data){  
-    	alert(data);
+    	
     	if(data){
-    		alert("恭喜你注册成功")
+    		alert("恭喜你注册成功,赶紧去登陆吧！")
+    		window.location.href="page/Login.jsp"
     	}
     }    
 });    

@@ -12,15 +12,24 @@ create table zusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-update zusers set utype=0   where uuid=1020
+
+select * from zusers
+update zusers set utype=0   where uuid=1
 select * from zusers where uphone ='13237343452'
 drop table zusers;
+delete zusers
 drop sequence seq_zusers;
 create sequence seq_zusers start with 1000;
 update zusers set utype=1 where uuid=1000;
-insert into zusers  values(seq_zusers.nextval,'a','黄小州','18188970547','1767822853@qq.com','女','/zxdImg/4.jpg','皇家工学院',0,null,null);
-insert into zusers  values(seq_zusers.nextval,'a','蒋小调','13237343450','1767822853@qq.com','女','/zxdImg/4.jpg','皇家工学院',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'aa','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
 
+<<<<<<< HEAD
+insert into zusers  values(seq_zusers.nextval,'a','黄小州','18188970547','382418631@qq.com','女','3.jpg','皇家工学院',1,null,null);
+=======
+>>>>>>> branch 'master' of https://github.com/soIlove/zhaixiaodi.git
+
+insert into zusers  values(seq_zusers.nextval,'a','蒋小掉','110','110@qq.com','女','6.jpg' ,'gongxeuyua',0,null,null);
+insert into zusers  values(seq_zusers.nextval,'a','xkj','111','223311','男','6.jpg' ,'gongxeuyua',0,null,null);
 
 select * from zusers;
 update zusers set uname='莫甘娜' , upicture='3.jpg' ,uaddr='日俄大学',uemail='19145888314@qq.com',usex='男' where uphone='18188970546'
@@ -62,8 +71,8 @@ create table delusers(
 
 --代递员表
 create table dusers(
-    did int primary key,--代递员编号
-	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号  修改成唯一值
+    did int primary key,--代递员编号201
+	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号1001
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
 	dscore  varchar2(30) not null, --信誉度评分累计
@@ -72,13 +81,19 @@ create table dusers(
 	uremain2 varchar2(50)
 )
 
+select did from dusers where uuid=1000
 select * from dusers
 drop table dusers;
 drop sequence seq_dusers;
 create sequence seq_dusers start with 200;
-insert into dusers values(seq_dusers.nextval,1,'1420140315','/zxdImg/4.jpg','10','0',null,null)
-insert into dusers values(seq_dusers.nextval,1020,'1420140311','/zxdImg/4.jpg','10','0',null,null)
+insert into dusers values(seq_dusers.nextval,1000,'1420140315','/zxdImg/4.jpg','4.5','5',null,null)
+insert into dusers values(seq_dusers.nextval,1030,'1420140311','/zxdImg/4.jpg','4.5','5',null,null)
+select * from dusers  where did=201;
 
+insert into dusers values(seq_dusers.nextval,1001,'1440340410','图片','100','10',null,null);
+insert into dusers values(seq_dusers.nextval,1002,'1430340410','图片','100','10',null,null);
+insert into dusers values(seq_dusers.nextval,1003,'1420340410','图片','100','10',null,null);
+insert into dusers values(seq_dusers.nextval,1020,'1440340420','图片','100','10',null,null);
 select * from dusers;
 
 --收货地址表
@@ -102,6 +117,8 @@ select * from zaddr where zid='100030';
 
 select * from zaddr;
 
+
+
 --投单表（寄件记录）
 create table zorders(
 	oid int primary key,   --投单编号，一般可以考虑引用物流单号，10011
@@ -118,6 +135,7 @@ create table zorders(
 	uremain2 varchar2(50)--接单数目
 )
 select zo.*,zaddr oaddr from zorders zo,zaddr za where oid in(select oid from zaccept where did=(select did from dusers where uuid=1000) ) and zo.zid=za.zid and zo.uremain1='已接单';
+select * from zorders;
 select * from zorders
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
 
@@ -135,11 +153,10 @@ drop table zorders;
 drop sequence seq_zorders;
 select * from zorders;
 create sequence seq_zorders start with 10000;
-insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花','6799','小包裹','尽量中午',100030,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',100030,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'花小花','0789','小包裹','尽量中午',100030,'5','圆通快递',null,null);
-
- 
+insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','中通快递',null,null);
+insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','中通快递',null,null);
 delete from zorders;
 select * from zorders;
 
@@ -153,16 +170,21 @@ from ZORDERS o,ZUSERS u,ZADDR a where o.uuid=u.uuid and o.zid=a.zid and o.otype=
 create table zaccept(
 	aid int primary key,--接单编号20001
 	oid int references zorders(oid) on delete cascade,--投单编号10011
+	did int references dusers(did) on delete cascade,--接单人编号201--》即1001
 	adesc varchar2(30) not null,--接单描述（预计到达时间）
-	did int references dusers(did) on delete cascade,--接单人编号  （修改成唯一值）
 	ztime date not null,
 	uremain2 varchar2(50)
 )
 create sequence seq_zaccept start with 20000;
-insert into zaccept values(seq_zaccept.nextval,10014,'保证晚上5点之前送达',222,null,null);
-insert into zaccept values(seq_zaccept.nextval,10025,'保证晚上5点之前送达',222,null,null);--20040 1002 1020
+insert into zaccept values(seq_zaccept.nextval,10011,201,'保证晚上5点之前送达',null,null);
+insert into zaccept values(seq_zaccept.nextval,10012,220,'保证晚上5点之前送达',null,null);
+insert into zaccept values(seq_zaccept.nextval,10013,221,'保证晚上5点之前送达',null,null);
+insert into zaccept values(seq_zaccept.nextval,10014,222,'保证晚上5点之前送达',null,null);
+insert into zaccept values(seq_zaccept.nextval,10025,222,'保证晚上5点之前送达',null,null);--20040 1002 1020
 select * from zaccept;
 
+
+update zaccept set uremain2='1' where aid=30003;
 drop table zaccept;
 select count(1)  from zaccept where oid=10040;
 create sequence seq_aid start with 30001;
@@ -180,22 +202,18 @@ create table orders(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
+update orders set ostatus='等待收货' where ooid in(100000,100001,100002);
 drop table orders;
 drop sequence seq_orders;
 create sequence seq_orders start with 100000; 
-insert into orders values(seq_orders.nextval,30001,'0','待收货',null,null);
-insert into orders values(seq_orders.nextval,20001,null,'等待评价',null,null);--1002,1001 投单号10011
-insert into orders values(seq_orders.nextval,20020,null,'订单取消',null,null);--1003投,1002接
 insert into orders values(seq_orders.nextval,20021,null,'订单完成',null,null);--1004,1003
 insert into orders values(seq_orders.nextval,20022,null,'等待收货',null,null);--1002,1020  10014
 insert into orders values(seq_orders.nextval,20040,null,'订单取消',null,null);--1002,1020  10014
-insert into orders values(seq_orders.nextval,20001,null,'确认收货',null,null);
 select * from orders;
-
 select distinct os.ooid，zo.otime,zo.osize,zo.odesc,ad.zaddr,zo.oprice,zo.otype,os.ostatus
 from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu  where os.aid=za.aid and 
 za.oid=zo.oid and  zo.zid=ad.zid and zo.uuid=1002 
-select * from orders;
+
 --创建投单和地址的视图
 create OR REPLACE  view zorders_addr
 as

@@ -25,9 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 import com.yc.zxd.entity.Address;
-import com.yc.zxd.entity.Duser;
-import com.yc.zxd.entity.Express;
-import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.service.UserService;
 import com.yc.zxd.service.impl.UserServiceImpl;

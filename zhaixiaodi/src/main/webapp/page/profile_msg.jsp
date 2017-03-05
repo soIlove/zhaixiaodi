@@ -37,14 +37,10 @@
 			<header class="topbar" role="navigation"
 				ng-class="{shoptopbar: state.type === 'shop'}">
 				<div class="container clearfix">
-					<h1>
-						<a href="https://www.ele.me/" hardjump=""
-							class="topbar-logo icon-logo"><span>宅小遞</span></a>
-					</h1>
-					<a href="https://www.ele.me/" hardjump=""
+						<a href="index.jsp" hardjump=""
 						class="topbar-item topbar-homepage"
 						ng-class="{'focus': $root.locationpath[0] === 'place'}">首页</a> <a
-						href="https://www.ele.me/profile/order" hardjump=""
+						href="page/profile_order.jsp" hardjump=""
 						class="topbar-item"
 						ng-class="{'focus': $root.locationpath[1] === 'order'}">我的订单</a>
 					<nav class="topbar-nav">
@@ -108,13 +104,16 @@
 					</h2>
 					<ul>
 						<li ng-class="{ active: pageName === 'order' }" class="active"><a
-							href="https://www.ele.me/profile/order">近三个月订单</a></li>
+							href="page/profile.jsp"
+							style="color:#666">订单记录</a></li>
 						<li ng-class="{ active: pageName === 'order-unrated' }"><a
-							href="https://www.ele.me/profile/order/unrated">待评价订单<!-- ngIf: unratedNumber -->
+							href="javascript:void(0)"
+							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单<!-- ngIf: unratedNumber -->
 								<span class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
 								ng-bind="unratedNumber">6</span> <!-- end ngIf: unratedNumber --></a></li>
 						<li ng-class="{ active: pageName === 'order-refunding' }"><a
-							href="https://www.ele.me/profile/order/refund">退单记录</a></li>
+							href="page/profile.jsp">退单记录</a></li>
+					
 					</ul></li>
 
 				<li class="profile-sidebar-section"><h2
@@ -122,10 +121,9 @@
 						<i class="icon-line-profile"></i>我的资料
 					</h2>
 					<ul>
-						<li><a href="https://www.ele.me/profile/info">个人资料</a></li>
-						<li><a href="https://www.ele.me/profile/address">地址管理</a></li>
-						<li><a
-							href="https://www.ele.me/profile/security/changepassword">修改密码</a></li>
+						<li><a href="page/profile_msg.jsp">个人资料</a></li>
+						<li><a href="page/profile_addrmanage.jsp">地址管理</a></li>
+						<li><a href="page/modifyPwd.jsp">修改密码</a></li>
 					</ul></li>
 
 			</ul>

@@ -33,7 +33,7 @@
 	</select>
 
 	<insert id="addorder" parameterType="Integer">
-	insert into orders values(seq_orders.nextval,#{aid},'0','待收货',null,null)
+	insert into orders values(seq_orders.nextval,#{aid},'0','等待收货',null,null)
 	</insert>
 
 	<update id="updatezac" parameterType="Integer">
