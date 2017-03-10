@@ -47,4 +47,11 @@ public class OrderPageTest {
 		assertNotNull(orders);
 	}
 	
+	@Test
+	public void testSureOrder() {
+		boolean result=expressService.sureOrder("100004");
+		System.out.println(result);
+		assertNotNull(result);
+	}
+	
 }

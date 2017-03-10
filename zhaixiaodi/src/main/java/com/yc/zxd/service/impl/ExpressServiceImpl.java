@@ -124,4 +124,20 @@ public class ExpressServiceImpl implements ExpressService {
 		return expressBean;
 	}
 
+	@Override
+	public boolean sureOrder(String ooid) {
+		return expressMapper.sureOrder(ooid)>0;
+	}
+
+	@Override
+	public boolean comments(String ooid, String did) {
+		return expressMapper.comments(ooid)>0&&expressMapper.count(did)>0&&expressMapper.sum(did)>0;
+	}
+
+	@Override
+	public Express orderInfo(int ooid) {
+		return expressMapper.orderInfo(ooid);
+	}
+
+
 }

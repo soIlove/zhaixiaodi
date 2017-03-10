@@ -26,4 +26,11 @@ public interface ExpressService {
 
 	PaginationBean<Express> comingorderlist(String page, String rows, String uuid);
 
+	boolean sureOrder(String ooid);
+
+	boolean comments(String ooid, String did);
+
+	Express orderInfo(int ooid);
+
+
 }

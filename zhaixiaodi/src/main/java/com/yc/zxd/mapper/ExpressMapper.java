@@ -26,5 +26,16 @@ public interface ExpressMapper {
 
 	PaginationBean<Express> comingorderlist(PaginationBean<Express> expressBean);
 
+	int sureOrder(String ooid);
+
+	int count(String did);
+
+	int comments(String ooid);
+
+	int sum(String did);
+
+	Express orderInfo(int ooid);
+
+
 	
 }

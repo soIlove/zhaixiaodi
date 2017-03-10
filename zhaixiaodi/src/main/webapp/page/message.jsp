@@ -28,7 +28,8 @@
 <body cute-title=""
 	ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
 	style="position: relative;" lim:visitorcapacity="1">
-		<input type="hidden" id="uuidhidden" name="uuidhidden" value="${loginUser.uuid}" />
+	<input type="hidden" id="uuidhidden" name="uuidhidden"
+		value="${loginUser.uuid}" />
 	<div ng-switch="state.type" state="layoutState"
 		class="ng-isolate-scope">
 		<!-- ngSwitchWhen: checkout -->
@@ -38,11 +39,9 @@
 			<header class="topbar" role="navigation"
 				ng-class="{shoptopbar: state.type === 'shop'}">
 				<div class="container clearfix">
-						<a href="index.jsp" hardjump=""
-						class="topbar-item topbar-homepage"
+					<a href="index.jsp" hardjump="" class="topbar-item topbar-homepage"
 						ng-class="{'focus': $root.locationpath[0] === 'place'}">首页</a> <a
-						href="page/profile_order.jsp" hardjump=""
-						class="topbar-item"
+						href="page/profile_order.jsp" hardjump="" class="topbar-item"
 						ng-class="{'focus': $root.locationpath[1] === 'order'}">我的订单</a>
 					<nav class="topbar-nav">
 						<div topbar-profilebox="">
@@ -111,14 +110,14 @@
 				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle"
 						ng-class="{ active: pageName === 'profile' }">
-						<i class="icon-line-home"></i><a href="https://www.ele.me/profile">个人中心</a>
+						<i class="icon-line-home"></i><a href="page/profile.jsp">个人中心</a>
 					</h2></li>
-			   <li class="profile-sidebar-section"><h2
+				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
 						<i class="iconfont">&#xe649;</i><a href="page/message_1.jsp">小本经营</a>
 					</h2></li>
-					
-				  <li class="profile-sidebar-section"><h2
+
+				<li class="profile-sidebar-section"><h2
 						class="profile-sidebar-sectiontitle">
 						<i class="iconfont">&#xe649;</i><a href="page/message.jsp">接单通知</a>
 					</h2></li>
@@ -127,16 +126,22 @@
 						<i class="icon-line-order"></i>我的订单
 					</h2>
 					<ul>
-					<li ng-class="{ active: pageName === 'order' }" class="active"><a
+						<li ng-class="{ active: pageName === 'order' }" class="active"><a
 							href="page/profile.jsp"
-							<%-- onclick="getOrders(1,${loginUser.uuid})"  --%>style="color:#666">订单记录</a></li>
+							style="color: #666">订单记录</a></li>
 						<li ng-class="{ active: pageName === 'order-unrated' }"><a
 							href="javascript:void(0)"
-							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单<!-- ngIf: unratedNumber -->
-								<span class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
-								ng-bind="unratedNumber">6</span> <!-- end ngIf: unratedNumber --></a></li>
+							onclick="getComingOrders(1,${loginUser.uuid})">待收货订单</a> <span
+							class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
+							ng-bind="unratedNumber" id="waitComing">6</span></li>
+						<li ng-class="{ active: pageName === 'order-unrated' }"><a
+							href="javascript:void(0)"
+							onclick="getWaitOrders(1,${loginUser.uuid})">待评价订单</a> <span
+							class="moreinfo ng-binding ng-scope" ng-if="unratedNumber"
+							ng-bind="unratedNumber" id="waitComment">6</span></li>
 						<li ng-class="{ active: pageName === 'order-refunding' }"><a
-							href="page/profile.jsp">退单记录</a></li>
+							href="javascript:void(0)"
+							onclick="getCancleOrders(1,${loginUser.uuid})">退单记录</a></li>
 					</ul></li>
 
 				<li class="profile-sidebar-section"><h2
@@ -144,7 +149,7 @@
 						<i class="icon-line-profile"></i>我的资料
 					</h2>
 					<ul>
-							<li><a href="page/profile_msg.jsp">个人资料</a></li>
+						<li><a href="page/profile_msg.jsp">个人资料</a></li>
 						<li><a href="page/profile_addrmanage.jsp">地址管理</a></li>
 						<li><a href="page/modifyPwd.jsp">修改密码</a></li>
 					</ul></li>
@@ -192,7 +197,7 @@
 							</tr>
 						</thead>
 						<tbody id="message_order_tr_list">
-							
+
 
 							<!-- <tr onclick="show(this)" style="cursor: pointer;"
 								class="timeline">
@@ -238,15 +243,16 @@
 											style="font-size: 14px; font-family: '微软雅黑'; padding-top: 10px;">小递捎话：大概会在12点帮你送达</div>
 
 									</div>
-								</li>	 -->	
-								
+								</li>	 -->
+
 							</ul>
-				             <input type="button" class="zln-button" id="delAllApp" value="取消全部">
-																
+							<input type="button" class="zln-button" id="delAllApp"
+								value="取消全部">
+
 						</div>
 					</div>
-					
-					
+
+
 				</div>
 			</div>
 		</div>

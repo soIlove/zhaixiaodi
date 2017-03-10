@@ -72,6 +72,7 @@ public class ExpressHandler {
 	@ResponseBody
 	public PaginationBean<Express> worderlist(String page, String rows, String uuid) {
 		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
+		System.out.println(expressService.worderlist(page, rows, uuid));
 		return expressService.worderlist(page, rows, uuid);
 	}
 
@@ -81,15 +82,37 @@ public class ExpressHandler {
 	@ResponseBody
 	public PaginationBean<Express> comingorderlist(String page, String rows, String uuid) {
 		LogManager.getLogger().debug("请求ExpressHandler进行comingorderlist的操作....");
+		System.out.println(expressService.comingorderlist(page, rows, uuid));
 		return expressService.comingorderlist(page, rows, uuid);
 	}
 	
 	@RequestMapping("/cancleorderlist")
 	@ResponseBody
 	public PaginationBean<Express> cancleorderlist(String page,String rows,String uuid){
-		LogManager.getLogger().debug("请求ExpressHandler进行worderlist的操作....");
+		LogManager.getLogger().debug("请求ExpressHandler进行cancleorderlist的操作....");
 		return expressService.cancleorderlist(page,rows,uuid);
 	}
 
 
+	@RequestMapping("/sureOrder")
+	@ResponseBody
+	public boolean sureOrder(String ooid){
+		LogManager.getLogger().debug("请求ExpressHandler进行sureOrder的操作....");
+		return expressService.sureOrder(ooid);
+	}
+	
+	@RequestMapping("/comments")
+	@ResponseBody
+	public boolean comments(String ooid,String did){
+		LogManager.getLogger().debug("请求ExpressHandler进行comments的操作....");
+		return expressService.comments(ooid,did);
+	}
+
+	@RequestMapping("/orderInfo")
+	@ResponseBody
+	public Express orderInfo(int ooid){
+		LogManager.getLogger().debug("请求ExpressHandler进行orderInfo的操作....");
+		System.out.println(expressService.orderInfo(ooid));
+		return expressService.orderInfo(ooid);
+	}
 }

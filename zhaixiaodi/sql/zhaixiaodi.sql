@@ -71,26 +71,8 @@ create table delusers(
 
 --代递员表
 create table dusers(
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> branch 'master' of git@github.com:soIlove/zhaixiaodi.git
-    did int primary key,--代递员编号201
-<<<<<<< HEAD
-	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号1001
-=======
-	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号1001
-<<<<<<< HEAD
-=======
-=======
->>>>>>> branch 'master' of https://github.com/soIlove/zhaixiaodi.git
     did int primary key,--代递员编号
 	uuid int unique references zusers(uuid) on delete cascade,--普通用户编号  修改成唯一值
-<<<<<<< HEAD
-=======
-=======
-	uuid int references zusers(uuid) on delete cascade,--普通用户编号
     dsid varchar2(30) not null,--认证学号
     dspic varchar2(30) not null,--学生证图片
 	dscore  varchar2(30) not null, --信誉度评分累计
@@ -98,12 +80,12 @@ create table dusers(
 	uremain1 varchar2(50),
 	uremain2 varchar2(50)
 )
-delete dusers
-
-
+update dusers set dnum=10+1 where did=220;
+delete dusers;
 
 select did from dusers where uuid=1000
 select * from dusers
+select * from dusers  where did=201;
 
 drop table dusers;
 drop sequence seq_dusers;
@@ -111,13 +93,10 @@ drop sequence seq_dusers;
 create sequence seq_dusers start with 200;
 insert into dusers values(seq_dusers.nextval,1000,'1420140315','/zxdImg/4.jpg','4.5','5',null,null)
 insert into dusers values(seq_dusers.nextval,1030,'1420140311','/zxdImg/4.jpg','4.5','5',null,null)
-select * from dusers  where did=201;
-
 insert into dusers values(seq_dusers.nextval,1001,'1440340410','图片','100','10',null,null);
 insert into dusers values(seq_dusers.nextval,1002,'1430340410','图片','100','10',null,null);
 insert into dusers values(seq_dusers.nextval,1003,'1420340410','图片','100','10',null,null);
 insert into dusers values(seq_dusers.nextval,1020,'1440340420','图片','100','10',null,null);
-select * from dusers;
 
 --收货地址表
 create table zaddr(
@@ -131,13 +110,13 @@ create table zaddr(
 drop table zaddr;
 drop sequence seq_zid
 create sequence seq_zid start with 100001;
+
 insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
 insert into zaddr values(seq_zid.nextval,1004,'2栋教学楼2514教室',null,null);
 insert into zaddr values(seq_zid.nextval,1004,'RZ-17 312寝室',null,null);
+
+
 select * from zaddr where zid='100030';
-
-);
-
 select * from zaddr;
 
 
@@ -174,10 +153,11 @@ where zo.uuid=1004;
 select * from zorders
 select distinct otype,count(otype) num from zorders group by otype order by count(otype) desc;
 select zid from zaddr where  zaddr='湖南工学院D6-318' 
+
 drop table zorders;
 drop sequence seq_zorders;
-select * from zorders;
 create sequence seq_zorders start with 10000;
+
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花花','6789','小包裹','wusuowuo午',100021,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花花','679','小包裹','尽量中午',100025,'5','圆通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'小花','6799','小包裹','都可以的',100030,'5','圆通快递',null,null);
@@ -197,7 +177,7 @@ insert into zorders values (seq_zorders.nextval,1002,sysdate,'小花','6799','�
 insert into zorders values (seq_zorders.nextval,1004,sysdate,'花花','6689','小包裹','尽量中午',104,'5','中通快递',null,null);
 insert into zorders values (seq_zorders.nextval,1003,sysdate,'花小花','0789','小包裹','尽量中午',103,'5','中通快递',null,null);
 
-
+update zorders set uremain1='未接单';
  
 delete from zorders;
 select * from zorders;
@@ -248,6 +228,9 @@ update orders set ostatus='等待收货' where ooid in(100000,100001,100002);
 drop table orders;
 drop sequence seq_orders;
 
+update orders set ostatus='等待收货' where ooid=100004;
+update orders set ostatus='等待评价' where ooid=100001;
+
 create sequence seq_orders start with 100000; 
 insert into orders values(seq_orders.nextval,30001,'0','待收货',null,null);
 insert into orders values(seq_orders.nextval,20001,null,'等待评价',null,null);--1002,1001 投单号10011
@@ -257,6 +240,8 @@ insert into orders values(seq_orders.nextval,20022,null,'等待收货',null,null
 insert into orders values(seq_orders.nextval,20040,null,'订单取消',null,null);--1002,1020  10014
 insert into orders values(seq_orders.nextval,20001,null,'确认收货',null,null);
 select * from orders;
+
+select otime,otype,odesc,zaddr from orders o,zaccept za,zorders zo,zaddr zr where o.ooid=100020 and o.aid=za.aid and za.oid=zo.oid and zo.zid=zr.zid;
 
 select distinct os.ooid，zo.otime,zo.osize,zo.odesc,ad.zaddr,zo.oprice,zo.otype,os.ostatus
 from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu  where os.aid=za.aid and 
@@ -298,4 +283,23 @@ za.oid=zo.oid and za.did=du.did and zo.zid=ad.zid and zo.uuid=1002 and ostatus='
 
 
 --订单id,投单人姓名,接单人昵称       
-
+select * from
+		(select od.* ,rownum rn from
+		(select
+		a.did,otime,ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus from
+		(select distinct du.did
+		from zorders zo,zaccept za,orders os, dusers
+		du,zaddr ad, zusers zu where
+		os.aid=za.aid and
+		za.oid=zo.oid and
+		za.did=du.did and zo.zid=ad.zid and zo.uuid=1002 )a right join
+		(select distinct
+		du.did,otime,os.ooid,osize,odesc,zaddr,oprice,otype,upicture,ostatus
+		from zorders zo,zaccept za,orders os, dusers du,zaddr ad, zusers zu
+		where za.aid=os.aid and
+		za.oid=zo.oid and za.did=du.did and
+		zo.zid=ad.zid and zo.uuid=1002 and ostatus='等待评价')b on
+		a.did=b.did
+		order by otime)od
+		where 5>=rownum)
+		where rn>0;

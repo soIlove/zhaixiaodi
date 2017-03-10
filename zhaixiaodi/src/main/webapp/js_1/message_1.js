@@ -1,4 +1,17 @@
 var uuid=$("#uuidhidden").val();
+
+$.get("zxd/worderlist?uuid="+uuid,function(data){
+	$("#waitComment").empty();
+	$("#waitComment").text(data.total);
+},"json");
+
+$.get("zxd/corderlist?uuid="+uuid,function(data){
+	$("#waitComing").empty();
+	$("#waitComing").text(data.total);
+},"json");
+
+
+
  getOrders();
 function getOrders(){
 	$.post("order/zxdgetordersbyuuid",{"uuid":uuid},function(data){

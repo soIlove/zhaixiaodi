@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+
+/* .star li{
+	float:left;
+	width:25px;
+	background:url('../css/sprit1.png') no-repeat 0 -465px;
+	list-style-type:none; 
+	list-style-image:url('../css/sprit1.png') no-repeat 0 -465px; */
+	
+}
+ */
+.star li.on{
+	float:left;
+	width:25px;
+	list-style-type:none; 
+	list-style-image:url('../css/sprit1.png');
+	/* background-position:0 -415px; */
+}
+
+.star li{
+	margin:0;
+	padding:0;
+	float: left;
+	width: 25px;
+	cursor: pointer;
+}
+
+.star li.off{
+	float: left;
+	width: 25px;
+	list-style-type:none; 
+	list-style-image:url('../css/sprit1.png') no-repeat 0 -490px;
+	/* background-position: 0 -490px; */
+}
