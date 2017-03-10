@@ -26,7 +26,6 @@ public class ExpressHandler {
 	public PaginationBean<Express> pageList(String page, String rows) {
 		LogManager.getLogger().debug("请求ExpressHandler进行pageList的操作....");
 		PaginationBean<Express> list = expressService.pageList(page, rows);
-		System.out.println(list.toString());
 		return list;
 	}
 
@@ -36,7 +35,6 @@ public class ExpressHandler {
 		LogManager.getLogger()
 				.debug("请求ExpressHandler进行searchOrder的操作....name:" + name + "\t page:" + page + "\t rows:" + rows);
 		PaginationBean<Express> list = expressService.searchOrder(page, rows, name);
-		System.out.println(list.toString());
 		return list;
 	}
 
@@ -85,7 +83,6 @@ public class ExpressHandler {
 		System.out.println(expressService.comingorderlist(page, rows, uuid));
 		return expressService.comingorderlist(page, rows, uuid);
 	}
-	
 	@RequestMapping("/cancleorderlist")
 	@ResponseBody
 	public PaginationBean<Express> cancleorderlist(String page,String rows,String uuid){

@@ -10,20 +10,20 @@ function getExpress(pageNum){
 		var expresses= data.rows;
 		for(var i=0;i<expresses.length;i++){
 			$("#expressList").append("<li class='topic'><div class='u_photo'>"+
-				"<img src='"+expresses[i].upicture+"' height='48' width='48'>"+
-				"<div style='width:48px;height:20px;line-height:20px;font-size:13px;" +
-				"font-family:'微软雅黑';text-align:center;color:#E76D26;' >"+expresses[i].uname+"</div>"+
-				"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'>抢单</div></a>"+
-				"<div class='li_1' style='line-height: 21px;'>"+
-				"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
-				"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
-				"<div class='li_2' style='margin-top: 15px;'>"+
-				"<a href='javascript:void(0)'>"+expresses[i].zaddr+"</a> <em class='li_s'>"+expresses[i].otime+"</em>" +
-				"<em class='readNum li_s'>"+expresses[i].osize+"</em><em class='collectNum li_s'>" +
-				"<span class='money'>￥"+expresses[i].oprice+"</span></em></div>"+
-				"<div class='li_3' style='font-size: 14px; font-family: '微软雅黑';" +
-				" padding-top: 10px;'>"+expresses[i].odesc +
-				"</div></div></li>");
+					"<img src='"+expresses[i].upicture+"'height='48' width='48'>"+
+					"<div style='width:48px;height:20px;line-height:20px;font-size:13px;" +
+					"font-family:'微软雅黑';text-align:center;color:#E76D26;' >"+expresses[i].uname+"</div>"+
+					"</div><div class='u_post'><a href='javaScript:Graborder("+expresses[i].oid+")'><div class='btn_order'>抢单</div></a>"+
+					"<div class='li_1' style='line-height: 21px;'>"+
+					"<a style='font-size: 18px; font-family: '微软雅黑';' class='i_title'"+
+					"href='javascript:void(0)'>"+expresses[i].otype+"</a></div>"+
+					"<div class='li_2' style='margin-top: 15px;'>"+
+					"<a href='javascript:void(0)'>"+expresses[i].zaddr+"</a> <em class='li_s'>"+expresses[i].otime+"</em>" +
+					"<em class='readNum li_s'>"+expresses[i].osize+"</em><em class='collectNum li_s'>" +
+					"<span class='money'>￥"+expresses[i].oprice+"</span></em></div>"+
+					"<div class='li_3' style='font-size: 14px; font-family: '微软雅黑';" +
+					" padding-top: 10px;'>"+expresses[i].odesc +
+					"</div></div></li>");
 			
 			
 		}

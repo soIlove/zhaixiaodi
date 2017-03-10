@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.yc.zxd.entity.Address;
 import com.yc.zxd.entity.Duser;
+import com.yc.zxd.entity.Express;
+import com.yc.zxd.entity.PaginationBean;
 import com.yc.zxd.entity.User;
 import com.yc.zxd.mapper.UserMapper;
 import com.yc.zxd.service.UserService;
@@ -85,7 +87,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Integer getdidbyuuid(int uuid) {
-		// TODO Auto-generated method stub
 		return userMapper.getdidbyuuid(uuid);
 	}
 
@@ -102,7 +103,33 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean RegisterDai(Duser duser) {
-		boolean result = userMapper.setUserToDai(duser) != null && userMapper.RegisterDai(duser) != null;
+		boolean result =   userMapper.RegisterDai(duser) != null;
+		return result;
+	}
+
+	// 查看所有待递员的申请信息
+	@Override
+	public PaginationBean<Duser> listDai(String currPage, String pageSize) {
+		PaginationBean<Duser> duserBean=new PaginationBean<Duser>();
+		if(currPage!=null){
+			duserBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if(pageSize!=null){
+			duserBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		duserBean=userMapper.getDuserPagination(duserBean);
+		return duserBean;
+	}
+
+	@Override
+	public boolean agreeDai(String uuid) {
+		boolean result=userMapper.agreeDai(uuid)!= null;
+		return result;
+	}
+
+	@Override
+	public boolean refuseDai(String uuid) {
+		boolean result= userMapper.refuseDai(uuid)!= null;
 		return result;
 	}
 

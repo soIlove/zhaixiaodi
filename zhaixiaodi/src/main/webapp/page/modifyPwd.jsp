@@ -160,7 +160,6 @@
 						ng-submit="changePwdSubmit()" novalidate=""  id="modifyPwdForm" action="page/news.jsp">
 						<input type="hidden" value="13237343452" name="tel"/>
 						<p class="changepwd-tip">宅小递提示你：只能是3到6的数字或字母</p>
-						<!-- ngIf: !firstSet -->
 						<div class="formfield ng-isolate-scope"
 							ng-class="{ 'validate-error': model.$hintTypes[property] === 'error' }"
 							form-field="" label="新密码" model="changePwdData" property="newPwd">
@@ -176,7 +175,7 @@
 							form-field="" label="确认密码" model="changePwdData"
 							property="confirmPwd">
 							<label ng-bind="label" class="ng-binding">确认密码</label>
-							<input	name="confirm" id="confirm" ng-model="changePwdData.confirmPwd"
+							<input	name="password" id="confirm" ng-model="changePwdData.confirmPwd"
 								placeholder="请再次输入密码" class="ng-scope ng-valid ng-dirty"
 								type="password" onblur="confirmPwd()" />
 								
