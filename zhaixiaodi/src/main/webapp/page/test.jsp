@@ -55,16 +55,16 @@ $("#UserStart > li").mouseout(function(){
 </head>
 <body>
 	<ul class="star" id="UserStart" style="list-style:none;">
-		<li class="on" ><a></a></li>
-		<li class="on"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
-		<li class="off"><a></a></li>
+		<li class="on" ></li>
+		<li class="on"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
+		<li class="off"></li>
 	</ul>
 </body>
 </html>
