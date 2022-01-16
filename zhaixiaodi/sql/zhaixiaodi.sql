@@ -15,7 +15,7 @@ create table zusers(
 
 select * from zusers
 update zusers set utype=0   where uuid=1
-select * from zusers where uphone ='13237343452'
+select * from zusers where uphone =''
 drop table zusers;
 delete zusers
 drop sequence seq_zusers;
